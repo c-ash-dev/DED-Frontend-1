@@ -12,3 +12,6 @@
 
 @include igx-core();
 @include igx-theme($default-palette);
+@include igx-typography(
+  $font-family: "Futura, Roboto, Arial, sans-serif"
+);
