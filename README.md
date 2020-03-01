@@ -6,6 +6,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
+## Getting Started
+Angular is an app-design framework and development platform for creating dynamic single-page apps.
+
+### Node.js
+Angular applications require Node.js and the npm package manager. [Download Node.js](https://nodejs.org/en/download/)
+
+### npm package manager
+Once Node.js is installed, run `npm install npm@latest -g` to install the latest version of npm.
+
+### Installing npm package dependencies
+When npm has finished downloading, navigate to this repo and run `npm install`. This will download all of the required npm packages listed in package.json.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
