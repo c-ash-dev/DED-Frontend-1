@@ -15,12 +15,15 @@ Angular applications require Node.js and the npm package manager. [Download Node
 ### npm package manager
 Once Node.js is installed, run `npm install npm@latest -g` to install the latest version of npm.
 
+## Angular CLI (Optional)
+To install the Angular CLI, run `npm install -g @angular/cli`.
+
 ### Installing npm package dependencies
 When npm has finished downloading, navigate to this repo and run `npm install`. This will download all of the required npm packages listed in package.json.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+If you have installed the Angular CLI globally, as shown above, run `ng serve` for a dev server. Otherwise, prefix any commands related to the dev server with `npm run`. For example, to start the local server, run `npm run ng serve`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
