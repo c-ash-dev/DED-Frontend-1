@@ -1,14 +1,26 @@
-.ded-home-title-block {
+.ded-home-title-block
+{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5%;
-  h1 {
-    padding: 10px;
+  padding: 5vw;
+
+  h1
+  {
+    font-size:6em;
+    padding: 0.25em;
+    margin:0;
     color: white;
     background-color: black;
+    line-height:1;
+    user-select:none;
   }
-  h2 {
-    margin: 10px;
+  h2
+  {
+    padding:0;
+    font-size:3em;
+    margin: 0.25em 0;
+    text-align:center;
+    line-height:1.4;
   }
 }
