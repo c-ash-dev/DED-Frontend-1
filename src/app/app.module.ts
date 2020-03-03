@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+
+// Ignite UI Imports
+import { IgxDialogModule, IgxButtonModule, IgxRippleModule, IgxDividerModule } from 'igniteui-angular';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent}
@@ -24,7 +27,11 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    IgxDialogModule,
+    IgxButtonModule,
+    IgxRippleModule,
+    IgxDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

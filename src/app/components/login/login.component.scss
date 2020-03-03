@@ -1,3 +1,5 @@
+@import "../../../assets/ded-styles.scss";
+
 .login--header
 {
      font-size:2em;
@@ -62,4 +64,17 @@
           color:#000;
           background:transparent;
      }
+}
+
+.ded-login-button {
+  @include igx-button($ded-main-button-theme);
+  width: 100%;
+  > button {
+    width: 100%;
+  }
+}
+
+.ded-login-dialog-body {
+  margin: 10px;
+  padding: 10px;
 }

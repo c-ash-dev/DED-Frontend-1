@@ -1,0 +1,47 @@
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+$ded-green: #6EBE49;
+$ded-dark-gray: #2a2a2a;
+$ded-gray: #868589;
+$ded-light-gray: #CCCCCC;
+$ded-black: #000000;
+$ded-white: #FFFFFF;
+$ded-cyan: #00A1DD;
+$ded-teal: #008F98;
+$ded-yellow: #F8BE15;
+$ded-orange: #FF5000;
+$ded-red: #DC1F2E;
+$ded-magenta: #B32271;
+
+$ded-color-palette: igx-palette(
+    $primary: $ded-black,
+    $secondary: $ded-magenta,
+    $surface: $ded-white,
+    $info: $ded-gray,
+    $success: $ded-green,
+    $warn: $ded-yellow,
+    $error: $ded-red
+);
+
+$ded-main-button-theme: igx-button-theme(
+    $flat-text-color: $ded-white,
+    $flat-background: $ded-black,
+
+    $flat-hover-text-color: $ded-white,
+    $flat-hover-background: $ded-dark-gray,
+
+    $fab-text-color: $ded-white,
+    $fab-background: $ded-black,
+
+    $fab-hover-text-color: $ded-white,
+    $fab-hover-background: igx-color($ded-color-palette, 'primary', '200'),
+
+    $icon-color: $ded-white,
+    $icon-background: $ded-black,
+
+    $icon-hover-color: $ded-white,
+    $icon-hover-background: igx-color($ded-color-palette, 'primary', '200'),
+
+    $disabled-color: $ded-light-gray,
+    $disabled-background: $ded-gray
+)
