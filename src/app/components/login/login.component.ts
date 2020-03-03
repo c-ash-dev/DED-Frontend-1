@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCredentials } from 'src/app/models/usercredentials';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
