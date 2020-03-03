@@ -1,7 +1,7 @@
 # DED - Daily Exercise Diary
 ## README for Front End Application (Angular)
 ### CSCI 5828 Spring 2020
-#### Morgan Allen, Alex Costinesuc, Bryce Verdier, Dwight Browne
+#### Morgan Allen, Alex Costinesuc, Bryce Verdier, Dwight Browne, Christopher Ash
 ---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
