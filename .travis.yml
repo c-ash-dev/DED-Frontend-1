@@ -14,9 +14,9 @@ cache:
     - ./node_modules
 
 #install:
-#  - npm install
+  - npm install
 #  - npm install -g @angular/cli
 
 script:
-  - ng test
-  - ng e2e
+  - npm run test-headless
+#  - ng e2e
