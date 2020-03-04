@@ -31,7 +31,7 @@ module.exports = function (config) {
     restartOnFileChange: true,
     customLaunchers: {
       ChromeHeadless: {
-        base: 'ChromeHeadless',
+        base: 'Chrome',
         flags: [
           '--headless',
           '--disable-gpu',
