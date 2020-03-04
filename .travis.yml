@@ -13,9 +13,9 @@ cache:
   directories:
     - ./node_modules
 
-install:
-  - npm install
-  - npm install -g @angular/cli
+#install:
+#  - npm install
+#  - npm install -g @angular/cli
 
 script:
   - ng test
