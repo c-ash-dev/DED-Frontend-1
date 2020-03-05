@@ -2,10 +2,20 @@ import { User } from './user';
 import { Set } from './set';
 
 export class Exercise {
-  name: string;
-  createdBy: User;
+  id: number;
+  origin_id: number;
+
   sets: Array<Set>;
+
+  name: string;
   type: ExerciseType;
-  created: Date;
   description: string;
+  notes: string;
+
+  created_time: Date;
+  completed_time: Date;
+  created_by: User;
+  completed_by: User;
+
+  constructor() {}
 }

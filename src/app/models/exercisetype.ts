@@ -1,7 +1,7 @@
 enum ExerciseType {
-  cardio = 'CARDIO',
-  strength = 'STRENGTH',
-  mobility = 'MOBILITY',
-  skill = 'SKILL',
-  activity = 'ACTIVITY'
+  cardio = 'cardio',
+  strength = 'strength',
+  mobility = 'mobility',
+  skill = 'skill',
+  activity = 'activity'
 }

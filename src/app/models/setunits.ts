@@ -1,14 +1,16 @@
 enum SetUnits {
-  seconds = 'SECONDS',
-  minutes = 'MINUTES',
-  hours = 'HOURS',
+  seconds = 'seconds',
+  minutes = 'minutes',
+  hours = 'hours',
 
-  lbs = 'LBS',
-  kgs = 'KGS',
+  lbs = 'lbs',
 
-  miles = 'MILES',
-  kilometers = 'KILOMETERS',
+  kg = 'kg',
 
-  yards = 'YARDS',
-  feet = 'FEET'
+  ft = 'ft',
+  yards = 'yards',
+  miles = 'miles',
+
+  m = 'm',
+  km = 'km',
 }

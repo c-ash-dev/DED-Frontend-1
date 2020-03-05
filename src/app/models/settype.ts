@@ -1,7 +1,7 @@
 enum SetType {
-  warmup = 'WARMUP',
-  cooldown = 'COOLDOWN',
-  drop = 'DROP',
-  normal = 'NORMAL',
-  fail =  'FAIL'
+  normal = 'normal',
+  warmup = 'warmup',
+  cooldown = 'cooldown',
+  drop = 'drop',
+  fail =  'fail'
 }
