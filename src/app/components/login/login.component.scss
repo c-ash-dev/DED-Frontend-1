@@ -1,4 +1,34 @@
 @import "../../../assets/ded-styles.scss";
+.ded-login-title-block
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vw;
+  .ded-logo {
+    height: 15vh;
+  }
+  h2
+  {
+    font-size:6em;
+    padding: 0.1em;
+    margin:0;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height:1;
+    user-select:none;
+  }
+  h3
+  {
+    padding:0;
+    font-size:3em;
+    margin: 0.25em 0;
+    text-align:center;
+    line-height:1.4;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
 
 .login--header
 {
@@ -67,7 +97,7 @@
 }
 
 .ded-login-button {
-  @include igx-button($ded-main-button-theme);
+  @include igx-button($ded-login-button-theme);
   width: 100%;
   > button {
     width: 100%;

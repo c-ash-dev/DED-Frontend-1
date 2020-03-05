@@ -1,7 +1,44 @@
 <div class="ded-home-title-block">
   <h1>DED</h1>
   <img class="ded-logo" src='../../../assets/DED_logo@3x.png'>
-  <h2>Daily Exercise Diary</h2>
 
-  <app-login></app-login>
+  <div class="ded-dashboard-items">
+    <div class="ded-dashboard-item-container">
+      <img #createFlowerImg src='../../../assets/flower-icon-1.png' alt="centered image" [hidden]="true">
+      <button class="dashboard-button" igxButton="fab" igxRipple="white" (mouseenter)="createIconDescription.hidden=!createIconDescription.hidden; createFlowerImg.hidden=!createFlowerImg.hidden" (mouseleave)="createIconDescription.hidden=!createIconDescription.hidden; createFlowerImg.hidden=!createFlowerImg.hidden">
+        <igx-icon fontSet="material">add</igx-icon>
+      </button>
+      <div class="dashboard-item-title">
+        Create
+      </div>
+      <div #createIconDescription class="dashboard-item-description" [hidden]="true">
+        Create a new routine or exercise
+      </div>
+    </div>
+
+    <div class="ded-dashboard-item-container">
+      <button class="dashboard-button" igxButton="fab" igxRipple="white" (mouseenter)="startIconDescription.hidden=!startIconDescription.hidden" (mouseleave)="startIconDescription.hidden=!startIconDescription.hidden">
+        <igx-icon fontSet="material">play_arrow</igx-icon>
+      </button>
+      <div class="dashboard-item-title">
+        Start
+      </div>
+      <div #startIconDescription class="dashboard-item-description" [hidden]="true">
+        Start an existing or new routine
+      </div>
+    </div>
+
+    <div class="ded-dashboard-item-container">
+      <button class="dashboard-button" igxButton="fab" igxRipple="white" (mouseenter)="trackIconDescription.hidden=!trackIconDescription.hidden" (mouseleave)="trackIconDescription.hidden=!trackIconDescription.hidden">
+        <igx-icon fontSet="material">trending_up</igx-icon>
+      </button>
+      <div class="dashboard-item-title">
+        Track
+      </div>
+      <div #trackIconDescription class="dashboard-item-description" [hidden]="true">
+        Track your completed routines
+      </div>
+    </div>
+  </div>
 </div>
+

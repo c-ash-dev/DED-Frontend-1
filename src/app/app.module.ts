@@ -10,10 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 
 // Ignite UI Imports
-import { IgxDialogModule, IgxButtonModule, IgxRippleModule, IgxDividerModule } from 'igniteui-angular';
+import { IgxDialogModule, IgxButtonModule, IgxRippleModule, IgxDividerModule, IgxIconModule } from 'igniteui-angular';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent}
+  { path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     IgxDialogModule,
     IgxButtonModule,
     IgxRippleModule,
-    IgxDividerModule
+    IgxDividerModule,
+    IgxIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

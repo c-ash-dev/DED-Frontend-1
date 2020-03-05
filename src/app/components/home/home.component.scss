@@ -1,3 +1,4 @@
+@import "../../../assets/ded-styles.scss";
 .ded-home-title-block
 {
   display: flex;
@@ -7,8 +8,7 @@
   .ded-logo {
     height: 25vh;
   }
-  h1
-  {
+  h1 {
     font-size:6em;
     padding: 0.1em;
     margin:0;
@@ -17,14 +17,41 @@
     line-height:1;
     user-select:none;
   }
-  h2
-  {
-    padding:0;
-    font-size:3em;
-    margin: 0.25em 0;
-    text-align:center;
-    line-height:1.4;
-    font-weight: bold;
-    text-transform: uppercase;
+  .ded-dashboard-items {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 5%;
+    > .ded-dashboard-item-container {
+      @include igx-button($ded-dashboard-button-theme);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      flex-basis: 30%;
+
+      > img {
+        position: absolute;
+        height: 13vh;
+      }
+      > .dashboard-button {
+        border-radius: 10vh;
+        > igx-icon {
+          height: 10vh;
+          width: 10vh;
+          font-size: 10vh;
+        }
+      }
+      > .dashboard-item-title {
+        font-size: larger;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+       > .dashboard-item-description {
+        font-size: medium;
+        color: $ded-gray;
+       }
+    }
   }
 }
+

@@ -1,25 +1,29 @@
+<div class="ded-login-title-block">
+  <h2>DED</h2>
+  <img class="ded-logo" src='../../../assets/DED_logo@3x.png'>
+  <h3>Daily Exercise Diary</h3>
+  <h4 class="login--header">Login</h4>
+  <form #login="ngForm" class="login--form" (ngSubmit)="loginDialog.open()">
+        <input type="text" name="username" class="form--item" placeholder="Username" [(ngModel)]="userCredentials.username" />
+        <input type="password" class="form--item" name="password" placeholder="Password" [(ngModel)]="userCredentials.password" />
+        <div class="ded-login-button">
+          <button #submitButton igxButton="raised" igxRipple="white" [disabled]="!(userCredentials.username && userCredentials.password)" type="submit">Login</button>
+        </div>
+  </form>
 
-<h2 class="login--header">Login</h2>
-
-<form #login="ngForm" class="login--form" (ngSubmit)="loginDialog.open()">
-     <input type="text" name="username" class="form--item" placeholder="Username" [(ngModel)]="userCredentials.username" />
-     <input type="password" class="form--item" name="password" placeholder="Password" [(ngModel)]="userCredentials.password" />
-     <div class="ded-login-button">
-       <button #submitButton igxButton="flat" igxRipple="white" [disabled]="!(userCredentials.username && userCredentials.password)" type="submit">Login</button>
-     </div>
-</form>
-
-<igx-dialog #loginDialog
-    title="Login Successful!"
-    leftButtonLabel="OK"
-    (onLeftButtonSelect)="loginDialog.close()">
-    <igx-divider [middle]="true" inset="10px"></igx-divider>
-    <div class="ded-login-dialog-body">
-      <div>
-        <b>Username:</b> {{userCredentials.username}}
+  <igx-dialog #loginDialog title="Login Successful!">
+      <igx-divider [middle]="true" inset="10px"></igx-divider>
+      <div class="ded-login-dialog-body">
+        <div>
+          <b>Username:</b> {{userCredentials.username}}
+        </div>
+        <div>
+          <b>Password:</b> {{userCredentials.password}}
+        </div>
       </div>
-      <div>
-        <b>Password:</b> {{userCredentials.password}}
-      </div>
+      <div igxDialogActions class="dialog-container dialog-actions">
+        <button igxButton [routerLink]="'/home'">OK</button>
     </div>
-</igx-dialog>
+  </igx-dialog>
+</div>
+
