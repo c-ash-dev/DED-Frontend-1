@@ -1,20 +1,18 @@
 language: node_js
 node_js:
   - '12'
+dist: bionic
 
 addons:
   chrome: stable
-
-
 
 cache:
   directories:
     - ./node_modules
 
-#install:
+install:
   - npm install
-#  - npm install -g @angular/cli
 
 script:
   - ng test --watch=false --browsers=ChromeHeadless
-#  - ng e2e
+  - ng build --prod
