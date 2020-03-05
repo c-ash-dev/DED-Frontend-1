@@ -1,5 +1,5 @@
 @import "../../../assets/ded-styles.scss";
-.ded-home-title-block
+.ded-home-main-block
 {
   display: flex;
   flex-direction: column;
@@ -36,6 +36,7 @@
       }
       > .dashboard-button {
         border-radius: 10vh;
+        margin: 5px;
         > igx-icon {
           height: 10vh;
           width: 10vh;
