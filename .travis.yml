@@ -13,6 +13,11 @@ cache:
 install:
   - npm install
 
-script:
-  - ng test --watch=false --browsers=ChromeHeadless
-  - ng build --prod
+jobs:
+  include:
+    - stage: 'Tests'
+      name: 'Unit Tests'
+      script: ng test --watch=false --browsers=ChromeHeadless
+    - stage: 'Build'
+      name: 'Production Build'
+      script: ng build --prod
