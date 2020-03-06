@@ -5,10 +5,9 @@
   flex-direction: column;
   align-items: center;
   padding: 5vw;
-  .ded-logo {
-    height: 25vh;
-  }
-  h1 {
+
+  h1
+  {
     font-size:6em;
     padding: 0.1em;
     margin:0;
@@ -17,12 +16,15 @@
     line-height:1;
     user-select:none;
   }
-  .ded-dashboard-items {
+  .ded-dashboard-items
+  {
     display: flex;
     justify-content: space-evenly;
     width: 80%;
     margin: 5%;
-    > .ded-dashboard-item-container {
+
+    > .ded-dashboard-item-container
+    {
       @include igx-button($ded-dashboard-button-theme);
       display: flex;
       flex-direction: column;
@@ -30,25 +32,71 @@
       align-items: center;
       flex-basis: 30%;
 
-      > .dashboard-button {
+      > .dashboard-button
+      {
         border-radius: 10vh;
         margin: 5px;
-        > igx-icon {
+
+        > igx-icon
+        {
           height: 10vh;
           width: 10vh;
           font-size: 10vh;
         }
       }
-      > .dashboard-item-title {
-        font-size: larger;
-        font-weight: bold;
+      > .dashboard-item-title
+      {
+        font-size: 1.25em;
+        font-weight: 600;
         text-transform: uppercase;
+        margin:0.5em 0;
       }
-       > .dashboard-item-description {
-        font-size: medium;
+      > .dashboard-item-description
+      {
+        font-size: 1em;
         color: $ded-gray;
-       }
+        text-align:center;
+        line-height:1.4;
+      }
     }
   }
 }
 
+.ded-logo
+{
+  height: 25vh;
+  width: 25vh;
+  position:relative;
+}
+.ded-head
+{
+  height:100%;
+}
+.ded-eye
+{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:7.5vh;
+  font-weight:600;
+  font-family:Futura, Helvetica, Arial, Sans-Serif;
+}
+.eye__left
+{
+  left:20%;
+}
+.eye__right
+{
+  right:20%;
+}
+
+.rotate-me
+{
+  display:inline-block;
+}
+.rotate--offset
+{
+  display:block;
+  transform:scaleX(-1);
+}
