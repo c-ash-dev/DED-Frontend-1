@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { IgxDropDownComponent, IgxInputGroupComponent, ConnectedPositioningStrategy } from 'igniteui-angular';
 
 @Component({
@@ -12,17 +12,17 @@ export class DropdownComponent implements OnInit {
   @Input() itemLabel: string;
 
   // Parent owns and can see selected item
-  @Input() selectedItem: string;
+  @Output() selectedItemEmitter = new EventEmitter<string>();
 
   // Handles to the dropdown options for set type and units
-  @ViewChild(IgxDropDownComponent, { static: true }) public igxDropDown: IgxDropDownComponent;
+  @ViewChild(IgxDropDownComponent, { static: true }) public dropDown: IgxDropDownComponent;
   @ViewChild('inputGroup', { read: IgxInputGroupComponent, static: true }) public inputGroup: IgxInputGroupComponent;
 
   constructor() { }
 
   public openDropDown() {
-    if (this.igxDropDown.collapsed) {
-        this.igxDropDown.open({
+    if (this.dropDown.collapsed) {
+        this.dropDown.open({
             modal: false,
             positionStrategy: new ConnectedPositioningStrategy({
                 target: this.inputGroup.element.nativeElement
@@ -30,6 +30,13 @@ export class DropdownComponent implements OnInit {
         });
     }
 }
+
+  public sendSelectedItem() {
+    // only send the selected item if one has been selected
+    if (this.dropDown.selectedItem) {
+      this.selectedItemEmitter.emit(this.dropDown.selectedItem.value);
+    }
+  }
 
   ngOnInit() {
   }

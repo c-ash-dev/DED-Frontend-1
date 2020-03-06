@@ -23,6 +23,18 @@ export class CreatesetComponent implements OnInit {
     this.setUnits = this.set.getUnitsDropdownItems();
   }
 
+  public receiveSelectedType($event: string) {
+    this.set.type = $event;
+  }
+
+  public receiveSelectedUnits($event: string) {
+    this.set.units = $event;
+  }
+
+  public addSet() {
+    this.sets.push(this.set);
+  }
+
   ngOnInit() {
   }
 

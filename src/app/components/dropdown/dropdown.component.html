@@ -11,8 +11,8 @@
         <igx-icon>arrow_drop{{ dropDown.collapsed ? '_down' : '_up' }}</igx-icon>
     </igx-suffix>
   </igx-input-group>
-  <span>Selected Item: {{selectedItem}}</span>
-  <igx-drop-down #dropDown (onClosing)="selectedItem=dropDown.selectedItem?.value">
+
+  <igx-drop-down #dropDown (onClosing)="sendSelectedItem()">
     <igx-drop-down-item *ngFor="let item of items" [value]="item.field" [selected]="item.selected" [isHeader]="item.header">
         {{ item.field }}
     </igx-drop-down-item>

@@ -97,7 +97,7 @@
 }
 
 .ded-login-button {
-  @include igx-button($ded-login-button-theme);
+  @include igx-button($ded-standard-button-theme);
   width: 100%;
   > button {
     width: 100%;

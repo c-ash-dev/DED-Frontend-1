@@ -1,13 +1,37 @@
 @import "../../../assets/ded-styles.scss";
 
+igx-card {
+  margin: 10px;
+  padding: 5px;
+  align-content: center;
+  > .set-info-container {
+    display: flex;
+    > .set-index{
+      font-weight: bold;
+    }
+    > .set-type {
+      font-size: small;
+      background-color: $ded-light-gray;
+      border-radius: 5px;
+    }
+  }
+}
+
 .create-set-form {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: baseline;
   width: 100%;
   > app-dropdown {
     width: 15%;
+    margin: 5px;
   }
   > igx-input-group {
     width: 15%;
+    margin: 5px;
+  }
+  > .add-set-button-wrapper {
+    @include igx-button($ded-standard-button-theme);
+    margin: 5px;
   }
 }
