@@ -11,17 +11,28 @@ import { LoginComponent } from './components/login/login.component';
 
 // Ignite UI Imports
 import { IgxDialogModule, IgxButtonModule, IgxRippleModule, IgxDividerModule, IgxIconModule } from 'igniteui-angular';
+import { CreatesetComponent } from './components/createset/createset.component';
+import { StartComponent } from './components/start/start.component';
+import { TrackComponent } from './components/track/track.component';
+import { CreateComponent } from './components/create/create.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
-  { path: 'home', component: HomeComponent}
+  { path: 'home', component: HomeComponent},
+  { path: 'create', component: CreateComponent},
+  { path: 'start', component: StartComponent},
+  { path: 'track', component: TrackComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CreatesetComponent,
+    StartComponent,
+    TrackComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

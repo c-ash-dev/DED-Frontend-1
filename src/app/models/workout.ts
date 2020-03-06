@@ -1,7 +1,7 @@
 import { User } from './user';
 import { Exercise } from './exercise';
 
-export class Routine {
+export class Workout {
   id: number;
   origin_id: number;
 
