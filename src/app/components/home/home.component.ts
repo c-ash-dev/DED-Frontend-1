@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
               let mouseX = e.clientX;
               let mouseY = e.clientY;
   
-              let elemX = elem.getBoundingClientRect().left;
-              let elemY = elem.getBoundingClientRect().top;
+              let elemX = elem.getBoundingClientRect().left + elem.clientWidth / 2;
+              let elemY = elem.getBoundingClientRect().top + elem.clientHeight / 2;
   
               let lenX = mouseX - elemX;
               let lenY = mouseY - elemY;
