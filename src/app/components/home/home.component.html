@@ -4,7 +4,7 @@
 
   <div class="ded-dashboard-items">
     <div class="ded-dashboard-item-container">
-      <button class="dashboard-button" [routerLink]="'/create'" igxButton="fab" igxRipple="white" (mouseenter)="createIconDescription.hidden=!createIconDescription.hidden" (mouseleave)="createIconDescription.hidden=!createIconDescription.hidden">
+      <button class="dashboard-button" [routerLink]="'/create'" igxButton="fab" igxRipple="white" (mouseenter)="createIconDescription.hidden=false" (mouseleave)="createIconDescription.hidden=true">
         <igx-icon fontSet="material">add</igx-icon>
       </button>
       <div class="dashboard-item-title">
@@ -16,7 +16,7 @@
     </div>
 
     <div class="ded-dashboard-item-container">
-      <button class="dashboard-button" [routerLink]="'/start'" igxButton="fab" igxRipple="white" (mouseenter)="startIconDescription.hidden=!startIconDescription.hidden" (mouseleave)="startIconDescription.hidden=!startIconDescription.hidden">
+      <button class="dashboard-button" [routerLink]="'/start'" igxButton="fab" igxRipple="white" (mouseenter)="startIconDescription.hidden=false" (mouseleave)="startIconDescription.hidden=true">
         <igx-icon fontSet="material">play_arrow</igx-icon>
       </button>
       <div class="dashboard-item-title">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="ded-dashboard-item-container">
-      <button class="dashboard-button" [routerLink]="'/track'" igxButton="fab" igxRipple="white" (mouseenter)="trackIconDescription.hidden=!trackIconDescription.hidden" (mouseleave)="trackIconDescription.hidden=!trackIconDescription.hidden">
+      <button class="dashboard-button" [routerLink]="'/track'" igxButton="fab" igxRipple="white" (mouseenter)="trackIconDescription.hidden=false" (mouseleave)="trackIconDescription.hidden=true">
         <igx-icon fontSet="material">trending_up</igx-icon>
       </button>
       <div class="dashboard-item-title">

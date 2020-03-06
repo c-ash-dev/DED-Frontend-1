@@ -1,0 +1,20 @@
+<div class="dropdown-wrapper">
+  <igx-input-group #inputGroup [igxToggleAction]="dropDown" class="input-group">
+    <label igxLabel for="{{itemLabel}}">{{itemLabel}}</label>
+    <input #input class="input"  type="text" igxInput [igxDropDownItemNavigation]="dropDown"
+        readonly= "true"
+        name="{{itemLabel}}"
+        [value]="dropDown.selectedItem?.value"
+        (keydown.ArrowDown)="openDropDown()"/>
+
+    <igx-suffix igxButton="icon" class="dropdownToggleButton" igxRipple>
+        <igx-icon>arrow_drop{{ dropDown.collapsed ? '_down' : '_up' }}</igx-icon>
+    </igx-suffix>
+  </igx-input-group>
+  <span>Selected Item: {{selectedItem}}</span>
+  <igx-drop-down #dropDown (onClosing)="selectedItem=dropDown.selectedItem?.value">
+    <igx-drop-down-item *ngFor="let item of items" [value]="item.field" [selected]="item.selected" [isHeader]="item.header">
+        {{ item.field }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</div>

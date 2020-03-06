@@ -1,16 +1,16 @@
-enum SetUnits {
-  seconds = 'seconds',
-  minutes = 'minutes',
-  hours = 'hours',
+export class SetUnits {
+  seconds = 'seconds';
+  minutes = 'minutes';
+  hours = 'hours';
 
-  lbs = 'lbs',
+  lbs = 'lbs';
 
-  kg = 'kg',
+  kg = 'kg';
 
-  ft = 'ft',
-  yards = 'yards',
-  miles = 'miles',
+  ft = 'ft';
+  yards = 'yards';
+  miles = 'miles';
 
-  m = 'm',
-  km = 'km',
+  m = 'm';
+  km = 'km';
 }

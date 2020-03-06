@@ -1,5 +1,7 @@
 @import "~igniteui-angular/lib/core/styles/themes/index";
 
+$ded-opacity: 0.5;
+
 $ded-green: #6EBE49;
 $ded-dark-gray: #2a2a2a;
 $ded-gray: #868589;
@@ -13,10 +15,14 @@ $ded-orange: #FF5000;
 $ded-red: #DC1F2E;
 $ded-magenta: #B32271;
 
+$ded-white-transparent: rgba(255,255,255,$ded-opacity);
+$ded-black-transparent: rgba(0,0,0,$ded-opacity);
+
+
 $ded-color-palette: igx-palette(
-    $primary: $ded-black,
-    $secondary: $ded-magenta,
-    $surface: $ded-white,
+    $primary: $ded-white,
+    $secondary: $ded-black,
+    $surface: $ded-light-gray,
     $info: $ded-gray,
     $success: $ded-green,
     $warn: $ded-yellow,
@@ -27,12 +33,31 @@ $ded-login-button-theme: igx-button-theme(
     $raised-text-color: $ded-white,
     $raised-background: $ded-black,
     $raised-hover-text-color: $ded-black,
-    $raised-hover-background: rgba(255,255,255,0.5),
+    $raised-hover-background: $ded-white-transparent,
 );
 
 $ded-dashboard-button-theme: igx-button-theme(
     $fab-text-color: $ded-white,
     $fab-background: $ded-black,
     $fab-hover-text-color: $ded-black,
-    $fab-hover-background: rgba(255,255,255,0.5),
+    $fab-hover-background: $ded-white-transparent,
+);
+
+$ded-dropdown-theme: igx-drop-down-theme(
+    $background-color: $ded-white-transparent,
+    $header-text-color: $ded-black,
+    $item-text-color: $ded-gray,
+
+    $selected-item-background: $ded-black,
+    $selected-item-text-color: $ded-white,
+    $selected-hover-item-background: $ded-white,
+    $selected-hover-item-text-color: $ded-black,
+    $selected-focus-item-background: $ded-black,
+    $selected-focus-item-text-color: $ded-white,
+
+    $focused-item-background: $ded-black-transparent,
+    $focused-item-text-color: $ded-white,
+
+    $hover-item-background: $ded-black-transparent,
+    $hover-item-text-color: $ded-white
 );

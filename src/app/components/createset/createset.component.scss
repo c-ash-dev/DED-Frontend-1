@@ -1,0 +1,13 @@
+@import "../../../assets/ded-styles.scss";
+
+.create-set-form {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  > app-dropdown {
+    width: 15%;
+  }
+  > igx-input-group {
+    width: 15%;
+  }
+}

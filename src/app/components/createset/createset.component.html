@@ -1,1 +1,25 @@
-<p>createset works!</p>
+<form class="create-set-form">
+  <app-dropdown [itemLabel]="'type'" [items]="setTypes" [selectedItem]="set.type"></app-dropdown>
+
+  <igx-input-group>
+    <label igxLabel for="goal_value">value</label>
+    <input igxInput name="goal_value" type="number" [(ngModel)]="set.goal_value" />
+    <igx-suffix>{{set.units}}</igx-suffix>
+    <igx-hint>Choose your target value...</igx-hint>
+  </igx-input-group>
+
+  <app-dropdown [itemLabel]="'units'" [items]="setUnits" [selectedItem]="set.units"></app-dropdown>
+
+  <igx-input-group>
+    <label igxLabel for="goal_reps">reps</label>
+    <input igxInput name="goal_reps" type="number" [(ngModel)]="set.goal_reps" />
+    <igx-suffix>{{set.units}}</igx-suffix>
+    <igx-hint>Choose your target reps...</igx-hint>
+  </igx-input-group>
+  <button #addSetButton igxButton="raised" igxRipple="white" [disabled]="!(set.type && set.goal_value && set.units && set.goal_reps)" type="submit">Add Set</button>
+</form>
+
+<div>Type: {{set.type}}</div>
+<div>Goal Value: {{set.goal_value}}</div>
+<div>units: {{set.units}}</div>
+<div>Goal Reps: {{set.goal_reps}}</div>

@@ -7,10 +7,20 @@ import { Set } from 'src/app/models/set';
   styleUrls: ['./createset.component.scss']
 })
 export class CreatesetComponent implements OnInit {
+  // Array of sets (will eventually get passed in from Exercise)
+  public sets: Array<Set>;
+
+  // Current new set being created by user
   public set: Set;
 
+  public setTypes: Array<any>;
+  public setUnits: Array<any>;
+
   constructor() {
+    this.sets = [];
     this.set = new Set();
+    this.setTypes = this.set.getTypeDropdownItems();
+    this.setUnits = this.set.getUnitsDropdownItems();
   }
 
   ngOnInit() {
