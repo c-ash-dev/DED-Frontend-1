@@ -15,6 +15,7 @@ import { CreatesetComponent } from './components/createset/createset.component';
 import { StartComponent } from './components/start/start.component';
 import { TrackComponent } from './components/track/track.component';
 import { CreateComponent } from './components/create/create.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     CreatesetComponent,
     StartComponent,
     TrackComponent,
-    CreateComponent
+    CreateComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
