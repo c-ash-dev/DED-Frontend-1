@@ -3,6 +3,10 @@ node_js:
   - '12'
 dist: bionic
 
+branches:
+  only:
+    - master
+
 addons:
   chrome: stable
 
