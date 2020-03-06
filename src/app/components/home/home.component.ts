@@ -10,10 +10,11 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.startEyeRotation();
+  }
 
+  startEyeRotation() {
     let rotateMe = Array.from(document.getElementsByClassName('rotate-me') as HTMLCollectionOf<HTMLElement>);
-  
-    console.log(rotateMe);
 
     window.addEventListener('mousemove', e => {
   
@@ -32,17 +33,13 @@ export class HomeComponent implements OnInit {
               let angle = Math.atan(tan);
               angle *= (180 / Math.PI);
   
-              if(lenY > 0 && lenX > 0) {
-                  angle += 180; 
-              }
-              else if(lenY < 0 && lenX > 0) {
-                  angle -= 180;
+              if(lenX > 0){
+                angle += lenY > 0 ? 180 : -180;
               }
   
               elem.style.transform = "rotate(" + angle + "deg)"
         });
     });
-
   }
 
 }
