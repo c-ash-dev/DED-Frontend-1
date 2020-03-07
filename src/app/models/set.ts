@@ -18,7 +18,23 @@ export class Set {
   created_by: User;
   completed_by: User;
 
-  constructor() {}
+  constructor(type: string = null, units: string = null, goal_reps: number = null, goal_value: number = null) {
+    if (type) {
+      this.type = type;
+    }
+
+    if (units) {
+      this.units = units;
+    }
+
+    if (goal_value) {
+      this.goal_value = goal_value;
+    }
+
+    if (goal_reps) {
+      this.goal_reps = goal_reps;
+    }
+  }
 
   public getTypeDropdownItems(): Array<any> {
     const items: Array<any> = [

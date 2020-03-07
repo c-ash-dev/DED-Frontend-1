@@ -32,7 +32,8 @@ export class CreatesetComponent implements OnInit {
   }
 
   public addSet() {
-    this.sets.push(this.set);
+    const newSet = new Set(this.set.type, this.set.units, this.set.goal_reps, this.set.goal_value);
+    this.sets.push(newSet);
   }
 
   ngOnInit() {
