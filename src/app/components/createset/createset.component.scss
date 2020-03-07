@@ -1,18 +1,38 @@
 @import "../../../assets/ded-styles.scss";
 
-igx-card {
-  margin: 10px;
-  padding: 5px;
-  align-content: center;
-  > .set-info-container {
-    display: flex;
-    > .set-index{
-      font-weight: bold;
-    }
-    > .set-type {
-      font-size: small;
-      background-color: $ded-light-gray;
-      border-radius: 5px;
+.sets-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  > igx-card {
+    margin: 10px;
+    padding: 5px;
+    align-content: center;
+    width: 50%;
+    > .set-info-container {
+      display: flex;
+      justify-content: space-between;
+
+      > .set-index{
+        font-weight: bold;
+        margin: 5px;
+      }
+
+      > .set-type {
+        font-size: small;
+        margin: 5px;
+      }
+
+      > .set-goal-value-and-units {
+        margin: 5px;
+      }
+
+      > .set-goal-reps {
+        margin: 5px;
+      }
     }
   }
 }
@@ -22,12 +42,13 @@ igx-card {
   justify-content: center;
   align-items: baseline;
   width: 100%;
+
   > app-dropdown {
-    width: 15%;
+    width: 10%;
     margin: 5px;
   }
   > igx-input-group {
-    width: 15%;
+    width: 5%;
     margin: 5px;
   }
   > .add-set-button-wrapper {

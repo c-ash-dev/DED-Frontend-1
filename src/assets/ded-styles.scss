@@ -34,6 +34,8 @@ $ded-standard-button-theme: igx-button-theme(
     $raised-background: $ded-black,
     $raised-hover-text-color: $ded-black,
     $raised-hover-background: $ded-white-transparent,
+    $raised-focus-text-color: $ded-white,
+    $raised-focus-background: $ded-black,
 );
 
 $ded-dashboard-button-theme: igx-button-theme(

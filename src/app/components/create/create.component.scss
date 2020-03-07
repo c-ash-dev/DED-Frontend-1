@@ -1,0 +1,20 @@
+@import "../../../assets/ded-styles.scss";
+
+.create-workout-title-block {
+  height: 25vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  > h3 {
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+  > ded-logo {
+    margin: 10px;
+    cursor: pointer;
+  }
+  > .home-label {
+    color: $ded-gray;
+  }
+}

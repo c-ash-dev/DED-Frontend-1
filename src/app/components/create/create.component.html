@@ -1,2 +1,8 @@
-<p>create works!</p>
+<div class="create-workout-title-block">
+  <h3>create workout</h3>
+  <ded-logo size="10vmin" [routerLink]="'/home'" (mouseenter)="homeLabel.hidden=false" (mouseleave)="homeLabel.hidden=true"></ded-logo>
+  <div #homeLabel class="home-label" [hidden]="true">
+    Home
+  </div>
+</div>
 <app-createset></app-createset>

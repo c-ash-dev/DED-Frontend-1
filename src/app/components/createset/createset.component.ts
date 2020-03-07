@@ -36,6 +36,10 @@ export class CreatesetComponent implements OnInit {
     this.sets.push(newSet);
   }
 
+  public removeSet(index: number) {
+    this.sets.splice(index, 1);
+  }
+
   ngOnInit() {
   }
 
