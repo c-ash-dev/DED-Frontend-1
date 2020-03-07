@@ -40,7 +40,7 @@
 .create-set-form {
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: flex-end;
   width: 100%;
 
   > app-dropdown {
