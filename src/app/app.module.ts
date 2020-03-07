@@ -19,6 +19,7 @@ import { StartComponent } from './components/start/start.component';
 import { TrackComponent } from './components/track/track.component';
 import { CreateComponent } from './components/create/create.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     StartComponent,
     TrackComponent,
     CreateComponent,
-    DropdownComponent
+    DropdownComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

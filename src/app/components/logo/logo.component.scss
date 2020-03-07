@@ -1,0 +1,50 @@
+.logo
+{
+     width:100%;
+     height:100%;
+     position:relative;
+
+     .head
+     {
+          z-index:1;
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+     }
+
+     .eye
+     {
+          z-index:2;
+          position:absolute;
+          top:50%;
+          transform:translateY(-50%);
+          font-size:30%;
+          font-weight:800;
+          font-family:Futura, Helvetica, Arial, sans-serif;
+
+          &.eye__left
+          {
+               left:20%;
+          }
+          &.eye__right
+          {
+               right:20%;
+          }
+
+          .eye--rotate
+          {
+               display:inline-block;
+               line-height:1;
+          }
+
+          .rotate--offset
+          {
+               display:block;
+               transform:scaleX(-1);
+          }
+     }
+}
+
+
