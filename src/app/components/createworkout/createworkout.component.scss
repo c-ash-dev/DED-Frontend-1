@@ -26,22 +26,52 @@
       margin: 10px;
     }
 
-    .save-workout-button-wrapper {
-      @include igx-button($ded-standard-button-theme);
+  }
+  .save-workout-button-wrapper {
+    @include igx-button($ded-standard-button-theme);
+    width: 100%;
+    margin: 10px;
+    position: sticky;
+    top: 0;
+    margin: 0;
+    > button {
       width: 100%;
-      margin: 10px;
-      position: sticky;
-      top: 0;
-      > button {
-        width: 100%;
-        font-size: large;
-      }
+      font-size: large;
     }
   }
 
-  .workout-name-header {
-    font-weight: bold;
-    text-transform: uppercase;
+  .workout-card {
     width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .workout-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 10px;
+
+      > .workout-name {
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      > .workout-description {
+        color: $ded-gray;
+        word-wrap: normal;
+      }
+    }
+
+    > .workout-exercises {
+      width: 100%;
+
+      > .exercises-header {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
   }
 }

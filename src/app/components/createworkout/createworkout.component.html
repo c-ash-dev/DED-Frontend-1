@@ -9,13 +9,21 @@
       <label igxLabel for="description">description</label>
       <input igxInput description="description" type="text" [(ngModel)]="workout.description" />
     </igx-input-group>
-
-    <div class="save-workout-button-wrapper">
-      <button #saveWorkoutButton igxButton="raised" igxRipple="black" [disabled]="!(workout.name && workout.exercises.length)">save new workout</button>
-    </div>
   </div>
 
-  <h4 class="workout-name-header">{{workout.name}}</h4>
-  <igx-divider></igx-divider>
-  <app-createexercise [exercises]="workout.exercises"></app-createexercise>
+  <div class="save-workout-button-wrapper">
+    <button #saveWorkoutButton igxButton="raised" igxRipple="black" [disabled]="!(workout.name && workout.exercises.length)">save new workout</button>
+  </div>
+
+  <igx-card class="workout-card">
+    <div class="workout-header">
+      <h4 class="workout-name">{{workout.name}}</h4>
+      <div class="workout-description">{{workout.description}}</div>
+    </div>
+    <div class="workout-exercises">
+      <h5 class="exercises-header">Exercises ({{workout.exercises.length}})</h5>
+      <igx-divider></igx-divider>
+      <app-createexercise [exercises]="workout.exercises"></app-createexercise>
+    </div>
+  </igx-card>
 </div>

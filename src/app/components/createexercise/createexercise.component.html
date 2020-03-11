@@ -21,9 +21,9 @@
     <igx-expansion-panel class="exercise-panel" [collapsed]="false">
       <igx-expansion-panel-header class="exercise-panel-header">
         <div class="exercise-info">
-          <h4 class="exercise-name">
+          <h5 class="exercise-name">
             {{exercise.name}}
-          </h4>
+          </h5>
           <igx-divider [vertical]="true"></igx-divider>
           <div class="exercise-type">
             [{{exercise.type}}]
@@ -38,7 +38,7 @@
         </div>
       </igx-expansion-panel-header>
       <igx-expansion-panel-body class="exercise-panel-body">
-        <h5>SETS</h5>
+        <h6>sets ({{exercise.sets.length}})</h6>
         <igx-divider></igx-divider>
         <app-createset [sets]="exercise.sets"></app-createset>
       </igx-expansion-panel-body>
