@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import { IgxDropDownComponent, IgxInputGroupComponent, ConnectedPositioningStrategy } from 'igniteui-angular';
+import { IgxDropDownComponent, IgxInputGroupComponent, ConnectedPositioningStrategy, AutoPositionStrategy } from 'igniteui-angular';
 
 @Component({
   selector: 'app-dropdown',
@@ -7,6 +7,9 @@ import { IgxDropDownComponent, IgxInputGroupComponent, ConnectedPositioningStrat
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent implements OnInit {
+  public overlaySettings = {
+    positionStrategy: new AutoPositionStrategy()
+  };
 
   @Input() items: Array<any>;
   @Input() itemLabel: string;

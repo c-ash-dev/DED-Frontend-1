@@ -1,5 +1,5 @@
 <div class="dropdown-wrapper">
-  <igx-input-group #inputGroup [igxToggleAction]="dropDown" class="input-group">
+  <igx-input-group #inputGroup [igxToggleAction]="dropDown" [overlaySettings]="overlaySettings" class="input-group">
     <label igxLabel for="{{itemLabel}}">{{itemLabel}}</label>
     <input #input class="input"  type="text" igxInput [igxDropDownItemNavigation]="dropDown"
         readonly= "true"

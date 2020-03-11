@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Set } from 'src/app/models/set';
 
 @Component({
@@ -8,7 +8,7 @@ import { Set } from 'src/app/models/set';
 })
 export class CreatesetComponent implements OnInit {
   // Array of sets (will eventually get passed in from Exercise)
-  public sets: Array<Set>;
+  @Input() sets: Array<Set>;
 
   // Current new set being created by user
   public set: Set;
@@ -17,7 +17,6 @@ export class CreatesetComponent implements OnInit {
   public setUnits: Array<any>;
 
   constructor() {
-    this.sets = [];
     this.set = new Set();
     this.setTypes = this.set.getTypeDropdownItems();
     this.setUnits = this.set.getUnitsDropdownItems();
@@ -32,7 +31,7 @@ export class CreatesetComponent implements OnInit {
   }
 
   public addSet() {
-    const newSet = new Set(this.set.type, this.set.units, this.set.goal_reps, this.set.goal_value);
+    const newSet = new Set(this.set);
     this.sets.push(newSet);
   }
 

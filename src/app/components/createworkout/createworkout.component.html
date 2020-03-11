@@ -1,0 +1,21 @@
+<div class="create-workout-body">
+  <div class="create-workout-form">
+    <igx-input-group class="workout-name-input">
+      <label igxLabel for="name">workout name</label>
+      <input igxInput name="name" type="text" [(ngModel)]="workout.name" />
+    </igx-input-group>
+
+    <igx-input-group class="workout-description-input" type="box">
+      <label igxLabel for="description">description</label>
+      <input igxInput description="description" type="text" [(ngModel)]="workout.description" />
+    </igx-input-group>
+
+    <div class="save-workout-button-wrapper">
+      <button #saveWorkoutButton igxButton="raised" igxRipple="black" [disabled]="!(workout.name && workout.exercises.length)">save new workout</button>
+    </div>
+  </div>
+
+  <h4 class="workout-name-header">{{workout.name}}</h4>
+  <igx-divider></igx-divider>
+  <app-createexercise [exercises]="workout.exercises"></app-createexercise>
+</div>

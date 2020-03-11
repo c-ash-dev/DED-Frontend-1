@@ -16,5 +16,9 @@ export class Workout {
   created_by: User;
   completed_by: User;
 
-  constructor() {}
+  constructor() {
+    this.name = '';
+    this.description = '';
+    this.exercises = [];
+  }
 }

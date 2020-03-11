@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 
 // Ignite UI Imports
 import { IgxDialogModule, IgxButtonModule, IgxRippleModule, IgxDividerModule, IgxIconModule, IgxCardModule,
-         IgxDropDownModule, IgxInputGroupModule, IgxToggleModule } from 'igniteui-angular';
+         IgxDropDownModule, IgxInputGroupModule, IgxToggleModule, IgxExpansionPanelModule } from 'igniteui-angular';
 
 // Components
 import { LoginComponent } from './components/login/login.component';
@@ -20,6 +20,8 @@ import { TrackComponent } from './components/track/track.component';
 import { CreateComponent } from './components/create/create.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { CreateexerciseComponent } from './components/createexercise/createexercise.component';
+import { CreateworkoutComponent } from './components/createworkout/createworkout.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -39,7 +41,9 @@ const appRoutes: Routes = [
     TrackComponent,
     CreateComponent,
     DropdownComponent,
-    LogoComponent
+    LogoComponent,
+    CreateexerciseComponent,
+    CreateworkoutComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ const appRoutes: Routes = [
     IgxCardModule,
     IgxDropDownModule,
     IgxInputGroupModule,
-    IgxToggleModule
+    IgxToggleModule,
+    IgxExpansionPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
