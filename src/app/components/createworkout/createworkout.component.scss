@@ -1,77 +1,44 @@
 @import "../../../assets/ded-styles.scss";
 
-.create-workout-body {
+.workout-card {
+  width:100%;
+  padding:2em;
+  margin:0.5em 0;
+}
+
+.create-workout-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
-  .create-workout-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+}
+.workout-input {
+  width:100%;
+  margin:0 0 0.5em;
+}
+
+.save-workout-button-wrapper {
+  @include igx-button($ded-standard-button-theme);
+  width: 100%;
+  margin: 10px;
+  position: sticky;
+  top: 0;
+  margin: 0;
+
+  > button {
     width: 100%;
-
-    .workout-name-input {
-      font-size: larger;
-      font-weight: bold;
-      text-transform: uppercase;
-      width: 100%;
-      margin: 10px;
-    }
-
-    .workout-description-input {
-      font-size: small;
-      color: $ded-gray;
-      width: 100%;
-      margin: 10px;
-    }
-
+    font-size: large;
   }
-  .save-workout-button-wrapper {
-    @include igx-button($ded-standard-button-theme);
-    width: 100%;
-    margin: 10px;
-    position: sticky;
-    top: 0;
-    margin: 0;
-    > button {
-      width: 100%;
-      font-size: large;
-    }
-  }
+}
 
-  .workout-card {
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.card-header {
+  font-size:1.5em;
+  font-weight: 600;
+  text-transform: uppercase;
 
-    .workout-header {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      width: 100%;
-      margin-bottom: 10px;
+  border-bottom:1px solid #ddd;
 
-      > .workout-name {
-        margin-right: 10px;
-        font-weight: bold;
-      }
-      > .workout-description {
-        color: $ded-gray;
-        word-wrap: normal;
-      }
-    }
-
-    > .workout-exercises {
-      width: 100%;
-
-      > .exercises-header {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-    }
-  }
+  margin:0 0 0.75em;
+  padding:0 0 0.75em;
 }

@@ -1,29 +1,28 @@
-<div class="create-workout-body">
+<igx-card class="ded-card">
+
+  <h5 class="card-header">Workout Info</h5>
+
   <div class="create-workout-form">
-    <igx-input-group class="workout-name-input">
-      <label igxLabel for="name">workout name</label>
+    <igx-input-group class="workout-input">
+      <label igxLabel for="name">Workout Name</label>
       <input igxInput name="name" type="text" [(ngModel)]="workout.name" />
     </igx-input-group>
 
-    <igx-input-group class="workout-description-input" type="box">
-      <label igxLabel for="description">description</label>
+    <igx-input-group class="workout-input">
+      <label igxLabel for="description">Description</label>
       <input igxInput description="description" type="text" [(ngModel)]="workout.description" />
     </igx-input-group>
-  </div>
 
-  <div class="save-workout-button-wrapper">
-    <button #saveWorkoutButton igxButton="raised" igxRipple="black" [disabled]="!(workout.name && workout.exercises.length)">save new workout</button>
+    <div class="save-workout-button-wrapper">
+      <button #saveWorkoutButton 
+        igxButton="raised" 
+        igxRipple="black" 
+        [disabled]="!(workout.name && workout.exercises.length)">Save New Workout</button>
+    </div>
   </div>
+</igx-card>
 
-  <igx-card class="workout-card">
-    <div class="workout-header">
-      <h4 class="workout-name">{{workout.name}}</h4>
-      <div class="workout-description">{{workout.description}}</div>
-    </div>
-    <div class="workout-exercises">
-      <h5 class="exercises-header">Exercises ({{workout.exercises.length}})</h5>
-      <igx-divider></igx-divider>
-      <app-createexercise [exercises]="workout.exercises"></app-createexercise>
-    </div>
-  </igx-card>
-</div>
+<igx-card class="ded-card">
+  <h5 class="card-header">Exercises ({{workout.exercises.length}})</h5>
+  <app-createexercise [exercises]="workout.exercises"></app-createexercise>
+</igx-card>

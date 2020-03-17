@@ -24,55 +24,50 @@
     margin: 5px;
   }
 }
-.exercises-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  > .exercise-card {
-    margin: 10px;
-    padding: 5px;
-    align-content: center;
-    width: 100%;
-  }
-}
 
 .exercise-panel {
-  width: 100%;
+  border:1px solid #ddd;
+  border-radius:4px;
 }
 
 .exercise-panel-header {
-  width: 100%;
+  border-bottom:1px solid #ddd;
+  
 }
-
 .exercise-info {
   display: flex;
+  align-items:center;
   justify-content: space-between;
   width: 100%;
+  line-height:1;
+
+  .igx-divider--vertical {
+    align-self:stretch;
+  }
 
   .exercise-name {
-    font-weight: bold;
-    margin: 5px;
+    font-weight: 600;
+    margin: 0;
   }
   .exercise-type {
-    display: inline;
-    font-size: small;
-    margin: 5px;
+    margin: 0;
   }
   .exercise-description {
-    margin: 5px;
+    margin: 0;
     color: $ded-gray;
   }
 }
 
 .exercise-panel-body {
-  width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
   height: max-content;
+  padding:2em;
+
   > h6 {
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
+
+    border-bottom:1px solid #ddd;
+    margin:0 0 0.75em;
+    padding:0 0 0.75em;
   }
 }

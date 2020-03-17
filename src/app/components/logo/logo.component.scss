@@ -4,6 +4,10 @@
      height:100%;
      position:relative;
 
+     -webkit-user-select: none;
+     -moz-user-select:none;
+     user-select:none;
+
      .head
      {
           z-index:1;
