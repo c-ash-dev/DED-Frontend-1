@@ -6,9 +6,9 @@
     <input igxInput name="goal_value" type="number" [(ngModel)]="set.goal_value" />
   </igx-input-group>
 
-  <app-dropdown 
-    [itemLabel]="'units'" 
-    [items]="setUnits" 
+  <app-dropdown
+    [itemLabel]="'units'"
+    [items]="setUnits"
     (selectedItemEmitter)="receiveSelectedUnits($event)"></app-dropdown>
 
   <igx-input-group>
@@ -16,11 +16,11 @@
     <input igxInput name="goal_reps" type="number" [(ngModel)]="set.goal_reps" />
   </igx-input-group>
   <div class="add-set-button-wrapper">
-    <button 
-      #addSetButton 
-      igxButton="raised" 
-      igxRipple="black" 
-      [disabled]="!(set.type && set.goal_value && set.units && set.goal_reps)" 
+    <button
+      #addSetButton
+      igxButton="raised"
+      igxRipple="black"
+      [disabled]="!(set.type && set.goal_value && set.units && set.goal_reps)"
       (click)="addSet()">Add Set to Exercise</button>
   </div>
 </form>
@@ -34,7 +34,7 @@
     <igx-divider [vertical]="true"></igx-divider>
     <div class="set-goal-reps">{{set.goal_reps}} Reps</div>
     <button igxButton="icon" igxRipple (click)="removeSet(i)">
-      <igx-icon>Clear</igx-icon>
+      <igx-icon>clear</igx-icon>
     </button>
   </div>
 </igx-card>
