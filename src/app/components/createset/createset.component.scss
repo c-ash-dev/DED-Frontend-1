@@ -1,51 +1,13 @@
 @import "../../../assets/ded-styles.scss";
 
-.sets-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-
-  > igx-card {
-    margin: 10px;
-    padding: 5px;
-    align-content: center;
-    width: 100%;
-    > .set-info-container {
-      display: flex;
-      justify-content: space-between;
-
-      > .set-index{
-        font-weight: bold;
-        margin: 5px;
-      }
-
-      > .set-type {
-        font-size: small;
-        margin: 5px;
-      }
-
-      > .set-goal-value-and-units {
-        margin: 5px;
-      }
-
-      > .set-goal-reps {
-        margin: 5px;
-      }
-    }
-  }
-}
-
 .create-set-form {
   display: flex;
-  justify-content: flex-start;
   align-items: flex-end;
   width: 100%;
 
   > app-dropdown {
-    width: 10%;
-    margin: 5px;
+    flex:1;
+    margin:5px;
   }
   > igx-input-group {
     width: 5%;
@@ -56,3 +18,24 @@
     margin: 5px;
   }
 }
+
+.set-info-container {
+  display: flex;
+  justify-content: space-between;
+
+  > .set-index{
+    font-weight: bold;
+    margin: 5px;
+  }
+  > .set-type {
+    font-size: small;
+    margin: 5px;
+  }
+  > .set-goal-value-and-units {
+    margin: 5px;
+  }
+  > .set-goal-reps {
+    margin: 5px;
+  }
+}
+
