@@ -3,7 +3,7 @@
   <img class="ded-logo" src='../../../assets/DED_logo@3x.png'>
   <h3>Daily Exercise Diary</h3>
   <h4 class="login--header">Login</h4>
-  <form #login="ngForm" class="login--form" (ngSubmit)="loginDialog.open()">
+  <form #login="ngForm" class="login--form" (ngSubmit)="onSubmit()">
         <input type="text" name="username" class="form--item" placeholder="Username" [(ngModel)]="userCredentials.username" />
         <input type="password" class="form--item" name="password" placeholder="Password" [(ngModel)]="userCredentials.password" />
         <div class="ded-login-button">
