@@ -20,6 +20,4 @@ export class AppComponent {
     this.authService.logout();
     this.router.navigate(['/'])
   }
-
-
 }
