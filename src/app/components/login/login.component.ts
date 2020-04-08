@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.authService.login(this.userCredentials.username, this.userCredentials.password).subscribe(data => {
-      this.router.navigate(['/home']);
-    });
+      localStorage.setItem("logged-in", "true");
+      this.router.navigate(["/home"]);
+    })
   }
 }

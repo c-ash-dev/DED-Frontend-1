@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthGuard } from './services/authentication.guard';
+
+import { AuthenticationInterceptor } from './services/authentication.interceptor'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,7 +69,15 @@ const appRoutes: Routes = [
     IgxExpansionPanelModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, AuthenticationService],
+  providers: [
+      AuthGuard, 
+      AuthenticationService,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthenticationInterceptor,
+        multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

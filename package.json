@@ -28,6 +28,7 @@
     "igniteui-angular": "^8.2.21",
     "jszip": "^3.1.5",
     "minireset.css": "~0.0.4",
+    "ngx-cookie-service": "^3.0.4",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

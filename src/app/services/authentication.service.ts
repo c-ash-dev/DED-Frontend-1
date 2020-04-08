@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { User } from '../models/user';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +9,48 @@ import { environment } from 'src/environments/environment';
 export class AuthenticationService {
 
   constructor(
-    private httpClient: HttpClient
+    private http: HttpClient
   ) { }
 
   login(username: string, password: string) {
 
-    localStorage.setItem('access_token', username + ' ' + password);
-
-    return this.httpClient.post<{user: User}>(`${environment.apiUrl}/users/authenticate`, {username, password})
-      .pipe(tap(res => {
-          localStorage.setItem('access_token', res.user.username);
+    return Observable.create(function(observable){
+      let xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+          localStorage.setItem("logged-in", "true");
+          observable.next(JSON.parse(xhr.responseText));
+          observable.complete();
         }
-      ), catchError(resr => of('')));
-  }
+        else if (this.readyState == 4) {
+          observable.error(xhr.responseText);
+        }
+      }
 
-  handleError() {
-    localStorage.setItem('access_token', 'nope');
+      let requestJSON = {
+        "username": username,
+        "password": password
+      }
+      
+      xhr.open("POST", "http://localhost:8080/login/");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
+      xhr.withCredentials = true;
+      xhr.send(JSON.stringify(requestJSON));
+
+      return () => {
+        xhr.abort();
+      }
+    });
   }
   
   logout() {
-    localStorage.removeItem('access_token');
+    this.http.post(`${environment.apiUrl}/logout/`, '').subscribe(() => {
+      localStorage.removeItem('logged-in');
+    });
   }
 
   isLoggedIn() {
-    return localStorage.getItem('access_token') !== null;
+    return localStorage.getItem('logged-in') !== null;
   }
 }
