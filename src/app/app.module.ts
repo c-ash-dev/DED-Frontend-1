@@ -28,6 +28,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { CreateexerciseComponent } from './components/createexercise/createexercise.component';
 import { CreateworkoutComponent } from './components/createworkout/createworkout.component';
 import { AuthenticationService } from './services/authentication.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     DropdownComponent,
     LogoComponent,
     CreateexerciseComponent,
-    CreateworkoutComponent
+    CreateworkoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
