@@ -32,7 +32,7 @@ export class AuthenticationService {
         "password": password
       }
       
-      xhr.open("POST", "http://localhost:8080/login/");
+      xhr.open("POST", `${environment.apiUrl}/login/`);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
       xhr.withCredentials = true;
@@ -45,12 +45,29 @@ export class AuthenticationService {
   }
   
   logout() {
-    this.http.post(`${environment.apiUrl}/logout/`, '').subscribe(() => {
-      localStorage.removeItem('logged-in');
-    });
+    localStorage.removeItem('logged-in');
+    this.http.post(`${environment.apiUrl}/logout/`, '');
   }
 
   isLoggedIn() {
     return localStorage.getItem('logged-in') !== null;
+  }
+
+  register(username: string, name: string, email: string, password: string) {
+
+    let options = {
+      headers: {
+        "content-type": " application/json"
+      }
+    }
+
+    let data = {
+      "username": username,
+      "fname": name,
+      "email": email,
+      "passwd": password
+    }
+
+    return this.http.post(`${environment.apiUrl}/register/`, JSON.stringify(data), options);
   }
 }
