@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserCredentials } from 'src/app/models/usercredentials';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { IgxDialogComponent } from 'igniteui-angular'
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   public userCredentials: UserCredentials;
+
+  @ViewChild("alert", { read: IgxDialogComponent, static: true })
+  public alert: IgxDialogComponent;
 
   constructor(
     private authService: AuthenticationService,
@@ -19,12 +24,23 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // If we're already logged in redirect to homepage
+    if(localStorage.getItem("logged-in") == "true"){
+      this.router.navigate(["/home"]);
+    }
   }
 
   onSubmit() {
-    this.authService.login(this.userCredentials.username, this.userCredentials.password).subscribe(data => {
-      localStorage.setItem("logged-in", "true");
-      this.router.navigate(["/home"]);
-    })
+    this.authService.login(this.userCredentials.username, this.userCredentials.password).subscribe(
+      result => {
+        localStorage.setItem("logged-in", "true");
+        this.router.navigate(["/home"]);
+        console.log(result);
+      },
+      error => {
+        this.alert.open();
+      }
+    )
   }
 }

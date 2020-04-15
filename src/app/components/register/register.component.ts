@@ -10,11 +10,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(
-      private authService: AuthenticationService,
-      private router: Router
-  ) { }
-
   public username: string;
   public name: string;
   public email: string;
@@ -22,6 +17,11 @@ export class RegisterComponent implements OnInit {
 
   @ViewChild("alert", { read: IgxDialogComponent, static: true })
   public alert: IgxDialogComponent;
+
+  constructor(
+      private authService: AuthenticationService,
+      private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
         this.clearForm();
 
         this.alert.onLeftButtonSelect.subscribe(() => {
-          
+
           // Navigate back to login page
           this.router.navigate(['/']);
         })

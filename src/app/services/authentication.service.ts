@@ -46,7 +46,7 @@ export class AuthenticationService {
   
   logout() {
     localStorage.removeItem('logged-in');
-    this.http.post(`${environment.apiUrl}/logout/`, '');
+    this.http.delete(`${environment.apiUrl}/logout/`);
   }
 
   isLoggedIn() {

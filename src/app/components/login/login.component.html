@@ -11,3 +11,9 @@
 
   <a [routerLink]="'/register'" class="register--link">Create a New Account</a>
 </div>
+
+<igx-dialog #alert 
+  leftButtonLabel="Okay" 
+  (onLeftButtonSelect)="alert.close()"
+  title="Oops!"
+  message="Incorrect username or password. Please try again!"></igx-dialog>
