@@ -1,11 +1,5 @@
 @import "../../../assets/ded-styles.scss";
-
-h2 {
-     text-align:center;
-     font-size:2em;
-     margin:1em 0 1.5em;
-     padding:0;
-}
+@import "../login/login.component.scss";
 
 .register--form {
      display:flex;
@@ -15,42 +9,4 @@ h2 {
      width:20rem;
      max-width:100%;
      margin: 0 auto;
-}
-
-.form--item {
-     position:relative;
-     width:100%;
-     border:1px solid #ddd;
-     margin:0 0 -1px;
-     padding:1em 1.5em;
-
-     font-size:1.125em;
-     font-family:inherit;
-     font-weight:400;
-     line-height:1;
-
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     display:block;
-
-     &:focus {
-          z-index:2;
-          outline:1px solid #007bff;
-          outline-offset:1px;
-     }
-     &:first-child {
-          border-radius:2px 2px 0 0;
-     }
-     &:last-child {
-          border-radius:0 0 2px 2px;
-     }
-}
-
-.submit--button {
-     @include igx-button($ded-standard-button-theme);
-     width: 100%;
-
-     > button {
-          width:100%;
-     }
 }

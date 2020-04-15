@@ -28,9 +28,9 @@
 }
 
 .login--header {
-     font-size:2em;
      text-align:center;
-     margin:1em 0 0.25em;
+     font-size:2em;
+     margin:0 0 1em;
      padding:0;
 }
 
@@ -85,7 +85,7 @@
      }
 }
 
-.ded-login-button {
+.login--button {
   @include igx-button($ded-standard-button-theme);
   width: 100%;
   > button {
@@ -96,4 +96,16 @@
 .ded-login-dialog-body {
   margin: 10px;
   padding: 10px;
+}
+
+.register--link {
+     text-decoration: none;
+     margin:1em 0 0;
+     text-align:center;
+
+     &:hover,
+     &:focus,
+     &:active {
+          text-decoration: underline;
+     }
 }

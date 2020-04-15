@@ -1,40 +1,40 @@
 <main class="ded-home-main-block">
   <h1>DED</h1>
-  <ded-logo size="25vmin"></ded-logo> 
+  <ded-logo size="15vmin"></ded-logo> 
 
   <div class="ded-dashboard-items">
     <div class="ded-dashboard-item-container">
-      <button class="dashboard-button" [routerLink]="'/create'" igxButton="fab" igxRipple="white" (mouseenter)="createIconDescription.hidden=false" (mouseleave)="createIconDescription.hidden=true">
+      <button class="dashboard-button" [routerLink]="'/create'" igxButton="fab" igxRipple="white">
         <igx-icon fontSet="material">add</igx-icon>
       </button>
       <div class="dashboard-item-title">
         Create
       </div>
-      <div #createIconDescription class="dashboard-item-description" [hidden]="true">
+      <div #createIconDescription class="dashboard-item-description">
         Create a new workout or exercise
       </div>
     </div>
 
     <div class="ded-dashboard-item-container">
-      <button class="dashboard-button" [routerLink]="'/start'" igxButton="fab" igxRipple="white" (mouseenter)="startIconDescription.hidden=false" (mouseleave)="startIconDescription.hidden=true">
+      <button class="dashboard-button" [routerLink]="'/start'" igxButton="fab" igxRipple="white">
         <igx-icon fontSet="material">play_arrow</igx-icon>
       </button>
       <div class="dashboard-item-title">
         Start
       </div>
-      <div #startIconDescription class="dashboard-item-description" [hidden]="true">
+      <div #startIconDescription class="dashboard-item-description">
         Start an existing or new workout
       </div>
     </div>
 
     <div class="ded-dashboard-item-container">
-      <button class="dashboard-button" [routerLink]="'/track'" igxButton="fab" igxRipple="white" (mouseenter)="trackIconDescription.hidden=false" (mouseleave)="trackIconDescription.hidden=true">
+      <button class="dashboard-button" [routerLink]="'/track'" igxButton="fab" igxRipple="white">
         <igx-icon fontSet="material">trending_up</igx-icon>
       </button>
       <div class="dashboard-item-title">
         Track
       </div>
-      <div #trackIconDescription class="dashboard-item-description" [hidden]="true">
+      <div #trackIconDescription class="dashboard-item-description">
         Track your completed workouts
       </div>
     </div>

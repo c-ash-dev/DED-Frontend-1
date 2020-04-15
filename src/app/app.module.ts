@@ -30,6 +30,7 @@ import { CreateworkoutComponent } from './components/createworkout/createworkout
 import { AuthenticationService } from './services/authentication.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     CreateexerciseComponent,
     CreateworkoutComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

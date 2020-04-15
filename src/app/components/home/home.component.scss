@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vw;
 
   h1
   {
@@ -99,4 +98,22 @@
 {
   display:block;
   transform:scaleX(-1);
+}
+
+
+
+.ded-dashboard-item-container {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 0 0 0.5em;
+
+  .dashboard-item-description {
+    color: $ded-gray;
+    visibility: hidden;
+  }
+  &:hover .dashboard-item-description {
+    visibility: visible;
+  }
+
 }
