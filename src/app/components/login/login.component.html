@@ -1,17 +1,13 @@
 <div class="ded-login-title-block">
-  <h2>DED</h2>
 
-  <ded-logo size="15vmin"></ded-logo>
-
-  <h3>Daily Exercise Diary</h3>
   <h4 class="login--header">Login</h4>
   <form #login="ngForm" class="login--form" (ngSubmit)="onSubmit()">
     <input type="text" name="username" class="form--item" placeholder="Username" [(ngModel)]="userCredentials.username" />
     <input type="password" class="form--item" name="password" placeholder="Password" [(ngModel)]="userCredentials.password" />
-    <div class="ded-login-button">
+    <div class="login--button">
       <button #submitButton igxButton="raised" igxRipple="white" [disabled]="!(userCredentials.username && userCredentials.password)" type="submit">Login</button>
     </div>
   </form>
 
-  <a [routerLink]="'/register'">Create a New Account</a>
+  <a [routerLink]="'/register'" class="register--link">Create a New Account</a>
 </div>

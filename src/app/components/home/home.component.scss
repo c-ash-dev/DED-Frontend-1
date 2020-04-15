@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vw;
 
   h1
   {
@@ -34,14 +33,14 @@
 
       > .dashboard-button
       {
-        border-radius: 10vh;
+        border-radius: 100%;
         margin: 5px;
 
         > igx-icon
         {
-          height: 10vh;
-          width: 10vh;
-          font-size: 10vh;
+          height: 10vmin;
+          width: 10vmin;
+          font-size: 10vmin;
         }
       }
       > .dashboard-item-title
@@ -99,4 +98,22 @@
 {
   display:block;
   transform:scaleX(-1);
+}
+
+
+
+.ded-dashboard-item-container {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 0 0 0.5em;
+
+  .dashboard-item-description {
+    color: $ded-gray;
+    visibility: hidden;
+  }
+  &:hover .dashboard-item-description {
+    visibility: visible;
+  }
+
 }
