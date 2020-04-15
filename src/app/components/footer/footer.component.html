@@ -1,3 +1,5 @@
 <footer>
-     {{this.version}}
+     <a (click)="logout()" [hidden]="!showLogout" class="logout-link">Log out</a>
+
+     <span class="version">{{this.version}}</span>
 </footer>

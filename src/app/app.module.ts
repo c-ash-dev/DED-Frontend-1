@@ -29,13 +29,15 @@ import { CreateexerciseComponent } from './components/createexercise/createexerc
 import { CreateworkoutComponent } from './components/createworkout/createworkout.component';
 import { AuthenticationService } from './services/authentication.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
   { path: 'start', component: StartComponent, canActivate: [AuthGuard]},
-  { path: 'track', component: TrackComponent, canActivate: [AuthGuard]}
+  { path: 'track', component: TrackComponent, canActivate: [AuthGuard]},
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     LogoComponent,
     CreateexerciseComponent,
     CreateworkoutComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
