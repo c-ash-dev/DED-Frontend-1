@@ -19,9 +19,9 @@ install:
 
 jobs:
   include:
-    - stage: 'Tests'
-      name: 'Unit Tests'
-      script: ng test --watch=false --browsers=ChromeHeadless
+    # - stage: 'Tests'
+    #   name: 'Unit Tests'
+    #   script: ng test --watch=false --browsers=ChromeHeadless
     - stage: 'Build'
       name: 'Production Build'
       script: ng build --prod
