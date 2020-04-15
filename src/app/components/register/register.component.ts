@@ -25,15 +25,30 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService.register(this.username, this.name, this.email, this.password).subscribe(
       result => {
+
+        // Success alert
         this.alert.title = "Success"
         this.alert.message = "Your account was successfully created!"
         this.alert.open();
+        
+        // Clear form on success
+        this.clearForm();
       },
       error => {
+
+        // Error alert - right now just passes error directly from backup
+        // TODO: Tidy up the alert?
         this.alert.title = "Oops!"
         this.alert.message = "There was an issue creating your account: " + error.error;
         this.alert.open();
       }
     );
+  }
+
+  clearForm() {
+    this.username = "";
+    this.name = "";
+    this.email = "";
+    this.password = "";
   }
 }
