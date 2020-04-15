@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { IgxDialogComponent } from 'igniteui-angular'
 
 @Component({
   selector: 'app-register',
@@ -10,10 +11,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthenticationService) { }
 
-  private username: string;
-  private name: string;
-  private email: string;
-  private password: string;
+  public username: string;
+  public name: string;
+  public email: string;
+  public password: string;
+
+  @ViewChild("alert", { read: IgxDialogComponent, static: true })
+  public alert: IgxDialogComponent;
 
   ngOnInit() {
   }
@@ -21,10 +25,14 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService.register(this.username, this.name, this.email, this.password).subscribe(
       result => {
-        console.log(result);
+        this.alert.title = "Success"
+        this.alert.message = "Your account was successfully created!"
+        this.alert.open();
       },
       error => {
-        console.error(error);
+        this.alert.title = "Oops!"
+        this.alert.message = "There was an issue creating your account: " + error.error;
+        this.alert.open();
       }
     );
   }

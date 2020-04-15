@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ɵ_sanitizeStyle, Sanitizer } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'ded-logo',
@@ -10,11 +9,22 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class LogoComponent implements OnInit {
 
   @Input() size: string;
+  @Input() invert: string;
+  logoClassName: string;
 
   constructor() { }
 
   ngOnInit() {
     this.startEyeRotation();
+    this.updateLogoClass();
+  }
+
+  ngOnChange() {
+    this.updateLogoClass();
+  }
+
+  private updateLogoClass() {
+    this.logoClassName = "logo" + (this.invert ? " logo__inverted" : "");
   }
 
 
@@ -46,4 +56,6 @@ export class LogoComponent implements OnInit {
         });
     });
   }
+
+  
 }

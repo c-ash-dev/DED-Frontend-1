@@ -7,8 +7,12 @@
      <input type="password" name="password" class="form--item" placeholder="Password" [(ngModel)]="password" />
 
      <div class="submit--button">
-          <button #submitButton igxButton="raised" igxRipple="white" [disabled]="" type="submit">Create Account</button>
+          <button #submitButton igxButton="raised" igxRipple="white" [disabled]="!(this.username && this.name && this.email && this.password)" type="submit">Create Account</button>
      </div>
 
      <a [routerLink]="'/'">Back to Login</a>
 </form>
+
+<igx-dialog #alert 
+     leftButtonLabel="Okay"
+     (onLeftButtonSelect)="alert.close()"></igx-dialog>

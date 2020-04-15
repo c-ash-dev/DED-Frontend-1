@@ -4,9 +4,15 @@
      height:100%;
      position:relative;
 
+     color:#000;
+
      -webkit-user-select: none;
      -moz-user-select:none;
      user-select:none;
+
+     &.logo__inverted {
+          filter:invert(1);
+     }
 
      .head
      {
