@@ -33,14 +33,14 @@
 
       > .dashboard-button
       {
-        border-radius: 10vh;
+        border-radius: 100%;
         margin: 5px;
 
         > igx-icon
         {
-          height: 10vh;
-          width: 10vh;
-          font-size: 10vh;
+          height: 10vmin;
+          width: 10vmin;
+          font-size: 10vmin;
         }
       }
       > .dashboard-item-title
