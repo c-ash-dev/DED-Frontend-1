@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { IgxDialogComponent } from 'igniteui-angular'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,10 @@ import { IgxDialogComponent } from 'igniteui-angular'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+      private authService: AuthenticationService,
+      private router: Router
+  ) { }
 
   public username: string;
   public name: string;
@@ -31,8 +35,13 @@ export class RegisterComponent implements OnInit {
         this.alert.message = "Your account was successfully created!"
         this.alert.open();
         
-        // Clear form on success
         this.clearForm();
+
+        this.alert.onLeftButtonSelect.subscribe(() => {
+          
+          // Navigate back to login page
+          this.router.navigate(['/']);
+        })
       },
       error => {
 
