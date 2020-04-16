@@ -7,6 +7,8 @@ branches:
   - master
 addons:
   chrome: stable
+  ssh_known_hosts:
+  - ded.scrollingtext.org
 cache:
   directories:
   - "./node_modules"
@@ -27,7 +29,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/dist alex@ded.scrollingtext.org:/var/www/angular-deploy
+  script: rsync -r --delete-after $TRAVIS_BUILD_DIR/dist alex@ded.scrollingtext.org:/var/www/angular-deploy
   on:
     branch: master
 
