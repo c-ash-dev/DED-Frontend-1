@@ -29,7 +29,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after $TRAVIS_BUILD_DIR/dist/DED/ alex@ded.scrollingtext.org:~/test/
+  script: rsync -r --delete-after --rsync-path="sudo rsync" $TRAVIS_BUILD_DIR/dist/DED/ alex@ded.scrollingtext.org:~/var/www/angular-deploy
   on:
     branch: master
 
