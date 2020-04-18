@@ -3,7 +3,7 @@
     "child_process":false
   },
   "name": "ded",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,12 +25,14 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@auth0/angular-jwt": "^4.0.0",
     "@types/hammerjs": "^2.0.36",
     "git-describe": "^4.0.4",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^8.2.21",
     "jszip": "^3.1.5",
     "minireset.css": "~0.0.4",
+    "ngx-cookie-service": "^3.0.4",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

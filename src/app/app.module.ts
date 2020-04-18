@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AuthGuard } from './services/authentication.guard';
+
+import { AuthenticationInterceptor } from './services/authentication.interceptor'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,14 +27,18 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CreateexerciseComponent } from './components/createexercise/createexercise.component';
 import { CreateworkoutComponent } from './components/createworkout/createworkout.component';
+import { AuthenticationService } from './services/authentication.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'create', component: CreateComponent},
-  { path: 'start', component: StartComponent},
-  { path: 'track', component: TrackComponent}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
+  { path: 'start', component: StartComponent, canActivate: [AuthGuard]},
+  { path: 'track', component: TrackComponent, canActivate: [AuthGuard]},
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -45,7 +54,9 @@ const appRoutes: Routes = [
     LogoComponent,
     CreateexerciseComponent,
     CreateworkoutComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +73,18 @@ const appRoutes: Routes = [
     IgxDropDownModule,
     IgxInputGroupModule,
     IgxToggleModule,
-    IgxExpansionPanelModule
+    IgxExpansionPanelModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+      AuthGuard, 
+      AuthenticationService,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthenticationInterceptor,
+        multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

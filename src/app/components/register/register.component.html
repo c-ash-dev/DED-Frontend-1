@@ -1,0 +1,18 @@
+<h2 class="login--header">Create an Account</h2>
+
+<form #register="ngForm" class="register--form" (ngSubmit)="onSubmit()">
+     <input type="text" name="username" class="form--item" placeholder="Username" [(ngModel)]="username" />
+     <input type="text" name="name" class="form--item" placeholder="Name" [(ngModel)]="name" />
+     <input type="text" name="email" class="form--item" placeholder="Email" [(ngModel)]="email" />
+     <input type="password" name="password" class="form--item" placeholder="Password" [(ngModel)]="password" />
+
+     <div class="login--button">
+          <button #submitButton igxButton="raised" igxRipple="white" [disabled]="!(this.username && this.name && this.email && this.password)" type="submit">Create Account</button>
+     </div>
+
+     <a [routerLink]="'/'" class="register--link">Back to Login</a>
+</form>
+
+<igx-dialog #alert 
+     leftButtonLabel="Okay" 
+     (onLeftButtonSelect)="alert.close()"></igx-dialog>

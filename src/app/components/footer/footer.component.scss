@@ -1,11 +1,39 @@
 footer
 {
+     display:flex;
+     flex-direction:row;
+     align-items:center;
+     justify-content:space-between;
+
      background:#000;
      position:fixed;
      bottom:0;
      left:0;
      width:100%;
-     padding:0.5em 1em;
+     height:3rem;
+     padding:0 1em;
      color:#fff;
      text-align:right;
+
+     z-index:9999;
+     opacity:0.9;
+}
+
+.logout-link
+{
+     color:#fff;
+     text-decoration: none;
+     cursor: pointer;
+     font-size:1em;
+}
+.logout-link:hover,
+.logout-link:focus,
+.logout-link:active
+{
+     text-decoration: underline;
+     color:#fff;
+}
+.version
+{
+     margin-left:auto;
 }
