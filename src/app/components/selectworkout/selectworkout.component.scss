@@ -1,0 +1,14 @@
+@import "../../../assets/ded-styles.scss";
+
+.select-workout {
+  cursor: pointer;
+}
+
+.start-button-wrapper {
+  @include igx-button($ded-standard-button-theme);
+  margin: 5px;
+}
+
+button {
+  float: right;
+}

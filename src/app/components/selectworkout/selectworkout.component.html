@@ -1,0 +1,12 @@
+<igx-card class="ded-card select-workout" *ngFor="let workout of workouts" [routerLink]="'/workout'" (click)="onSelect(workout)" >
+  <h3>{{ workout.name }}</h3>
+  <p>{{ workout.description }}</p>
+
+  <div class="start-button-wrapper">
+    <button
+      igxButton="raised"
+      igxRipple="black"
+      >Start
+    </button>
+  </div>
+</igx-card>

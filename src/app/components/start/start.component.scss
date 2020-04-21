@@ -1,0 +1,35 @@
+@import "../../../assets/ded-styles.scss";
+
+.start-workout-title-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align:center;
+
+  h3 {
+    font-size:2.5em;
+    margin:0 0 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+.home-link {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 0 0 0.5em;
+
+  ded-logo {
+    cursor: pointer;
+  }
+  .home-label {
+    color: $ded-gray;
+    visibility: hidden;
+  }
+  &:hover .home-label {
+    visibility: visible;
+  }
+
+}
