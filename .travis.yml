@@ -16,6 +16,9 @@ install:
 - npm install
 jobs:
   include:
+  - stage: Test
+    name: Acceptance Testing
+    script: ng test
   - stage: Build
     name: Production Build
     script: ng build --prod
