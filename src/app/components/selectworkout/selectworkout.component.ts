@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WORKOUTS } from './mock-workouts';
+import { MockWorkouts } from '../../models/mock_workouts';
+import { Workout } from '../../models/workout';
 
 @Component({
   selector: 'app-selectworkout',
@@ -9,7 +10,7 @@ import { WORKOUTS } from './mock-workouts';
 
 export class SelectWorkoutComponent implements OnInit {
 
-  workouts = WORKOUTS;
+  workouts = MockWorkouts;
   selectedWorkout: Workout;
 
   constructor() {
