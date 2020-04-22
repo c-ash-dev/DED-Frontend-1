@@ -21,17 +21,17 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['ChromeHeadless', 'Chrome'],
-    singleRun: false,
+    autoWatch: false,
+    browsers: ['TestChromeHeadless'],
+    singleRun: true,
     restartOnFileChange: true,
     customLaunchers: {
-      ChromeHeadless: {
-        base: 'Chrome',
+      TestChromeHeadless: {
+        base: 'ChromeHeadless',
         flags: [
           '--headless',
           '--disable-gpu',
