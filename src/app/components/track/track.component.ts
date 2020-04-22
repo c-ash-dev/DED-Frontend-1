@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Workout } from 'src/app/models/workout';
 
 @Component({
   selector: 'app-track',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackComponent implements OnInit {
 
+  public workouts: Workout[];
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

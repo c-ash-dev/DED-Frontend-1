@@ -1,1 +1,11 @@
-<p>track works!</p>
+
+
+<div *ngFor="let workout of this.workouts">
+     <table>
+          <tr>
+               <td>
+                    {{ workout.name }}
+               </td>
+          </tr>
+     </table>
+</div>
