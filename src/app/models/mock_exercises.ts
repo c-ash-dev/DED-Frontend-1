@@ -1,6 +1,6 @@
-import { normalize } from 'path';
+import { Exercise } from './exercise';
 
-export const EXERCISES = [
+export const MockExercises: Exercise[] = [
   {
     id: 234,
     origin_id: 1,
@@ -9,12 +9,11 @@ export const EXERCISES = [
     exercise_type: 'Cardio',
     description: 'Five mile jog in 30 minutes',
     notes: 'North Boulder loop',
-    sets: {
-      type: 'Warmup',
-      value: 5,
-      units: 'Miles',
-      reps: 1
-    }
+    sets: [],
+    created_by: null,
+    created_time: new Date(),
+    completed_by: null,
+    completed_time: null
   },
 
   {
@@ -25,12 +24,11 @@ export const EXERCISES = [
     exercise_type: 'Cardio',
     description: 'Eight 100 meter sprints',
     notes: 'Ladder sprints',
-    sets: {
-      type: 'Normal',
-      value: 100,
-      units: 'Yards',
-      reps: 10
-    }
+    sets: [],
+    created_by: null,
+    created_time: new Date(),
+    completed_by: null,
+    completed_time: null
   },
 ]
 

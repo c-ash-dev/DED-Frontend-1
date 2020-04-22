@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { WORKOUTS } from '../selectworkout/mock-workouts';
-import { EXERCISES } from './mock-exercises'
+import { MockWorkouts } from '../../models/mock_workouts';
+import { MockExercises } from '../../models/mock_exercises'
+import { Workout } from 'src/app/models/workout';
+import { Exercise } from 'src/app/models/exercise';
 
 
 @Component({
@@ -11,8 +13,8 @@ import { EXERCISES } from './mock-exercises'
 
 export class WorkoutDetailsComponent implements OnInit {
 
-  workouts = WORKOUTS;
-  exercises = EXERCISES;
+  public workouts: Workout[] = MockWorkouts;
+  public exercises: Exercise[] = MockExercises;
 
   constructor(){
 
