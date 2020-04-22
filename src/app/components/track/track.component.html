@@ -1,11 +1,38 @@
 
+<h3 class="page-title">Completed Workouts</h3>
 
-<div *ngFor="let workout of this.workouts">
-     <table>
-          <tr>
-               <td>
-                    {{ workout.name }}
-               </td>
-          </tr>
-     </table>
-</div>
+<igx-card class="ded-card">
+     <div class="workout-table">
+          <table>
+               <thead>
+                    <tr>
+                         <th>Name</th>
+                         <th>Description</th>
+                         <th>Created</th>
+                         <th>Completed</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr *ngFor="let workout of this.workouts">
+                         <td>
+                              {{ workout.name }}
+                         </td>
+                         <td>
+                              {{ workout.description }}
+                         </td>
+                         <td>
+                              {{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString()}}
+                         </td>
+                         <td>
+                              <ng-container *ngIf="workout.completed_time != null">
+                                   {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
+                              </ng-container>
+                         </td>
+                         <td>
+                              <a>View</a>
+                         </td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
+</igx-card>
