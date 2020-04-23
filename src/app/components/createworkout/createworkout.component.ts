@@ -8,12 +8,19 @@ import { Workout } from 'src/app/models/workout';
 })
 export class CreateworkoutComponent implements OnInit {
   public workout: Workout;
+  public creating: Boolean;
 
   constructor() {
     this.workout = new Workout();
+    this.creating = false;
   }
 
   ngOnInit() {
+  }
+
+  startCreating() {
+    this.creating = true;
+    console.log(this.creating);
   }
 
 }

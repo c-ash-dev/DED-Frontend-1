@@ -13,25 +13,27 @@
                     </tr>
                </thead>
                <tbody>
-                    <tr *ngFor="let workout of this.workouts">
-                         <td>
-                              {{ workout.name }}
-                         </td>
-                         <td>
-                              {{ workout.description }}
-                         </td>
-                         <td>
-                              {{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString()}}
-                         </td>
-                         <td>
-                              <ng-container *ngIf="workout.completed_time != null">
-                                   {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
-                              </ng-container>
-                         </td>
-                         <td>
-                              <a>View</a>
-                         </td>
-                    </tr>
+                    <ng-container *ngFor="let workout of this.workouts">
+                         <ng-container *ngIf="workout.completed_time != null">
+                              <tr>
+                                   <td>
+                                        {{ workout.name }}
+                                   </td>
+                                   <td>
+                                        {{ workout.description }}
+                                   </td>
+                                   <td>
+                                        {{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString()}}
+                                   </td>
+                                   <td>
+                                        {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
+                                   </td>
+                                   <td>
+                                        <a>View</a>
+                                   </td>
+                              </tr>
+                         </ng-container>
+                    </ng-container>
                </tbody>
           </table>
      </div>

@@ -17,12 +17,15 @@
       <button #saveWorkoutButton 
         igxButton="raised" 
         igxRipple="black" 
-        [disabled]="!(workout.name && workout.exercises.length)">Save New Workout</button>
+        [disabled]="!(workout.name)"
+        (click)="this.startCreating()">Create Workout</button>
     </div>
   </div>
 </igx-card>
 
-<igx-card class="ded-card">
-  <h5 class="card-header">Exercises ({{workout.exercises.length}})</h5>
-  <app-createexercise [exercises]="workout.exercises"></app-createexercise>
-</igx-card>
+<ng-container *ngIf="this.creating">
+  <igx-card class="ded-card">
+    <h5 class="card-header">Exercises ({{workout.exercises.length}})</h5>
+    <app-createexercise [exercises]="workout.exercises"></app-createexercise>
+  </igx-card>
+</ng-container>

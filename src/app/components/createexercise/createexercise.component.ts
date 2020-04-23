@@ -25,7 +25,7 @@ export class CreateexerciseComponent implements OnInit {
   }
 
   public addExercise() {
-    const newExercise = new Exercise(this.exercise);
+    let newExercise = new Exercise(this.exercise);
     this.exercises.push(newExercise);
   }
 

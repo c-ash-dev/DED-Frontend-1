@@ -22,7 +22,7 @@ export const MockWorkouts: Workout[] = [
     notes: null,
     created_time: new Date(),
     created_by: null,
-    completed_time: null,
+    completed_time: new Date(),
     completed_by: null
   },
   {
