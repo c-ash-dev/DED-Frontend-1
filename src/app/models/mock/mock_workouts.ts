@@ -1,4 +1,4 @@
-import { Workout } from './workout'
+import { Workout } from '../workout'
 
 export const MockWorkouts: Workout[] = [
   {

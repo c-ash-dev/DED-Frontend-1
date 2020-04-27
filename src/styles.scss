@@ -74,3 +74,39 @@ h3.page-title {
   background:$ded-yellow;
 }
 /* END CARDS */
+
+/* TABLES */
+.table-responsive {
+  width:100%;
+  padding:1rem;
+  overflow-x:auto;
+}
+.table {
+  width:100%;
+  min-width:768px;
+  border-collapse: collapse;
+  border-radius:4px;
+  overflow:hidden;
+
+  td,
+  th {
+    padding:0.5em 0.75em;
+  }
+  th {
+    font-weight:600;
+  }
+  thead tr {
+    background:rgba(0, 0, 0, 0.04);
+  }
+  tbody {
+    tr {
+      &:nth-child(2n) {
+        background:rgba(0, 0, 0, 0.02);
+      }
+      &:hover {
+        background:rgba(0, 0, 0, 0.03);
+      }
+    }
+  }
+}
+/* END TABLES */

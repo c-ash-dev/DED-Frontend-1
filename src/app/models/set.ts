@@ -3,6 +3,7 @@ import { User } from './user';
 export class Set {
   id: number;
   origin_id: number;
+  exercise_id: number;
 
   type: string;
   units: string;
@@ -48,7 +49,7 @@ export class Set {
     }
   }
 
-  public getTypeDropdownItems(): Array<any> {
+  public static getTypeDropdownItems(): Array<any> {
     const items: Array<any> = [
       { field: 'normal' },
       { field: 'warmup' },
@@ -59,7 +60,7 @@ export class Set {
     return items;
   }
 
-  public getUnitsDropdownItems(): Array<any> {
+  public static getUnitsDropdownItems(): Array<any> {
     const items: Array<any> = [
       { field: 'Weight', header: true },
       { field: 'lbs' },

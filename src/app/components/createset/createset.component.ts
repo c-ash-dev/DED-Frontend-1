@@ -18,8 +18,8 @@ export class CreatesetComponent implements OnInit {
 
   constructor() {
     this.set = new Set();
-    this.setTypes = this.set.getTypeDropdownItems();
-    this.setUnits = this.set.getUnitsDropdownItems();
+    this.setTypes = Set.getTypeDropdownItems();
+    this.setUnits = Set.getUnitsDropdownItems();
   }
 
   public receiveSelectedType($event: string) {

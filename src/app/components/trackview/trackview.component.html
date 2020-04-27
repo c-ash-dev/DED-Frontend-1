@@ -5,7 +5,7 @@
      <div><strong>Completed:</strong> {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}</div>
 
      <igx-card class="ded-card" *ngFor="let exercise of exercises; let i = index">
-          <igx-expansion-panel class="exercise-panel" [collapsed]="false">
+          <igx-expansion-panel class="exercise-panel" [collapsed]="true">
           
             <!-- Excercise header -->
             <igx-expansion-panel-header class="exercise-panel-header">
@@ -18,7 +18,30 @@
               </div>
             </igx-expansion-panel-header>
         
-            <igx-expansion-panel-body class="exercise-panel-body"></igx-expansion-panel-body>
+            <igx-expansion-panel-body class="exercise-panel-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th width="1.5em">#</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                      <th>Goal</th>
+                      <th>Completed</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let set of sets; let i = index">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ set.type }}</td>
+                      <td>{{ set.description }}</td>
+                      <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
+                      <td>{{ set.reps + ' x ' + set.value + ' ' + set.units }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </igx-expansion-panel-body>
           </igx-expansion-panel>
         </igx-card>
 </igx-card>
