@@ -6,7 +6,8 @@ export class CompletedExercise {
   exercise_type: number;
   description: string;
   notes: string;
-  created_or_completed: Date;
+  created_time: Date;
+  completed_time: Date;
 
   constructor() { }
 }

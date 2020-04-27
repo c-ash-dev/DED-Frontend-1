@@ -1,0 +1,7 @@
+{
+  "sets": "/sets",
+  "setsNew": "/sets/new",
+  "setsCompleted": "/sets/completsed",
+  "setsFindByOriginId": "/sets/find_by_origin_id",
+  "setsFindByExerciseId": "/sets/find_by_exercise_id"
+}

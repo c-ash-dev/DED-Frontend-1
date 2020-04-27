@@ -5,7 +5,7 @@ export class NewExercise {
   name: string;
   exercise_type: number;
   description: string;
-  created_or_completed: Date;
+  created_time: Date;
 
   constructor() { }
 }
