@@ -64,12 +64,18 @@ hr {
 .ded-card {
   font-size:1em;
   width:100%;
-  padding:2em;
+  padding:2em 1em;
   margin:1em 0;
   border:0;
 
   .igx-input-group__wrapper {
     background:#ffffff;
+  }
+
+  @media (min-width:768px) {
+    & {
+      padding:2em;
+    }
   }
 }
 

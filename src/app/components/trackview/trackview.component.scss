@@ -32,12 +32,13 @@
                flex-direction:row;
           }
           .einfo {
-               padding:0 1em;
+               padding:0 0.75em;
                line-height:1;
                margin:0;
                text-align:left;
           }
           .einfo__name {
+               font-size:1.125em;
                flex: 1 1 20%;
           }
           .einfo__type {
