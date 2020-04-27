@@ -12,19 +12,19 @@ export const MockExercises: Exercise[] = [
     created_by: null,
     created_time: new Date(),
     completed_by: null,
-    completed_time: null
+    completed_time: new Date()
   },
   {
     id: 2,
     origin_id: 2,
     workout_id: 1,
     name: 'Sprints',
-    exercise_type: 'Cardio',
+    exercise_type: 'Mobility',
     description: 'Eight 100 meter sprints',
     notes: 'Ladder sprints',
     created_by: null,
     created_time: new Date(),
     completed_by: null,
-    completed_time: null
+    completed_time: new Date()
   }
 ]

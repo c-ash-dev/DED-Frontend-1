@@ -10,6 +10,7 @@
   $font-family: "Futura, Roboto, Arial, sans-serif"
 );
 
+/* GENERAL */
 * {
   box-sizing:border-box;
 }
@@ -33,11 +34,9 @@ body {
 
   padding:6rem 0; /* For header and footer */
 }
-
 a {
   color:#007bff;
 }
-
 h3.page-title {
   text-align:center;
   width:100%;
@@ -46,6 +45,20 @@ h3.page-title {
   text-transform: uppercase;
   margin:0 0 1em;
 }
+hr {
+  display:block;
+  border:0;
+  width:100%;
+  margin:1.5em 0;
+  height:1px;
+  background:#eee;
+  padding:0;
+}
+/* END GENERAL */
+
+
+
+
 
 /* CARDS */
 .ded-card {
@@ -53,11 +66,24 @@ h3.page-title {
   width:100%;
   padding:2em;
   margin:1em 0;
+  border:0;
 
   .igx-input-group__wrapper {
     background:#ffffff;
   }
 }
+
+.exercise-card {
+  font-size:1em;
+  width:100%;
+  margin:0 0 1em;
+  border:0;
+
+  &:last-child {
+    margin-bottom:0;
+  }
+}
+
 .card__black {
   background:#000000;
   color:#ffffff;
