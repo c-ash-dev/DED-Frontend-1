@@ -14,14 +14,14 @@ export class CreateexerciseComponent implements OnInit {
 
   constructor() {
     this.exercise = new Exercise();
-    this.exerciseTypes = this.exercise.getTypeDropdownItems();
+    this.exerciseTypes = Exercise.getTypeDropdownItems();
   }
 
   ngOnInit() {
   }
 
   public receiveSelectedType($event: string) {
-    this.exercise.type = $event;
+    this.exercise.exercise_type = $event;
   }
 
   public addExercise() {
