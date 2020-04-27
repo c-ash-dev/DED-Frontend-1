@@ -48,5 +48,17 @@ export const MockWorkouts: Workout[] = [
     created_by: null,
     completed_time: null,
     completed_by: null
-  }
+  },
+  {
+    id: 5,
+    origin_id: 1,
+    name: 'Run Routine 2',
+    description: 'Five mile jog then sprint set',
+    exercises: [],
+    notes: null,
+    created_time: new Date(),
+    created_by: null,
+    completed_time: new Date(),
+    completed_by: null
+  },
 ]

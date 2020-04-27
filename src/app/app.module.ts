@@ -32,6 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TrackviewComponent } from './components/trackview/trackview.component';
+import { PageTitleComponent } from './components/pagetitle/pagetitle.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     FooterComponent,
     RegisterComponent,
     HeaderComponent,
-    TrackviewComponent
+    TrackviewComponent,
+    PageTitleComponent
   ],
   imports: [
     BrowserModule,

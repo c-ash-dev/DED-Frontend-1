@@ -1,4 +1,4 @@
-<h3 class="page-title">{{ this.workout.name }}</h3>
+<ded-pagetitle navLink="/track" pageTitle="{{ this.workout.name }}"></ded-pagetitle>
 
 <igx-card class="ded-card">
   <div>{{ this.workout.description }}</div>
@@ -6,7 +6,7 @@
 
   <hr />
 
-  <igx-card class="exercise-card" *ngFor="let exercise of exercises; let i = index">
+  <igx-card class="exercise-card" *ngFor="let exercise of this.workout.exercises; let i = index">
     <igx-expansion-panel class="exercise-panel" [collapsed]="true">
     
       <!-- Excercise header -->
@@ -35,7 +35,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let set of sets; let i = index">
+              <tr *ngFor="let set of exercise.sets; let i = index">
                 <td>{{ i + 1 }}</td>
                 <td>{{ set.type }}</td>
                 <td>{{ set.description }}</td>

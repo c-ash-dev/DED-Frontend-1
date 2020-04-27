@@ -1,15 +1,15 @@
-
-<h3 class="page-title">Completed Workouts</h3>
+<ded-pagetitle navLink="/home" pageTitle="Completed Workouts"></ded-pagetitle>
 
 <igx-card class="ded-card">
-     <div class="workout-table">
-          <table>
+     <div class="table-responsive">
+          <table class="table">
                <thead>
                     <tr>
                          <th>Name</th>
                          <th>Description</th>
                          <th>Created</th>
                          <th>Completed</th>
+                         <th></th>
                     </tr>
                </thead>
                <tbody>
@@ -28,8 +28,10 @@
                                    {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
                               </ng-container>
                          </td>
-                         <td>
-                              <a [routerLink]="'/track/view/' + workout.id">View</a>
+                         <td style="text-align:right;">
+                              <div class="button__black">
+                                   <button igxButton="raised" igxRipple="black" [routerLink]="'/track/view/' + workout.id">View</button>
+                              </div>
                          </td>
                     </tr>
                </tbody>

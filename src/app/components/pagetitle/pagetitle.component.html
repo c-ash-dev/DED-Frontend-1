@@ -1,0 +1,8 @@
+<div class="page-title--box">
+     <ng-container *ngIf="showBack">
+          <button igxButton="icon" [(routerLink)]="navLink" igxRipple>
+               <igx-icon>keyboard_backspace</igx-icon>
+          </button>
+     </ng-container>
+     <h3 class="page-title">{{ pageTitle }}</h3>
+</div>

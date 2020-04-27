@@ -1,0 +1,30 @@
+.page-title--box {
+     display:flex;
+     flex-direction:row;
+     align-items:center;
+     margin:0 0 2.5em;
+
+     .page-title {
+          text-align:center;
+          width:100%;
+          font-size:1.75rem;
+          font-weight:600;
+          text-transform: uppercase;
+          line-height:1.4;
+          margin:0;
+          width:100%;
+          flex:none;
+          margin-left:-2.25rem;
+          padding:0 2.5rem;
+     }
+
+     .igx-button--icon {
+
+     }
+
+     @media (min-width:768px) {
+          .page-title {
+               font-size:2.5rem;
+          }
+     }
+}

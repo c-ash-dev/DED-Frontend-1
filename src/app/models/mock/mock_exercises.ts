@@ -12,7 +12,8 @@ export const MockExercises: Exercise[] = [
     created_by: null,
     created_time: new Date(),
     completed_by: null,
-    completed_time: new Date()
+    completed_time: new Date(),
+    sets: []
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ export const MockExercises: Exercise[] = [
     created_by: null,
     created_time: new Date(),
     completed_by: null,
-    completed_time: new Date()
+    completed_time: new Date(),
+    sets: []
   }
 ]

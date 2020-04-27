@@ -5,7 +5,7 @@ export class Workout {
   id: number;
   origin_id: number;
 
-  exercises: Array<Exercise>;
+  exercises: Exercise[];
 
   name: string;
   description: string;

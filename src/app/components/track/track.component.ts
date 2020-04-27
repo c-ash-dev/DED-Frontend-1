@@ -9,12 +9,18 @@ import { MockWorkouts } from 'src/app/models/mock/mock_workouts';
 })
 export class TrackComponent implements OnInit {
 
-  public workouts: Workout[] = MockWorkouts;
+  public workouts: Workout[] = [];
 
   constructor() { }
 
   ngOnInit() {
     
+    // TODO: Replace this with API call
+    MockWorkouts.forEach(workout => {
+      if(workout.completed_time != null){
+        this.workouts.push(workout);
+      }
+    });
   }
 
 }

@@ -20,19 +20,38 @@ export class TrackviewComponent implements OnInit {
   public id: number;
 
   private workout: Workout;
-  private exercises: Exercise[] = MockExercises;
   private sets: Set[] = MockSets;
 
   constructor(private activated_route: ActivatedRoute) {
     this.id = this.activated_route.snapshot.params.id;
     
-    // TODO: Replace this with proper DB call
-    MockWorkouts.forEach(element => {
-      if(this.id == element.id) {
-        this.workout = element;
+    // TODO: Replace this with proper API call
+    MockWorkouts.forEach(workout => {
+      if(workout.id == this.id) {
+        this.workout = workout;
+        this.workout.exercises = [];
+
+        // TODO: Replace this with proper API call
+        MockExercises.forEach(exercise => {
+          if(exercise.workout_id == this.id) {
+            this.workout.exercises.push(exercise);
+            exercise.sets = [];
+
+            // TODO: Replace this with a proper API call
+            MockSets.forEach(set => {
+              if(set.exercise_id == exercise.id) {
+                exercise.sets.push(set);
+              }
+            })
+          }
+        });
+
         return;
       }
     });
+
+    
+    
 
   }
 
