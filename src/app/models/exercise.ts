@@ -4,11 +4,10 @@ import { Set } from './set';
 export class Exercise {
   id: number;
   origin_id: number;
-
-  sets: Array<Set>;
+  workout_id: number;
 
   name: string;
-  type: string;
+  exercise_type: string;
   description: string;
   notes: string;
 
@@ -21,9 +20,8 @@ export class Exercise {
     if (exercise) {
       this.id = exercise.id;
       this.origin_id = exercise.origin_id;
-      this.sets = [];
       this.name = exercise.name;
-      this.type = exercise.type;
+      this.exercise_type = exercise.exercise_type;
       this.description = exercise.description;
       this.notes = exercise.notes;
       this.created_time = exercise.created_time;
@@ -33,15 +31,14 @@ export class Exercise {
     } else {
       this.id = 0;
       this.origin_id = 0;
-      this.sets = [];
       this.name = '';
-      this.type = '';
+      this.exercise_type = '';
       this.description = '';
       this.notes = '';
     }
   }
 
-  public getTypeDropdownItems(): Array<any> {
+  public static getTypeDropdownItems(): Array<any> {
     const items: Array<any> = [
       { field: 'strength' },
       { field: 'cardio' },

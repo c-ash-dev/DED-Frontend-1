@@ -31,6 +31,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TrackviewComponent } from './components/trackview/trackview.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
   { path: 'start', component: StartComponent, canActivate: [AuthGuard]},
   { path: 'track', component: TrackComponent, canActivate: [AuthGuard]},
+  { path: 'track/view/:id', component: TrackviewComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent }
 ];
 
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     CreateworkoutComponent,
     FooterComponent,
     RegisterComponent,
-    HeaderComponent
+    HeaderComponent,
+    TrackviewComponent
   ],
   imports: [
     BrowserModule,

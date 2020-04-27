@@ -22,7 +22,9 @@ html, body {
   line-height:1.4;
   font-family: "Futura, Roboto, Arial, sans-serif"
 }
-
+app-root {
+  width:100%;
+}
 body {
   display:flex;
   flex-direction:column;

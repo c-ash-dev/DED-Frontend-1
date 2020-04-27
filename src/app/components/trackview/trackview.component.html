@@ -1,0 +1,24 @@
+<h3 class="page-title">{{ this.workout.name }}</h3>
+
+<igx-card class="ded-card">
+     <div>{{ this.workout.description }}</div>
+     <div><strong>Completed:</strong> {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}</div>
+
+     <igx-card class="ded-card" *ngFor="let exercise of exercises; let i = index">
+          <igx-expansion-panel class="exercise-panel" [collapsed]="false">
+          
+            <!-- Excercise header -->
+            <igx-expansion-panel-header class="exercise-panel-header">
+              <div class="exercise-info">
+                <h5 class="exercise-name">{{exercise.name}}</h5>
+                <igx-divider [vertical]="true"></igx-divider>
+                <div class="exercise-type">{{exercise.exercise_type}}</div>
+                <igx-divider [vertical]="true"></igx-divider>
+                <div class="exercise-description">{{exercise.description}}</div>
+              </div>
+            </igx-expansion-panel-header>
+        
+            <igx-expansion-panel-body class="exercise-panel-body"></igx-expansion-panel-body>
+          </igx-expansion-panel>
+        </igx-card>
+</igx-card>
