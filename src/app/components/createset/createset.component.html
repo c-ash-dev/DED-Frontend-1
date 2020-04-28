@@ -15,6 +15,7 @@
     <label igxLabel for="goal_reps">Reps</label>
     <input igxInput name="goal_reps" type="number" [(ngModel)]="set.goal_reps" />
   </igx-input-group>
+
   <div class="add-set-button-wrapper">
     <button
       #addSetButton
@@ -25,16 +26,27 @@
   </div>
 </form>
 
-<igx-card #setCard class="ded-card" *ngFor="let set of sets; let i = index">
-  <div class="set-info-container">
-    <div class="set-index">{{i+1}}</div>
-    <div class="set-type">[{{set.type}}]</div>
-    <igx-divider [vertical]="true"></igx-divider>
-    <div class="set-goal-value-and-units">{{set.goal_value}} {{set.units}}</div>
-    <igx-divider [vertical]="true"></igx-divider>
-    <div class="set-goal-reps">{{set.goal_reps}} Reps</div>
-    <button igxButton="icon" igxRipple (click)="removeSet(i)">
-      <igx-icon>clear</igx-icon>
-    </button>
-  </div>
-</igx-card>
+<div class="table-responsive" *ngIf="sets.length">
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width:1.5em;">#</th>
+        <th>Type</th>
+        <th>Goal</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let set of sets; let i = index;">
+        <td>{{ i + 1 }}</td>
+        <td>{{ set.type }}</td>
+        <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
+        <td style="text-align:right;">
+          <button igxButton="icon" igxRipple (click)="removeSet(i)">
+            <igx-icon>clear</igx-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

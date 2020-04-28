@@ -1,5 +1,5 @@
 <div class="page-title--box">
-     <ng-container *ngIf="showBack">
+     <ng-container *ngIf="showBack && navLink != null">
           <button igxButton="icon" [(routerLink)]="navLink" igxRipple>
                <igx-icon>keyboard_backspace</igx-icon>
           </button>
