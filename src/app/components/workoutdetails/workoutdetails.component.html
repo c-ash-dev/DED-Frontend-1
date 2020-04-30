@@ -1,21 +1,72 @@
 <div class="view-workout-title-block">
-  <h3>Workout Routine</h3>
+  <!-- <h3>{{ workout.name }}</h3> -->
 
-<igx-card class="ded-card select-workout">
-  <ul *ngFor="let exercise of exercises">
-    <h4>{{ exercise.name }}</h4>
-    <li><b>Exercise Type:</b> {{ exercise.exercise_type }}</li>
-    <li><b>Description:</b> {{ exercise.description }}</li>
-    <li><b>Notes:</b> {{ exercise.notes }}</li>
-    <!--Not sure if this set information should be it's own component-->
-    <li><b>Type:</b> {{ exercise.exercise_type }}</li>
-  </ul>
+<igx-card class="ded-card select-workout" *ngFor="let exercise of exercises">
+  <div class="workout-table">
+    <table>
+      <caption><h4 class="exerciseName">{{ exercise.name }}</h4></caption>
+      <thead>
+        <tr>
+          <th>Exercise Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ exercise.exercise_type }}</td>
+        <td>{{ exercise.description }}</td>
+      </tr>
+      <tr>
+        <th>Set Type</th>
+        <th>Reps Goal</th>
+        <th>Reps Completed</th>
+        <th>Value</th>
+        <th>Units</th>
+      </tr>
+      <tr>
+        <td>Warmup</td>
+        <td>5 Miles</td>
+        <td>
+          <igx-input-group>
+              <label igxLabel for="actual_reps">Reps</label>
+              <input igxInput name="actual_reps" type="number"/>
+              <!-- [(ngModel)]="set.actual_reps" -->
+            </igx-input-group>
+        </td>
+        <td>
+            <igx-input-group>
+              <label igxLabel for="actual_value">Value</label>
+              <input igxInput name="actual_value" type="number"/>
+              <!-- [(ngModel)]="set.actual_value" -->
+            </igx-input-group>
+        </td>
+        <td>
+            <app-dropdown
+            [itemLabel]="'Units'"
+            [items]="setUnits"
+            (selectedItemEmitter)="receiveSelectedUnits($event)"
+            ></app-dropdown>
+        </td>
+      </tr>
+        <td>
+          <igx-input-group>
+            <label igxLabel for="notes">Notes</label>
+            <input igxInput name="notes" type="text"  />
+          </igx-input-group>
+        </td>
+      </tbody>
+    </table>
+  </div>
 
   <div class="start-button-wrapper">
-    <button
-      igxButton="raised"
-      igxRipple="black"
-      >Start
-    </button>
-  </div>
+      <button
+        igxButton="raised"
+        igxRipple="black"
+        (click)="getWorkoutOriginId"
+        >Complete
+      </button>
+      <!-- (click)="completeExercise()" -->
+    </div>
 </igx-card>
+
+

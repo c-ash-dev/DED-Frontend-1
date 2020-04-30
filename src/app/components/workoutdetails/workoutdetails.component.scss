@@ -15,6 +15,22 @@
   }
 }
 
+.workout-table {
+  table {
+    border-collapse:collapse;
+    line-height:1;
+    width:100%;
+
+    td, th {
+        padding:1em;
+    }
+  }
+
+  h4.exerciseName {
+    text-align: center;
+  }
+}
+
 .select-workout {
   cursor: pointer;
 }
@@ -22,4 +38,8 @@
 .start-button-wrapper {
   @include igx-button($ded-standard-button-theme);
   margin: 5px;
+}
+
+button {
+  float: right;
 }

@@ -10,8 +10,12 @@ import { Workout } from '../../models/workout';
 
 export class SelectWorkoutComponent implements OnInit {
 
-  workouts = MockWorkouts;
+  public workouts: Workout[] = MockWorkouts;
   selectedWorkout: Workout;
+  // workouts = WORKOUTS;
+  // selectedWorkout: Workout;
+  // { id } = WORKOUTS;
+
 
   constructor() {
 
@@ -19,10 +23,6 @@ export class SelectWorkoutComponent implements OnInit {
 
   ngOnInit() {
 
-  }
-
-  onSelect(workout: Workout): void {
-    this.selectedWorkout = workout;
   }
 
 }
