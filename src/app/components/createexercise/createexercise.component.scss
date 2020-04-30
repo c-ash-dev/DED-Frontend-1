@@ -3,30 +3,63 @@
 
 .create-exercise-form {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  flex-direction:column;
+  
   width: 100%;
 
-  > .exercise-name-input {
-    width: 15%;
-    margin: 5px;
+  .button__black,
+  .button__black button {
+    width:100%;
   }
-  > .exercise-type-dropdown {
-    width: 10%;
-    margin: 5px;
+
+  @media (min-width:768px) {
+    & {
+      flex-direction:row;
+      align-items: flex-end;
+    }
+    .button__black {
+      flex:none;
+      width:auto;
+      margin:0 0.25em;
+      margin-bottom:1em;
+    }
   }
-  > .exercise-description-input {
-    width: 50%;
-    margin: 5px;
+}
+
+.exercise-description {
+  flex:1;
+  margin:0 0.25em 1em;
+}
+
+.create-exercise-group {
+  
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  align-items:flex-end;
+
+  app-dropdown,
+  igx-input-group  {
+    margin:0 0.25em 1em;
   }
-  > .add-exercise-button-wrapper {
-    @include igx-button($ded-standard-button-theme);
-    margin: 5px;
+  app-dropdown {
+    flex:none;
+    width:8em;
+  }
+  igx-input-group {
+    flex:1;
+  }
+
+  @media (min-width:768px) {
+    & {
+      flex:2;
+      width:auto;
+    }
   }
 }
 
 .exercise-panel-body {
-  padding:2em;
+  padding:2em 1em;
 
   > h6 {
     font-weight: 600;
@@ -35,5 +68,11 @@
     border-bottom:1px solid #ddd;
     margin:0 0 0.75em;
     padding:0 0 0.75em;
+  }
+
+  @media (min-width:768px) {
+    & {
+      padding:2em;
+    }
   }
 }

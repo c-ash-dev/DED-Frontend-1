@@ -1,22 +1,29 @@
 <form class="create-set-form">
-  <app-dropdown [itemLabel]="'type'" [items]="setTypes" (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
+  <div class="create-set-group">
+    <app-dropdown 
+      [itemLabel]="'type'" 
+      [items]="setTypes"
+      (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
 
-  <igx-input-group>
-    <label igxLabel for="goal_value">Value</label>
-    <input igxInput name="goal_value" type="number" [(ngModel)]="set.goal_value" />
-  </igx-input-group>
+    <igx-input-group>
+      <label igxLabel for="goal_reps">Reps</label>
+      <input igxInput name="goal_reps" type="number" [(ngModel)]="set.goal_reps" />
+    </igx-input-group>
+  </div>
 
-  <app-dropdown
-    [itemLabel]="'units'"
-    [items]="setUnits"
-    (selectedItemEmitter)="receiveSelectedUnits($event)"></app-dropdown>
+  <div class="create-set-group">
+    <app-dropdown
+      [itemLabel]="'units'"
+      [items]="setUnits"
+      (selectedItemEmitter)="receiveSelectedUnits($event)"></app-dropdown>
+    
+      <igx-input-group>
+        <label igxLabel for="goal_value">Value</label>
+        <input igxInput name="goal_value" type="number" [(ngModel)]="set.goal_value" />
+      </igx-input-group>
+  </div>
 
-  <igx-input-group>
-    <label igxLabel for="goal_reps">Reps</label>
-    <input igxInput name="goal_reps" type="number" [(ngModel)]="set.goal_reps" />
-  </igx-input-group>
-
-  <div class="add-set-button-wrapper">
+  <div class="button__black">
     <button
       #addSetButton
       igxButton="raised"
@@ -26,27 +33,26 @@
   </div>
 </form>
 
-<div class="table-responsive" *ngIf="sets.length">
-  <table class="table">
-    <thead>
-      <tr>
-        <th style="width:1.5em;">#</th>
-        <th>Type</th>
-        <th>Goal</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let set of sets; let i = index;">
-        <td>{{ i + 1 }}</td>
-        <td>{{ set.type }}</td>
-        <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
-        <td style="text-align:right;">
-          <button igxButton="icon" igxRipple (click)="removeSet(i)">
-            <igx-icon>clear</igx-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+<table class="table" *ngIf="sets.length">
+  <thead>
+    <tr>
+      <th style="width:1.5em;">#</th>
+      <th>Type</th>
+      <th>Goal</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let set of sets; let i = index;">
+      <td>{{ i + 1 }}</td>
+      <td>{{ set.type }}</td>
+      <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
+      <td style="text-align:right;">
+        <button igxButton="icon" igxRipple (click)="removeSet(i)">
+          <igx-icon>clear</igx-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

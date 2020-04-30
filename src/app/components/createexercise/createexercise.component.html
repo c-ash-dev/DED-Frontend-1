@@ -1,21 +1,22 @@
 <form class="create-exercise-form">
-  <igx-input-group class="exercise-name-input">
-    <label igxLabel for="name">Name</label>
-    <input igxInput name="name" type="text" [(ngModel)]="exercise.name" />
-  </igx-input-group>
+  <div class="create-exercise-group">
+    <igx-input-group>
+      <label igxLabel for="name">Name</label>
+      <input igxInput name="name" type="text" [(ngModel)]="exercise.name" />
+    </igx-input-group>
 
-  <app-dropdown 
-    class="exercise-type-dropdown" 
-    [itemLabel]="'Type'" 
-    [items]="exerciseTypes" 
-    (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
+    <app-dropdown 
+      [itemLabel]="'Type'" 
+      [items]="exerciseTypes" 
+      (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
+  </div>
 
-  <igx-input-group class="exercise-description-input">
+  <igx-input-group class="exercise-description">
     <label igxLabel for="description">Description</label>
     <input igxInput name="description" type="text" [(ngModel)]="exercise.description" />
   </igx-input-group>
 
-  <div class="add-exercise-button-wrapper">
+  <div class="button__black">
     <button #addExerciseButton 
       igxButton="raised" 
       igxRipple="black" 
@@ -37,10 +38,10 @@
         <div class="einfo einfo__type">{{exercise.exercise_type}}</div>
         <igx-divider [vertical]="true"></igx-divider>
         <div class="einfo einfo__description">{{exercise.description}}</div>
-        <button igxButton="icon" igxRipple (click)="removeExercise(i)">
-          <igx-icon>clear</igx-icon>
-        </button>
       </div>
+      <button igxButton="icon" igxRipple (click)="removeExercise(i)">
+        <igx-icon>clear</igx-icon>
+      </button>
     </igx-expansion-panel-header>
 
     <!-- Excercise sets -->
