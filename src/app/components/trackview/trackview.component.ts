@@ -19,8 +19,8 @@ export class TrackviewComponent implements OnInit {
 
   public id: number;
 
-  private workout: Workout;
-  private sets: Set[] = MockSets;
+  public workout: Workout;
+  public sets: Set[] = MockSets;
 
   constructor(private activated_route: ActivatedRoute) {
     this.id = this.activated_route.snapshot.params.id;
