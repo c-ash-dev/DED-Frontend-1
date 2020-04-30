@@ -8,8 +8,8 @@ import { Workout } from 'src/app/models/workout';
 })
 export class CreateworkoutComponent implements OnInit {
   public workout: Workout;
-  private workoutName: string;
-  private workoutDesc: string;
+  public workoutName: string;
+  public workoutDesc: string;
 
   constructor() {
   }
