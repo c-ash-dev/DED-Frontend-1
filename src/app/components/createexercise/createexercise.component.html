@@ -1,21 +1,22 @@
 <form class="create-exercise-form">
-  <igx-input-group class="exercise-name-input">
-    <label igxLabel for="name">Name</label>
-    <input igxInput name="name" type="text" [(ngModel)]="exercise.name" />
-  </igx-input-group>
+  <div class="create-exercise-group">
+    <igx-input-group>
+      <label igxLabel for="name">Name</label>
+      <input igxInput name="name" type="text" [(ngModel)]="exercise.name" />
+    </igx-input-group>
 
-  <app-dropdown 
-    class="exercise-type-dropdown" 
-    [itemLabel]="'Type'" 
-    [items]="exerciseTypes" 
-    (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
+    <app-dropdown 
+      [itemLabel]="'Type'" 
+      [items]="exerciseTypes" 
+      (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
+  </div>
 
-  <igx-input-group class="exercise-description-input">
+  <igx-input-group class="exercise-description">
     <label igxLabel for="description">Description</label>
     <input igxInput name="description" type="text" [(ngModel)]="exercise.description" />
   </igx-input-group>
 
-  <div class="add-exercise-button-wrapper">
+  <div class="button__black">
     <button #addExerciseButton 
       igxButton="raised" 
       igxRipple="black" 
@@ -24,27 +25,28 @@
   </div>
 </form>
 
+<hr *ngIf="exercises.length > 0" />
 
-<igx-card class="ded-card" *ngFor="let exercise of exercises; let i = index">
+<igx-card class="exercise-card" *ngFor="let exercise of exercises; let i = index">
   <igx-expansion-panel class="exercise-panel" [collapsed]="false">
 
     <!-- Excercise header -->
     <igx-expansion-panel-header class="exercise-panel-header">
-      <div class="exercise-info">
-        <h5 class="exercise-name">{{exercise.name}}</h5>
+      <div class="einfo--container">
+        <h5 class="einfo einfo__name">{{exercise.name}}</h5>
         <igx-divider [vertical]="true"></igx-divider>
-        <div class="exercise-type">{{exercise.exercise_type}}</div>
+        <div class="einfo einfo__type">{{exercise.exercise_type}}</div>
         <igx-divider [vertical]="true"></igx-divider>
-        <div class="exercise-description">{{exercise.description}}</div>
-        <button igxButton="icon" igxRipple (click)="removeExercise(i)">
-          <igx-icon>clear</igx-icon>
-        </button>
+        <div class="einfo einfo__description">{{exercise.description}}</div>
       </div>
+      <button igxButton="icon" igxRipple (click)="removeExercise(i)">
+        <igx-icon>clear</igx-icon>
+      </button>
     </igx-expansion-panel-header>
 
     <!-- Excercise sets -->
     <igx-expansion-panel-body class="exercise-panel-body">
-      <h6>Sets ({{exercise.sets.length}})</h6>
+      <h6>Sets</h6>
       <app-createset [sets]="exercise.sets"></app-createset>
     </igx-expansion-panel-body>
   </igx-expansion-panel>

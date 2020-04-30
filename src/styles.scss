@@ -25,12 +25,12 @@ html, body {
 }
 app-root {
   width:100%;
+  flex:1 0 auto;
 }
 body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
 
   padding:6rem 0; /* For header and footer */
 }
@@ -105,12 +105,13 @@ hr {
 /* TABLES */
 .table-responsive {
   width:100%;
-  padding:1rem;
   overflow-x:auto;
+}
+.table-responsive .table {
+  min-width:768px;
 }
 .table {
   width:100%;
-  min-width:768px;
   border-collapse: collapse;
   border-radius:4px;
   overflow:hidden;
@@ -137,3 +138,68 @@ hr {
   }
 }
 /* END TABLES */
+
+/* EXERCISES */
+.exercise-panel-header {
+  border-bottom:1px solid #ddd;
+}
+.einfo--container {
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: space-between;
+  
+  padding:0.5em 0; 
+  width: 100%;
+  line-height:1;
+
+  .igx-divider--vertical {
+    align-self:stretch;
+  }
+
+  .einfo {
+    display:block;
+    line-height:1;
+    margin:0 0 0.5em;
+    text-align:center;
+  }
+  .einfo:last-child {
+    margin-bottom:0;
+  }
+  .einfo__name {
+       font-weight: 600;
+  }
+  .einfo__description {
+       color: $ded-gray;
+  }
+
+  @media (min-width:768px) {
+       & {
+            flex-direction:row;
+       }
+       .einfo {
+            padding:0 0.75em;
+            line-height:1;
+            margin:0;
+            text-align:left;
+       }
+       .einfo__name {
+            font-size:1.125em;
+            flex: 1 1 20%;
+       }
+       .einfo__type {
+            width:6em;
+            flex:none;
+            text-align:center;
+       }
+       .einfo__description {
+            flex:2 1 20%;
+       }
+       .einfo__completed {
+            width:8em;
+            flex:none;
+            text-align:right;
+       }
+  }
+}
+/* END EXERCISES */

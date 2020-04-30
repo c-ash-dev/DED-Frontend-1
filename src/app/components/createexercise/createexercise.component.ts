@@ -26,6 +26,7 @@ export class CreateexerciseComponent implements OnInit {
 
   public addExercise() {
     const newExercise = new Exercise(this.exercise);
+    newExercise.sets = [];
     this.exercises.push(newExercise);
   }
 
