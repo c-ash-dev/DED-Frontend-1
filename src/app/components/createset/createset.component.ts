@@ -8,7 +8,7 @@ import { Set } from 'src/app/models/set';
 })
 export class CreatesetComponent implements OnInit {
   // Array of sets (will eventually get passed in from Exercise)
-  @Input() sets: Array<Set>;
+  @Input() sets: Set[];
 
   // Current new set being created by user
   public set: Set;
@@ -18,8 +18,8 @@ export class CreatesetComponent implements OnInit {
 
   constructor() {
     this.set = new Set();
-    this.setTypes = this.set.getTypeDropdownItems();
-    this.setUnits = this.set.getUnitsDropdownItems();
+    this.setTypes = Set.getTypeDropdownItems();
+    this.setUnits = Set.getUnitsDropdownItems();
   }
 
   public receiveSelectedType($event: string) {

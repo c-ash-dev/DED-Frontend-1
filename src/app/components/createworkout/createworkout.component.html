@@ -5,24 +5,25 @@
   <div class="create-workout-form">
     <igx-input-group class="workout-input">
       <label igxLabel for="name">Workout Name</label>
-      <input igxInput name="name" type="text" [(ngModel)]="workout.name" />
+      <input igxInput name="name" type="text" [disabled]="workout != null" [(ngModel)]="workoutName" />
     </igx-input-group>
 
     <igx-input-group class="workout-input">
       <label igxLabel for="description">Description</label>
-      <input igxInput description="description" type="text" [(ngModel)]="workout.description" />
+      <input igxInput description="description" type="text" [disabled]="workout != null" [(ngModel)]="workoutDesc" />
     </igx-input-group>
 
     <div class="save-workout-button-wrapper">
       <button #saveWorkoutButton 
         igxButton="raised" 
         igxRipple="black" 
-        [disabled]="!(workout.name && workout.exercises.length)">Save New Workout</button>
+        [disabled]="!workoutName || workout != null"
+        (click)="createWorkout()">Create Workout</button>
     </div>
   </div>
 </igx-card>
 
-<igx-card class="ded-card">
-  <h5 class="card-header">Exercises ({{workout.exercises.length}})</h5>
+<igx-card class="ded-card" *ngIf="workout != null">
+  <h5 class="card-header">Exercises ({{ workout.exercises.length }})</h5>
   <app-createexercise [exercises]="workout.exercises"></app-createexercise>
 </igx-card>

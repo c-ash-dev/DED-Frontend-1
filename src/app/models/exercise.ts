@@ -6,8 +6,6 @@ export class Exercise {
   origin_id: number;
   workout_id: number;
 
-  sets: Set[];
-
   name: string;
   exercise_type: string;
   description: string;
@@ -18,11 +16,12 @@ export class Exercise {
   created_by: User;
   completed_by: User;
 
+  sets: Set[];
+
   constructor( exercise: Exercise = null) {
     if (exercise) {
       this.id = exercise.id;
       this.origin_id = exercise.origin_id;
-      this.sets = [];
       this.name = exercise.name;
       this.exercise_type = exercise.exercise_type;
       this.description = exercise.description;
@@ -31,11 +30,9 @@ export class Exercise {
       this.completed_time = exercise.completed_time;
       this.created_by = exercise.completed_by;
       this.completed_by = exercise.completed_by;
-    } 
-    else {
+    } else {
       this.id = 0;
       this.origin_id = 0;
-      this.sets = [];
       this.name = '';
       this.exercise_type = '';
       this.description = '';

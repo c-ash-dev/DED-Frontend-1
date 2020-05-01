@@ -33,6 +33,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SelectWorkoutComponent } from './components/selectworkout/selectworkout.component';
 import { WorkoutDetailsComponent } from './components/workoutdetails/workoutdetails.component';
+import { TrackviewComponent } from './components/trackview/trackview.component';
+import { PageTitleComponent } from './components/pagetitle/pagetitle.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -40,8 +42,9 @@ const appRoutes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
   { path: 'start', component: StartComponent, canActivate: [AuthGuard]},
   { path: 'track', component: TrackComponent, canActivate: [AuthGuard]},
-  { path: 'register', component: RegisterComponent },
   { path: 'workout', component: WorkoutDetailsComponent}
+  { path: 'track/view/:id', component: TrackviewComponent, canActivate: [AuthGuard]},
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -59,9 +62,11 @@ const appRoutes: Routes = [
     CreateworkoutComponent,
     FooterComponent,
     RegisterComponent,
-    HeaderComponent,
     SelectWorkoutComponent,
     WorkoutDetailsComponent
+    HeaderComponent,
+    TrackviewComponent,
+    PageTitleComponent
   ],
   imports: [
     BrowserModule,

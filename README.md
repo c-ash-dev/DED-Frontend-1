@@ -1,6 +1,6 @@
 # DED - Daily Exercise Diary
 ## README for Front End Application (Angular)
-### CSCI 5828 Spring 2020
+### CSCI 5828 Spring 2020 
 #### Morgan Allen, Alex Costinesuc, Bryce Verdier, Dwight Browne, Christopher Ash
 ---
 Backend code repo can be found [HERE](https://github.com/coloradocollective/DED_Backend)
