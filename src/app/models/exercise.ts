@@ -30,6 +30,7 @@ export class Exercise {
       this.completed_time = exercise.completed_time;
       this.created_by = exercise.completed_by;
       this.completed_by = exercise.completed_by;
+      this.sets = exercise.sets;
     } else {
       this.id = 0;
       this.origin_id = 0;
