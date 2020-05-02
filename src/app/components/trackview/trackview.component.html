@@ -5,9 +5,9 @@
     <strong>Description: </strong>
     {{ this.workout.description }}
   </div>
-  <div *ngIf="this.workout.note">
+  <div *ngIf="this.workout.notes">
     <strong>Notes: </strong>
-    {{ this.workout.note }}
+    {{ this.workout.notes }}
   </div>
   <div>
     <strong>Completed: </strong> 
@@ -34,9 +34,9 @@
   
       <igx-expansion-panel-body class="exercise-panel-body">
         <!-- Exercise Notes -->
-        <div class="exercise-notes" *ngIf="exercise.note">
+        <div class="exercise-notes" *ngIf="exercise.notes">
           <strong>Notes: </strong>
-          {{ exercise.note }}
+          {{ exercise.notes }}
         </div>
 
         <div class="table-responsive" *ngIf="exercise.sets.length > 0">
