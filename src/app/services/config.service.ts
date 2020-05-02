@@ -2,11 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface Config {
-  sets: string;
-  setsNew: string;
-  setsCompleted: string;
-  setsFindByOriginId: string;
-  setsFindByExerciseId: string;
+  setsUrl: string;
+  setsNewUrl: string;
+  setsCompletedUrl: string;
+  setsFindByOriginIdUrl: string;
+  setsFindByExerciseIdUrl: string;
+
+  exercisesUrl: string;
+  exercisesNewUrl: string;
+  exercisesCompletedUrl: string;
+  exercisesFindByOriginIdUrl: string;
+  exercisesFindByWorkoutIdUrl: string;
+
+  workoutsUrl: string;
+  workoutsNewUrl: string;
+  workoutsCompletedUrl: string;
+  workoutsFindByOriginIdUrl: string;
+  workoutsFindByUserIdUrl: string;
 }
 
 @Injectable({
