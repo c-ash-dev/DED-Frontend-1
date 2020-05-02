@@ -1,21 +1,5 @@
 @import "../../../assets/ded-styles.scss";
 
-.set-info-container {
-     display: flex;
-     justify-content: space-between;
-
-     > .set-index{
-          font-weight: bold;
-          margin: 5px;
-     }
-     > .set-type {
-          font-size: small;
-          margin: 5px;
-     }
-     > .set-goal-value-and-units {
-          margin: 5px;
-     }
-     > .set-goal-reps {
-          margin: 5px;
-     }
+.exercise-notes {
+     padding:1rem;
 }
