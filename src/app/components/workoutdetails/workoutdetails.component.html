@@ -1,0 +1,71 @@
+<ded-pagetitle navLink="/start" pageTitle="{{ workout.name }}"></ded-pagetitle>
+
+<igx-card class="ded-card">
+  <igx-card class="exercise-card" *ngFor="let exercise of workout.exercises; let i = index">
+
+    <igx-expansion-panel class="exercise-panel" [collapsed]="true">
+      <igx-expansion-panel-header class="exercise-panel-header">
+        <div class="einfo--container">
+          <h5 class="einfo einfo__name"> {{ exercise.name }}</h5>
+          <igx-divider [vertical]="true"></igx-divider>
+          <div class="einfo einfo__type">{{ exercise.exercise_type }}</div>
+          <igx-divider [vertical]="true"></igx-divider>
+          <div class="einfo einfo__description">{{ exercise.description }}</div>
+        </div>
+      </igx-expansion-panel-header>
+
+      <igx-expansion-panel-body class="exercise-panel-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="1.5em">#</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Goal</th>
+                <th>Completed</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let set of exercise.sets; let i = index">
+                <td> {{ i + 1 }}</td>
+                <td>{{ set.type }}</td>
+                <td>{{ set.description }}</td>
+                <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
+                <td>
+                  <igx-input-group>
+                      <label igxLabel for="actual_reps">Reps</label>
+                      <input igxInput name="actual_reps" [(ngModel)]="set.actual_reps" type="number"/>
+                  </igx-input-group>
+                </td>
+                <td>
+                  <igx-input-group>
+                      <label igxLabel for="actual_value">{{ set.units }}</label>
+                      <input igxInput name="actual_value" [(ngModel)]="set.actual_value" type="number" />
+                  </igx-input-group>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bottom">
+          <div>
+              <igx-input-group>
+                  <label igxLabel for="notes">Notes</label>
+                  <input igxInput name="notes" type="text"  />
+              </igx-input-group>
+          </div>
+          <br />
+          <div class="button__black complete">
+              <button
+                igxButton="raised"
+                igxRipple="black">Complete
+              </button>
+              <!-- (click)="completeExercise()" -->
+          </div>
+        </div>
+      </igx-expansion-panel-body>
+    </igx-expansion-panel>
+  </igx-card>
+</igx-card>

@@ -1,14 +1,24 @@
 <ded-pagetitle navLink="/track" pageTitle="{{ this.workout.name }}"></ded-pagetitle>
 
 <igx-card class="ded-card">
-  <div>{{ this.workout.description }}</div>
-  <div><strong>Completed:</strong> {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}</div>
+  <div>
+    <strong>Description: </strong>
+    {{ this.workout.description }}
+  </div>
+  <div *ngIf="this.workout.notes">
+    <strong>Notes: </strong>
+    {{ this.workout.notes }}
+  </div>
+  <div>
+    <strong>Completed: </strong> 
+    {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
+  </div>
 
   <hr />
 
   <igx-card class="exercise-card" *ngFor="let exercise of this.workout.exercises; let i = index">
     <igx-expansion-panel class="exercise-panel" [collapsed]="true">
-    
+
       <!-- Excercise header -->
       <igx-expansion-panel-header class="exercise-panel-header">
         <div class="einfo--container">
@@ -23,7 +33,13 @@
       </igx-expansion-panel-header>
   
       <igx-expansion-panel-body class="exercise-panel-body">
-        <div class="table-responsive">
+        <!-- Exercise Notes -->
+        <div class="exercise-notes" *ngIf="exercise.notes">
+          <strong>Notes: </strong>
+          {{ exercise.notes }}
+        </div>
+
+        <div class="table-responsive" *ngIf="exercise.sets.length > 0">
           <table class="table">
             <thead>
               <tr>
