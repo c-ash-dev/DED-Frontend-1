@@ -42,7 +42,7 @@ const appRoutes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
   { path: 'start', component: StartComponent, canActivate: [AuthGuard]},
   { path: 'track', component: TrackComponent, canActivate: [AuthGuard]},
-  { path: 'workout', component: WorkoutDetailsComponent}
+  { path: 'workout/:id', component: WorkoutDetailsComponent},
   { path: 'track/view/:id', component: TrackviewComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent }
 ];
@@ -63,7 +63,7 @@ const appRoutes: Routes = [
     FooterComponent,
     RegisterComponent,
     SelectWorkoutComponent,
-    WorkoutDetailsComponent
+    WorkoutDetailsComponent,
     HeaderComponent,
     TrackviewComponent,
     PageTitleComponent

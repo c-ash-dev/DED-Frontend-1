@@ -1,11 +1,14 @@
 @import "../../../assets/ded-styles.scss";
 
-.select-workout {
-  cursor: pointer;
-}
+.workout-table {
+  table {
+       border-collapse:collapse;
+       line-height:1;
+       width:100%;
 
-.start-button-wrapper {
-  @include igx-button($ded-standard-button-theme);
-  margin: 5px;
+       td, th {
+            padding:1em;
+       }
+  }
 }
 
