@@ -63,7 +63,7 @@ export class AuthenticationService {
 
     let data = {
       "username": username,
-      "fname": name,
+      "name": name,
       "email": email,
       "passwd": password
     }

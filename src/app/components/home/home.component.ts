@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     testSetReq.exercise_id = 1;
     testSetReq.goal_reps = 10;
     testSetReq.goal_value = 10;
+    testSetReq.origin_id = -1;
     testSetReq.description = "test description";
     testSetReq.style = "normal";
     testSetReq.unit = "lbs";

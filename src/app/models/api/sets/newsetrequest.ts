@@ -5,6 +5,9 @@ export class NewSetRequest {
   goal_value: number;
   unit: string;
   description: string;
+  origin_id: number;
 
-  constructor() { }
+  constructor() { 
+    this.origin_id = -1;
+  }
 }

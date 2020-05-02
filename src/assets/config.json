@@ -1,18 +1,18 @@
 {
-  "setsUrl": "/sets",
-  "setsNewUrl": "/sets/new",
+  "setsUrl": "/sets/",
+  "setsNewUrl": "/sets/new/",
   "setsCompletedUrl": "/sets/completed/",
   "setsFindByOriginIdUrl": "/sets/find_by_origin_id/",
   "setsFindByExerciseIdUrl": "/sets/find_by_exercise_id/",
 
-  "exercisesUrl": "/exercises",
-  "exercisesNewUrl": "/exercises/new",
+  "exercisesUrl": "/exercises/",
+  "exercisesNewUrl": "/exercises/new/",
   "exercisesCompletedUrl": "/exercises/completed/",
   "exercisesFindByOriginIdUrl": "/exercises/find_by_origin_id/",
   "exercisesFindByWorkoutIdUrl": "/exercises/find_by_workout_id/",
 
-  "workoutsUrl": "/workouts",
-  "workoutsNewUrl": "/workouts/new",
+  "workoutsUrl": "/workouts/",
+  "workoutsNewUrl": "/workouts/new/",
   "workoutsCompletedUrl": "/workouts/completed/",
   "workoutsFindByOriginIdUrl": "/workouts/find_by_origin_id/",
   "workoutsFindByUserIdUrl": "/workouts/find_by_user_id/"
