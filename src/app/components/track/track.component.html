@@ -1,1 +1,40 @@
-<p>track works!</p>
+<ded-pagetitle navLink="/home" pageTitle="Completed Workouts"></ded-pagetitle>
+
+<igx-card class="ded-card">
+     <div class="table-responsive">
+          <table class="table">
+               <thead>
+                    <tr>
+                         <th>Name</th>
+                         <th>Description</th>
+                         <th>Created</th>
+                         <th>Completed</th>
+                         <th></th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr *ngFor="let workout of this.workouts">
+                         <td>
+                              {{ workout.name }}
+                         </td>
+                         <td>
+                              {{ workout.description }}
+                         </td>
+                         <td>
+                              {{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString()}}
+                         </td>
+                         <td>
+                              <ng-container *ngIf="workout.completed_time != null">
+                                   {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
+                              </ng-container>
+                         </td>
+                         <td style="text-align:right;">
+                              <div class="button__black">
+                                   <button igxButton="raised" igxRipple="black" [routerLink]="'/track/view/' + workout.id">View</button>
+                              </div>
+                         </td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
+</igx-card>

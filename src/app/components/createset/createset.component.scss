@@ -1,41 +1,51 @@
-@import "../../../assets/ded-styles.scss";
-
 .create-set-form {
   display: flex;
-  align-items: flex-end;
+  flex-direction:column;
+  align-items:flex-end;
   width: 100%;
 
-  > app-dropdown {
+  .button__black,
+  .button__black button {
+    width:100%;
+  }
+  .button__black {
+    margin:0 0 1em;
+  }
+  
+
+  @media (min-width:768px) {
+    & {
+      flex-direction:row;
+    }
+    .button__black {
+      width:auto;
+      margin:0 0.25em 1em;
+    }
+  }
+}
+
+.create-set-group {
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  align-items:flex-end;
+  margin:0 0 1em;
+
+  app-dropdown {
     flex:1;
-    margin:5px;
+    margin:0 0.25em;
   }
-  > igx-input-group {
-    width: 5%;
-    margin: 5px;
+  igx-input-group {
+    flex:none;
+    width: 3em;
+    margin: 0 0.25em;
   }
-  > .add-set-button-wrapper {
-    @include igx-button($ded-standard-button-theme);
-    margin: 5px;
+  
+
+  @media (min-width:768px){
+    & {
+      flex:1;
+      width:auto;
+    }
   }
 }
-
-.set-info-container {
-  display: flex;
-  justify-content: space-between;
-
-  > .set-index{
-    font-weight: bold;
-    margin: 5px;
-  }
-  > .set-type {
-    font-size: small;
-    margin: 5px;
-  }
-  > .set-goal-value-and-units {
-    margin: 5px;
-  }
-  > .set-goal-reps {
-    margin: 5px;
-  }
-}
-
