@@ -1,0 +1,26 @@
+<igx-card class="ded-card">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Created</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workout of workouts">
+          <td>{{ workout.name }}</td>
+          <td>{{ workout.description }}</td>
+          <td>{{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString() }}</td>
+          <td style="text-align:right">
+            <div class="button__black">
+              <button igxButton="raised" igxRipple="black" [routerLink]="'/workout/' + workout.id">Start</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</igx-card>
