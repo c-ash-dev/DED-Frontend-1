@@ -25,7 +25,7 @@
                 <th>Goal</th>
                 <th>Completed</th>
                 <th></th>
-                <th></th>
+                <th>Units</th>
               </tr>
             </thead>
             <tbody>
@@ -48,13 +48,7 @@
                       [(ngModel)]="set.actual_value"
                   </igx-input-group>
                 </td>
-                <td>
-                    <app-dropdown
-                    [itemLabel]="'Units'"
-                    [items]="setUnits"
-                    (selectedItemEmitter)="receiveSelectedUnits($event)"
-                    ></app-dropdown>
-                </td>
+                <td>{{ set.units }}</td>
               </tr>
             </tbody>
           </table>

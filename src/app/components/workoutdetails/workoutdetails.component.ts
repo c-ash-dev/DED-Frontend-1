@@ -24,7 +24,6 @@ export class WorkoutDetailsComponent implements OnInit {
   public workout: Workout;
   public sets: Set[] = MockSets;
 
-
   constructor(private activated_route: ActivatedRoute){
     this.id = this.activated_route.snapshot.params.id;
     this.setUnits = Set.getUnitsDropdownItems();
@@ -54,12 +53,5 @@ export class WorkoutDetailsComponent implements OnInit {
       }
     });
   }
-
-
-
-  // public receiveSelectedUnits($event: string) {
-  //   this.sets.units = $event;
-  // }
-
   ngOnInit() {}
 }
