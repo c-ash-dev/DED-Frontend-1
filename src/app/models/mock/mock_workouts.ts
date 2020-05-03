@@ -10,8 +10,7 @@ export const MockWorkouts: Workout[] = [
     notes: null,
     created_time: new Date(),
     created_by: null,
-    completed_time: new Date(),
-    completed_by: null
+    completed_time: new Date()
   },
   {
     id: 2,
@@ -22,8 +21,7 @@ export const MockWorkouts: Workout[] = [
     notes: null,
     created_time: new Date(),
     created_by: null,
-    completed_time: null,
-    completed_by: null
+    completed_time: null
   },
   {
     id: 3,
@@ -34,8 +32,7 @@ export const MockWorkouts: Workout[] = [
     notes: null,
     created_time: new Date(),
     created_by: null,
-    completed_time: null,
-    completed_by: null
+    completed_time: null
   },
   {
     id: 4,
@@ -46,8 +43,7 @@ export const MockWorkouts: Workout[] = [
     notes: null,
     created_time: new Date(),
     created_by: null,
-    completed_time: null,
-    completed_by: null
+    completed_time: null
   },
   {
     id: 5,
@@ -58,7 +54,6 @@ export const MockWorkouts: Workout[] = [
     notes: null,
     created_time: new Date(),
     created_by: null,
-    completed_time: new Date(),
-    completed_by: null
+    completed_time: new Date()
   },
 ]

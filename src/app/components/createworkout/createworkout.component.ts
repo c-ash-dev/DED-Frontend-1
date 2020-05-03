@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Workout } from 'src/app/models/workout';
+import { WorkoutsService } from 'src/app/services/workouts.service';
+import { NewWorkoutRequest } from 'src/app/models/api/workouts/newworkoutrequest';
+import { NewWorkout } from 'src/app/models/api/workouts/newworkout';
 
 @Component({
   selector: 'app-createworkout',
@@ -11,16 +15,27 @@ export class CreateworkoutComponent implements OnInit {
   public workoutName: string;
   public workoutDesc: string;
 
-  constructor() {
+  constructor(private workoutService: WorkoutsService) {
   }
 
   ngOnInit() {
   }
 
   createWorkout() {
-    this.workout = new Workout();
-    this.workout.name = this.workoutName;
-    this.workout.description = this.workoutDesc;
+    const workoutReq = new NewWorkoutRequest();
+    workoutReq.user_id = +localStorage.getItem("logged-in");
+    workoutReq.name = this.workoutName;
+
+    if(this.workoutDesc) {
+      workoutReq.description = this.workoutDesc;
+    }
+    else {
+      workoutReq.description = "";
+    }
+
+    this.workoutService.createWorkout(workoutReq).subscribe((createResponse: Workout) => {
+      this.workout = new Workout(createResponse);
+    });
   }
 
 }

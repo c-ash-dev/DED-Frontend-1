@@ -30,9 +30,9 @@
             <tbody>
               <tr *ngFor="let set of exercise.sets; let i = index">
                 <td> {{ i + 1 }}</td>
-                <td>{{ set.type }}</td>
+                <td>{{ set.style }}</td>
                 <td>{{ set.description }}</td>
-                <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
+                <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.unit }}</td>
                 <td>
                   <igx-input-group>
                       <label igxLabel for="actual_reps">Reps</label>
@@ -41,7 +41,7 @@
                 </td>
                 <td>
                   <igx-input-group>
-                      <label igxLabel for="actual_value">{{ set.units }}</label>
+                      <label igxLabel for="actual_value">{{ set.unit }}</label>
                       <input igxInput name="actual_value" [(ngModel)]="set.actual_value" type="number" />
                   </igx-input-group>
                 </td>

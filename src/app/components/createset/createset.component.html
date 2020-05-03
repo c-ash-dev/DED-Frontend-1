@@ -1,7 +1,7 @@
 <form class="create-set-form">
   <div class="create-set-group">
     <app-dropdown 
-      [itemLabel]="'type'" 
+      [itemLabel]="'Type'" 
       [items]="setTypes"
       (selectedItemEmitter)="receiveSelectedType($event)"></app-dropdown>
 
@@ -13,7 +13,7 @@
 
   <div class="create-set-group">
     <app-dropdown
-      [itemLabel]="'units'"
+      [itemLabel]="'Units'"
       [items]="setUnits"
       (selectedItemEmitter)="receiveSelectedUnits($event)"></app-dropdown>
     
@@ -28,13 +28,13 @@
       #addSetButton
       igxButton="raised"
       igxRipple="black"
-      [disabled]="!(set.type && set.goal_value && set.units && set.goal_reps)"
+      [disabled]="!(set.style && set.goal_value && set.unit && set.goal_reps)"
       (click)="addSet()">Add Set to Exercise</button>
   </div>
 </form>
 
 
-<table class="table" *ngIf="sets.length">
+<table class="table" *ngIf="exercise.sets.length">
   <thead>
     <tr>
       <th style="width:1.5em;">#</th>
@@ -44,10 +44,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let set of sets; let i = index;">
+    <tr *ngFor="let set of exercise.sets; let i = index;">
       <td>{{ i + 1 }}</td>
-      <td>{{ set.type }}</td>
-      <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.units }}</td>
+      <td>{{ set.style }}</td>
+      <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.unit }}</td>
       <td style="text-align:right;">
         <button igxButton="icon" igxRipple (click)="removeSet(i)">
           <igx-icon>clear</igx-icon>

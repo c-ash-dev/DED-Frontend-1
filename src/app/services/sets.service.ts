@@ -8,6 +8,7 @@ import { NewSetRequest } from '../models/api/sets/newsetrequest';
 import { NewSet } from '../models/api/sets/newset';
 import { CompletedSet } from '../models/api/sets/completedset';
 import { CompletedSetRequest } from '../models/api/sets/completedsetrequest';
+import { Set } from '../models/set';
 
 @Injectable({
   providedIn: 'root'
@@ -25,21 +26,21 @@ export class SetsService {
 
   public getSet(id: number): Observable<CompletedSet> {
     const setObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<CompletedSet>(this.baseURL + config.setsUrl + id)));
+      switchMap(config => this.http.get<CompletedSet>(this.baseURL + config.setsUrl + id + '/')));
 
     return setObservable;
   }
 
   public deleteSet(id: number): Observable<CompletedSet> {
     const setObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.delete<CompletedSet>(this.baseURL + config.setsUrl + id)));
+      switchMap(config => this.http.delete<CompletedSet>(this.baseURL + config.setsUrl + id + '/')));
 
     return setObservable;
   }
 
   public updateNewSet(id: number, newSetRequest: NewSetRequest): Observable<NewSet> {
     const newSetObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<NewSet>(this.baseURL + config.setsUrl + id,
+      switchMap(config => this.http.patch<NewSet>(this.baseURL + config.setsUrl + id + '/',
                                                   JSON.stringify(newSetRequest), this.options)));
 
     return newSetObservable;
@@ -47,15 +48,18 @@ export class SetsService {
 
   public updateCompletedSet(id: number, completedSetRequest: CompletedSetRequest): Observable<CompletedSet> {
     const completedSetObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<CompletedSet>(this.baseURL + config.setsCompletedUrl + id,
+      switchMap(config => this.http.patch<CompletedSet>(this.baseURL + config.setsCompletedUrl + id + '/',
                                                         JSON.stringify(completedSetRequest), this.options)));
 
     return completedSetObservable;
   }
 
-  public createSet(newSetRequest: NewSetRequest): Observable<NewSet> {
+  public createSet(set: Set): Observable<Set> {
+
+    const newSetRequest = new NewSetRequest(set);
+
     const newSetObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.post<NewSet>(this.baseURL + config.setsNewUrl,
+      switchMap(config => this.http.post<Set>(this.baseURL + config.setsNewUrl,
                                                  JSON.stringify(newSetRequest), this.options)));
 
     return newSetObservable;
@@ -63,14 +67,14 @@ export class SetsService {
 
   public findByOriginId(origin_id: number): Observable<Array<CompletedSet>> {
     const setsListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedSet>>(this.baseURL + config.setsFindByOriginIdUrl + origin_id)));
+      switchMap(config => this.http.get<Array<CompletedSet>>(this.baseURL + config.setsFindByOriginIdUrl + origin_id + '/')));
 
     return setsListObservable;
   }
 
-  public findByExerciseId(exercise_id: number): Observable<Array<CompletedSet>> {
+  public findByExerciseId(exercise_id: number): Observable<Array<Set>> {
     const setsListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedSet>>(this.baseURL + config.setsFindByExerciseIdUrl + exercise_id)));
+      switchMap(config => this.http.get<Array<Set>>(this.baseURL + config.setsFindByExerciseIdUrl + exercise_id + '/')));
 
     return setsListObservable;
   }

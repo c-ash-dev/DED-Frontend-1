@@ -25,9 +25,9 @@
   </div>
 </form>
 
-<hr *ngIf="exercises.length > 0" />
+<hr *ngIf="workout.exercises.length > 0" />
 
-<igx-card class="exercise-card" *ngFor="let exercise of exercises; let i = index">
+<igx-card class="exercise-card" *ngFor="let exercise of workout.exercises; let i = index">
   <igx-expansion-panel class="exercise-panel" [collapsed]="false">
 
     <!-- Excercise header -->
@@ -47,7 +47,7 @@
     <!-- Excercise sets -->
     <igx-expansion-panel-body class="exercise-panel-body">
       <h6>Sets</h6>
-      <app-createset [sets]="exercise.sets"></app-createset>
+      <app-createset [exercise]="exercise" ></app-createset>
     </igx-expansion-panel-body>
   </igx-expansion-panel>
 </igx-card>

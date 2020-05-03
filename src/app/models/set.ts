@@ -1,12 +1,13 @@
 import { User } from './user';
+import { DateUtils } from '../utils/date.utils';
 
 export class Set {
   id: number;
   origin_id: number;
   exercise_id: number;
 
-  type: string;
-  units: string;
+  style: string;
+  unit: string;
   goal_reps: number;
   goal_value: number;
   reps: number;
@@ -17,29 +18,27 @@ export class Set {
   created_time: Date;
   completed_time: Date;
   created_by: User;
-  completed_by: User;
 
   constructor(set: Set = null) {
     if (set) {
       this.id = set.id;
       this.origin_id = set.origin_id;
-      this.type = set.type;
-      this.units = set.units;
+      this.style = set.style;
+      this.unit = set.unit;
       this.goal_reps = set.goal_reps;
       this.goal_value = set.goal_value;
       this.reps = set.reps;
       this.value = set.value;
       this.description = set.description;
       this.notes = set.notes;
-      this.created_time = set.created_time;
-      this.completed_time = set.completed_time;
-      this.created_by = set.completed_by;
-      this.completed_by = set.completed_by;
+      this.created_time = DateUtils.CheckAndConvertRustTime(set.created_time);
+      this.completed_time = DateUtils.CheckAndConvertRustTime(set.completed_time);
+      this.created_by = set.created_by;
     } else {
       this.id = 0;
       this.origin_id = 0;
-      this.type = '';
-      this.units = '';
+      this.style = '';
+      this.unit = '';
       this.goal_reps = 0;
       this.goal_value = 0;
       this.reps = 0;

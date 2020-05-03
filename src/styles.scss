@@ -53,6 +53,21 @@ hr {
 .button__black {
   @include igx-button($ded-standard-button-theme);
 }
+.button__red{
+  @include igx-button($ded-red-button-theme);
+}
+
+.button-group {
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:-0.25em;
+
+  .button {
+    margin:0.25em;
+  }
+}
 /* END BUTTONS */
 
 /* CARDS */

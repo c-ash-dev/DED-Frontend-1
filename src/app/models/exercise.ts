@@ -1,5 +1,6 @@
 import { User } from './user';
 import { Set } from './set';
+import { DateUtils } from '../utils/date.utils';
 
 export class Exercise {
   id: number;
@@ -14,11 +15,12 @@ export class Exercise {
   created_time: Date;
   completed_time: Date;
   created_by: User;
-  completed_by: User;
-
-  sets: Set[];
+  sets: Set[] = [];
 
   constructor( exercise: Exercise = null) {
+
+    console.log(exercise);
+
     if (exercise) {
       this.id = exercise.id;
       this.origin_id = exercise.origin_id;
@@ -26,10 +28,9 @@ export class Exercise {
       this.exercise_type = exercise.exercise_type;
       this.description = exercise.description;
       this.notes = exercise.notes;
-      this.created_time = exercise.created_time;
-      this.completed_time = exercise.completed_time;
-      this.created_by = exercise.completed_by;
-      this.completed_by = exercise.completed_by;
+      this.created_time = DateUtils.CheckAndConvertRustTime(exercise.created_time);
+      this.completed_time = DateUtils.CheckAndConvertRustTime(exercise.completed_time);
+      this.created_by = exercise.created_by;
       this.sets = exercise.sets;
     } else {
       this.id = 0;
@@ -39,6 +40,8 @@ export class Exercise {
       this.description = '';
       this.notes = '';
     }
+
+    this.sets = [];
   }
 
   public static getTypeDropdownItems(): Array<any> {

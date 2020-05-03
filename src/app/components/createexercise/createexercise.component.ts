@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Exercise } from 'src/app/models/exercise';
+import { ExercisesService } from 'src/app/services/exercises.service';
+import { Workout } from 'src/app/models/workout';
 
 @Component({
   selector: 'app-createexercise',
@@ -8,13 +10,13 @@ import { Exercise } from 'src/app/models/exercise';
 })
 export class CreateexerciseComponent implements OnInit {
 
-  @Input() exercises: Array<Exercise>;
+  @Input() workout: Workout;
+  
   public exercise: Exercise;
-  public exerciseTypes: Array<any>;
+  public exerciseTypes: Array<any> = Exercise.getTypeDropdownItems();
 
-  constructor() {
+  constructor(private exerciseService: ExercisesService) {
     this.exercise = new Exercise();
-    this.exerciseTypes = Exercise.getTypeDropdownItems();
   }
 
   ngOnInit() {
@@ -25,13 +27,15 @@ export class CreateexerciseComponent implements OnInit {
   }
 
   public addExercise() {
-    const newExercise = new Exercise(this.exercise);
-    newExercise.sets = [];
-    this.exercises.push(newExercise);
+    this.exercise.workout_id = this.workout.id;
+    this.exerciseService.createExercise(this.exercise).subscribe((response: Exercise) => {
+      this.workout.exercises.push(new Exercise(response));
+    });
   }
 
   public removeExercise(index: number) {
-    this.exercises.splice(index, 1);
+    this.exerciseService.deleteExercise(this.workout.exercises[index].id).subscribe(() => {
+      this.workout.exercises.splice(index, 1);
+    })
   }
-
 }

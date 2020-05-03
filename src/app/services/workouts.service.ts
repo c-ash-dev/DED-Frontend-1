@@ -8,6 +8,7 @@ import { NewWorkoutRequest } from '../models/api/workouts/newworkoutrequest';
 import { NewWorkout } from '../models/api/workouts/newworkout';
 import { CompletedWorkout } from '../models/api/workouts/completedworkout';
 import { CompletedWorkoutRequest } from '../models/api/workouts/completedworkoutrequest';
+import { Workout } from '../models/workout';
 
 @Injectable({
   providedIn: 'root'
@@ -23,23 +24,23 @@ export class WorkoutsService {
 
   constructor(private http: HttpClient, private configService: ConfigService) { }
 
-  public getWorkout(id: number): Observable<CompletedWorkout> {
+  public getWorkout(id: number): Observable<Workout> {
     const workoutObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<CompletedWorkout>(this.baseURL + config.workoutsUrl + id)));
+      switchMap(config => this.http.get<Workout>(this.baseURL + config.workoutsUrl + id + '/')));
 
     return workoutObservable;
   }
 
   public deleteWorkout(id: number): Observable<CompletedWorkout> {
     const workoutObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.delete<CompletedWorkout>(this.baseURL + config.workoutsUrl + id)));
+      switchMap(config => this.http.delete<CompletedWorkout>(this.baseURL + config.workoutsUrl + id + '/')));
 
     return workoutObservable;
   }
 
   public updateNewWorkout(id: number, newWorkoutRequest: NewWorkoutRequest): Observable<NewWorkout> {
     const newWorkoutObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<NewWorkout>(this.baseURL + config.workoutsUrl + id,
+      switchMap(config => this.http.patch<NewWorkout>(this.baseURL + config.workoutsUrl + id + '/',
                                                        JSON.stringify(newWorkoutRequest), this.options)));
 
     return newWorkoutObservable;
@@ -47,30 +48,30 @@ export class WorkoutsService {
 
   public updateCompletedWorkout(id: number, completedWorkoutRequest: CompletedWorkoutRequest): Observable<CompletedWorkout> {
     const completedWorkoutObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<CompletedWorkout>(this.baseURL + config.workoutsCompletedUrl + id,
+      switchMap(config => this.http.patch<CompletedWorkout>(this.baseURL + config.workoutsCompletedUrl + id + '/',
                                                              JSON.stringify(completedWorkoutRequest), this.options)));
 
     return completedWorkoutObservable;
   }
 
-  public createWorkout(newWorkoutRequest: NewWorkoutRequest): Observable<NewWorkout> {
+  public createWorkout(newWorkoutRequest: NewWorkoutRequest): Observable<Workout> {
     const newWorkoutObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.post<NewWorkout>(this.baseURL + config.workoutsNewUrl,
+      switchMap(config => this.http.post<Workout>(this.baseURL + config.workoutsNewUrl,
                                                       JSON.stringify(newWorkoutRequest), this.options)));
 
     return newWorkoutObservable;
   }
 
-  public findByOriginId(origin_id: number): Observable<Array<CompletedWorkout>> {
+  public findByOriginId(origin_id: number): Observable<Array<Workout>> {
     const workoutsListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedWorkout>>(this.baseURL + config.workoutsFindByOriginIdUrl + origin_id)));
+      switchMap(config => this.http.get<Array<Workout>>(this.baseURL + config.workoutsFindByOriginIdUrl + origin_id + '/')));
 
     return workoutsListObservable;
   }
 
-  public findByUsertId(user_id: number): Observable<Array<CompletedWorkout>> {
+  public findByUserId(user_id: number): Observable<Array<Workout>> {
     const workoutsListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedWorkout>>(this.baseURL + config.workoutsFindByUserIdUrl + user_id)));
+      switchMap(config => this.http.get<Array<Workout>>(this.baseURL + config.workoutsFindByUserIdUrl + user_id + '/')));
 
     return workoutsListObservable;
   }
