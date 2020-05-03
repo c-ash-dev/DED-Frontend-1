@@ -5,7 +5,7 @@
     <input type="text" name="username" class="form--item" placeholder="Username" [(ngModel)]="username" />
     <input type="password" class="form--item" name="password" placeholder="Password" [(ngModel)]="password" />
     <div class="login--button">
-      <button #submitButton igxButton="raised" igxRipple="white" [disabled]="!(userCredentials.username && userCredentials.password)" type="submit">Login</button>
+      <button #submitButton igxButton="raised" igxRipple="white" [disabled]="!(username && password)" type="submit">Login</button>
     </div>
   </form>
 
