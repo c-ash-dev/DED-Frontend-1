@@ -1,17 +1,17 @@
 <ded-pagetitle navLink="/track" pageTitle="{{ this.workout.name }}"></ded-pagetitle>
 
 <igx-card class="ded-card">
-  <div>
+  <div *ngIf="workout.description">
     <strong>Description: </strong>
     {{ this.workout.description }}
   </div>
-  <div *ngIf="this.workout.notes">
+  <div *ngIf="workout.notes">
     <strong>Notes: </strong>
     {{ this.workout.notes }}
   </div>
-  <div>
+  <div *ngIf="workout.completed_time">
     <strong>Completed: </strong> 
-    {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
+    {{ workout.completed_time.toLocaleString() }}
   </div>
 
   <hr />
@@ -28,7 +28,9 @@
           <igx-divider [vertical]="true"></igx-divider>
           <div class="einfo einfo__description">{{ exercise.description }}</div>
           <igx-divider [vertical]="true"></igx-divider>
-          <div class="einfo einfo__completed">{{ exercise.completed_time.toLocaleTimeString() }}</div>
+          <div class="einfo einfo__completed" *ngIf="exercise.completed_time">
+            {{ exercise.completed_time.toLocaleTimeString() }}
+          </div>
         </div>
       </igx-expansion-panel-header>
   

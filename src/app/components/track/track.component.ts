@@ -17,21 +17,21 @@ export class TrackComponent implements OnInit {
 
   ngOnInit() {
 
-    // const userId = +localStorage.getItem("logged-in");
-    // this.workoutService.findByUserId(userId).subscribe((response: Workout[]) => {
-    //   response.forEach(workout => {
-    //     if(workout.completed_time != null) {
-    //       this.workouts.push(workout);
-    //     }
-    //   })
-    // });
-    
-    // TODO: Replace this with API call
-    MockWorkouts.forEach(workout => {
-      if(workout.completed_time != null){
-        this.workouts.push(workout);
-      }
+    // TODO: Get by user ID instead of origin ID
+    this.workoutService.findByOriginId(-1).subscribe((response: Workout[]) => {
+      
+      // TODO: Check for completed
+      response.forEach(workout => {
+        this.workouts.push(new Workout(workout));
+      });
     });
+
+    // TODO: Replace this with API call
+    // MockWorkouts.forEach(workout => {
+    //   if(workout.completed_time != null){
+    //     this.workouts.push(workout);
+    //   }
+    // });
   }
 
 }

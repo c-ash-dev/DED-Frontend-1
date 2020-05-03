@@ -21,11 +21,11 @@
                               {{ workout.description }}
                          </td>
                          <td>
-                              {{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString()}}
+                              {{ workout.created_time.toLocaleString() }}
                          </td>
                          <td>
-                              <ng-container *ngIf="workout.completed_time != null">
-                                   {{ workout.completed_time.toLocaleDateString() + ' ' + workout.completed_time.toLocaleTimeString() }}
+                              <ng-container *ngIf="workout.completed_time">
+                                   {{ workout.completed_time.toLocaleString() }}
                               </ng-container>
                          </td>
                          <td style="text-align:right;">
