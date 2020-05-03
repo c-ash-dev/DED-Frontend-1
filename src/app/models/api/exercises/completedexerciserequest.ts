@@ -1,5 +1,9 @@
+import { Exercise } from '../../exercise';
+
 export class CompletedExerciseRequest {
   notes: string;
 
-  constructor() { }
+  constructor(exercise: Exercise) { 
+    exercise.notes ? this.notes = exercise.notes : this.notes = "";
+  }
 }

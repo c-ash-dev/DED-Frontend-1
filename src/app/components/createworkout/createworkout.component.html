@@ -5,29 +5,29 @@
   <div class="create-workout-form">
     <igx-input-group class="workout-input">
       <label igxLabel for="name">Workout Name</label>
-      <input igxInput name="name" type="text" [disabled]="workout != null" [(ngModel)]="workoutName" />
+      <input igxInput name="name" type="text" [disabled]="workout.created_time" [(ngModel)]="workout.name" />
     </igx-input-group>
 
     <igx-input-group class="workout-input">
       <label igxLabel for="description">Description</label>
-      <input igxInput description="description" type="text" [disabled]="workout != null" [(ngModel)]="workoutDesc" />
+      <input igxInput description="description" type="text" [disabled]="workout.created_time" [(ngModel)]="workout.description" />
     </igx-input-group>
 
     <div class="save-workout-button-wrapper">
       <button #saveWorkoutButton 
         igxButton="raised" 
-        [disabled]="!workoutName || workout != null"
+        [disabled]="!workout.name || workout.created_time"
         (click)="createWorkout()">Create Workout</button>
     </div>
   </div>
 </igx-card>
 
-<igx-card class="ded-card" *ngIf="workout != null">
+<igx-card class="ded-card" *ngIf="workout.created_time">
   <h5 class="card-header">Exercises ({{ workout.exercises.length }})</h5>
   <app-createexercise [workout]="workout"></app-createexercise>
 </igx-card>
 
-<igx-card class="ded-card" *ngIf="workout != null">
+<igx-card class="ded-card" *ngIf="workout.created_time">
   <div style="text-align:right;">
     <div class="button-group">
       <div class="button button__black">

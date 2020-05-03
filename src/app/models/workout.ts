@@ -5,8 +5,7 @@ import { DateUtils } from '../utils/date.utils';
 export class Workout {
   id: number;
   origin_id: number;
-
-  exercises: Exercise[];
+  created_by: number;
 
   name: string;
   description: string;
@@ -14,7 +13,8 @@ export class Workout {
 
   created_time: Date;
   completed_time: Date;
-  created_by: User;
+
+  exercises: Exercise[];
 
   constructor(workout: Workout) {
     this.exercises = [];
@@ -22,16 +22,27 @@ export class Workout {
     if(workout) {
       this.id = workout.id;
       this.origin_id = workout.origin_id;
+      this.created_by = workout.created_by;
+
       this.name = workout.name;
       this.description = workout.description;
       this.notes = workout.notes;
+
       this.created_time = DateUtils.checkAndConvertRustTime(workout.created_time);
-      this.created_by = workout.created_by;
       this.completed_time = DateUtils.checkAndConvertRustTime(workout.completed_time);
+    
+      if(workout.exercises) {
+        this.exercises = workout.exercises;
+      }
     }
     else {
+      this.id = -1;
+      this.origin_id = -1;
+      this.created_by = -1;
+
       this.name = "";
       this.description = "";
+      this.notes = "";
     }
   }
 }

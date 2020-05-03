@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Workout } from 'src/app/models/workout';
 import { WorkoutsService } from 'src/app/services/workouts.service';
 import { NewWorkoutRequest } from 'src/app/models/api/workouts/newworkoutrequest';
-import { NewWorkout } from 'src/app/models/api/workouts/newworkout';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,30 +12,19 @@ import { Router } from '@angular/router';
 })
 export class CreateworkoutComponent implements OnInit {
   public workout: Workout;
-  public workoutName: string;
-  public workoutDesc: string;
 
   constructor(
     private workoutService: WorkoutsService,
     private router: Router) {
+      this.workout = new Workout(null);
   }
 
   ngOnInit() {
   }
 
   createWorkout() {
-    const workoutReq = new NewWorkoutRequest();
-    workoutReq.user_id = +localStorage.getItem("logged-in");
-    workoutReq.name = this.workoutName;
-
-    if(this.workoutDesc) {
-      workoutReq.description = this.workoutDesc;
-    }
-    else {
-      workoutReq.description = "";
-    }
-
-    this.workoutService.createWorkout(workoutReq).subscribe((createResponse: Workout) => {
+    this.workout.created_by = +localStorage.getItem("logged-in");
+    this.workoutService.createWorkout(this.workout).subscribe((createResponse: Workout) => {
       this.workout = new Workout(createResponse);
     });
   }
