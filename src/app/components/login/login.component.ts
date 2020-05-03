@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.userCredentials.username, this.userCredentials.password).subscribe(
       result => {
-        localStorage.setItem("logged-in", "true");
-        console.log("Navigating home!")
+        localStorage.setItem("logged-in", result.id);
         this.router.navigate(['/home']);
       },
       error => {

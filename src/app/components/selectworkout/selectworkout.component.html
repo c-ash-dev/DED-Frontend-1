@@ -10,13 +10,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let workout of workouts">
+        <tr *ngFor="let workout of workouts; let i = index;">
           <td>{{ workout.name }}</td>
           <td>{{ workout.description }}</td>
           <td>{{ workout.created_time.toLocaleDateString() + ' ' + workout.created_time.toLocaleTimeString() }}</td>
-          <td style="text-align:right">
-            <div class="button__black">
-              <button igxButton="raised" igxRipple="black" [routerLink]="'/workout/' + workout.id">Start</button>
+          <td style="text-align:right;">
+            <div class="button-group">
+              <div class="button button__black">
+                <button 
+                  igxButton="raised" 
+                  [routerLink]="'/workout/' + workout.id">Start</button>
+              </div>
+              <div class="button button__red">
+                <button 
+                  igxButton="raised"
+                  (click)="deleteWorkout(i)">Delete</button>
+              </div>
             </div>
           </td>
         </tr>

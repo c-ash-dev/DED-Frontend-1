@@ -13,11 +13,13 @@ $ded-teal: #008F98;
 $ded-yellow: #F8BE15;
 $ded-orange: #FF5000;
 $ded-red: #DC1F2E;
+$ded-red-dark: #ae1925;
 $ded-magenta: #B32271;
 
 
 $ded-white-transparent: rgba(255,255,255,$ded-opacity);
 $ded-black-transparent: rgba(0,0,0,$ded-opacity);
+$ded-red-transparent: rgba(220,41,36,$ded-opacity);
 
 
 $ded-color-palette: igx-palette(
@@ -37,6 +39,14 @@ $ded-standard-button-theme: igx-button-theme(
     $raised-hover-background: $ded-white-transparent,
     $raised-focus-text-color: $ded-white,
     $raised-focus-background: $ded-black,
+);
+$ded-red-button-theme: igx-button-theme(
+    $raised-text-color: $ded-white,
+    $raised-background: $ded-red,
+    $raised-hover-text-color: $ded-white,
+    $raised-hover-background: $ded-red-dark,
+    $raised-focus-text-color: $ded-white,
+    $raised-focus-background: $ded-red,
 );
 
 $ded-dashboard-button-theme: igx-button-theme(

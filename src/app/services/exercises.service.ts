@@ -8,6 +8,7 @@ import { NewExerciseRequest } from '../models/api/exercises/newexerciserequest';
 import { NewExercise } from '../models/api/exercises/newexercise';
 import { CompletedExercise } from '../models/api/exercises/completedexercise';
 import { CompletedExerciseRequest } from '../models/api/exercises/completedexerciserequest';
+import { Exercise } from '../models/exercise';
 
 @Injectable({
   providedIn: 'root'
@@ -25,21 +26,21 @@ export class ExercisesService {
 
   public getExercise(id: number): Observable<CompletedExercise> {
     const exerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<CompletedExercise>(this.baseURL + config.exercisesUrl + id)));
+      switchMap(config => this.http.get<CompletedExercise>(this.baseURL + config.exercisesUrl + id + '/')));
 
     return exerciseObservable;
   }
 
   public deleteExercise(id: number): Observable<CompletedExercise> {
     const exerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.delete<CompletedExercise>(this.baseURL + config.exercisesUrl + id)));
+      switchMap(config => this.http.delete<CompletedExercise>(this.baseURL + config.exercisesUrl + id + '/')));
 
     return exerciseObservable;
   }
 
   public updateNewExercise(id: number, newExerciseRequest: NewExerciseRequest): Observable<NewExercise> {
     const newExerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<NewExercise>(this.baseURL + config.exercisesUrl + id,
+      switchMap(config => this.http.patch<NewExercise>(this.baseURL + config.exercisesUrl + id + '/',
                                                        JSON.stringify(newExerciseRequest), this.options)));
 
     return newExerciseObservable;
@@ -47,15 +48,17 @@ export class ExercisesService {
 
   public updateCompletedExercise(id: number, completedExerciseRequest: CompletedExerciseRequest): Observable<CompletedExercise> {
     const completedExerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<CompletedExercise>(this.baseURL + config.exercisesCompletedUrl + id,
+      switchMap(config => this.http.patch<CompletedExercise>(this.baseURL + config.exercisesCompletedUrl + id + '/',
                                                              JSON.stringify(completedExerciseRequest), this.options)));
 
     return completedExerciseObservable;
   }
 
-  public createExercise(newExerciseRequest: NewExerciseRequest): Observable<NewExercise> {
+  public createExercise(exercise: Exercise): Observable<Exercise> {
+
+    const newExerciseRequest = new NewExerciseRequest(exercise);
     const newExerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.post<NewExercise>(this.baseURL + config.exercisesNewUrl,
+      switchMap(config => this.http.post<Exercise>(this.baseURL + config.exercisesNewUrl,
                                                       JSON.stringify(newExerciseRequest), this.options)));
 
     return newExerciseObservable;
@@ -63,14 +66,14 @@ export class ExercisesService {
 
   public findByOriginId(origin_id: number): Observable<Array<CompletedExercise>> {
     const exercisesListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedExercise>>(this.baseURL + config.exercisesFindByOriginIdUrl + origin_id)));
+      switchMap(config => this.http.get<Array<CompletedExercise>>(this.baseURL + config.exercisesFindByOriginIdUrl + origin_id + '/')));
 
     return exercisesListObservable;
   }
 
-  public findByWorkoutId(workout_id: number): Observable<Array<CompletedExercise>> {
+  public findByWorkoutId(workout_id: number): Observable<Array<Exercise>> {
     const exercisesListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedExercise>>(this.baseURL + config.exercisesFindByWorkoutIdUrl + workout_id)));
+      switchMap(config => this.http.get<Array<Exercise>>(this.baseURL + config.exercisesFindByWorkoutIdUrl + workout_id + '/')));
 
     return exercisesListObservable;
   }

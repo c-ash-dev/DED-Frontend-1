@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Set } from 'src/app/models/set';
+import { SetsService } from 'src/app/services/sets.service';
+import { Exercise } from 'src/app/models/exercise';
 
 @Component({
   selector: 'app-createset',
@@ -8,35 +10,38 @@ import { Set } from 'src/app/models/set';
 })
 export class CreatesetComponent implements OnInit {
   // Array of sets (will eventually get passed in from Exercise)
-  @Input() sets: Set[];
+  @Input() exercise: Exercise;
 
   // Current new set being created by user
   public set: Set;
 
-  public setTypes: Array<any>;
-  public setUnits: Array<any>;
+  public setTypes: Array<any> = Set.getTypeDropdownItems();
+  public setUnits: Array<any> = Set.getUnitsDropdownItems();
 
-  constructor() {
+  constructor(private setService: SetsService) {
     this.set = new Set();
-    this.setTypes = Set.getTypeDropdownItems();
-    this.setUnits = Set.getUnitsDropdownItems();
   }
 
   public receiveSelectedType($event: string) {
-    this.set.type = $event;
+    this.set.style = $event;
   }
 
   public receiveSelectedUnits($event: string) {
-    this.set.units = $event;
+    this.set.unit = $event;
   }
 
   public addSet() {
-    const newSet = new Set(this.set);
-    this.sets.push(newSet);
+
+    this.set.exercise_id = this.exercise.id;
+    this.setService.createSet(this.set).subscribe((response: Set) => {
+      this.exercise.sets.push(new Set(response));
+    });
   }
 
   public removeSet(index: number) {
-    this.sets.splice(index, 1);
+    this.setService.deleteSet(this.exercise.sets[index].id).subscribe(() => {
+      this.exercise.sets.splice(index, 1);
+    });
   }
 
   ngOnInit() {

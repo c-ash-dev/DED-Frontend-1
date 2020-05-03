@@ -25,5 +25,5 @@
 
 <igx-card class="ded-card" *ngIf="workout != null">
   <h5 class="card-header">Exercises ({{ workout.exercises.length }})</h5>
-  <app-createexercise [exercises]="workout.exercises"></app-createexercise>
+  <app-createexercise [workout]="workout"></app-createexercise>
 </igx-card>

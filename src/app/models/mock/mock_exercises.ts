@@ -11,7 +11,6 @@ export const MockExercises: Exercise[] = [
     notes: 'North Boulder loop',
     created_by: null,
     created_time: new Date(),
-    completed_by: null,
     completed_time: new Date(),
     sets: []
   },
@@ -25,8 +24,7 @@ export const MockExercises: Exercise[] = [
     notes: 'Ladder sprints',
     created_by: null,
     created_time: new Date(),
-    completed_by: null,
     completed_time: new Date(),
     sets: []
-  }
+  } 
 ]
