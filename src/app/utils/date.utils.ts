@@ -1,6 +1,6 @@
 export class DateUtils {
      public static ConvertRustTimeToDate(rusttime: any): Date {
-          let time = <Object>rusttime;
+          let time = rusttime as Object;
           let time_sum = time["secs_since_epoch"] * 1000;
           return new Date(time_sum);
      }

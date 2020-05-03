@@ -54,10 +54,10 @@ export class Set {
       { field: 'warmup' },
       { field: 'cooldown' },
       { field: 'drop' },
-      { field: 'fail' }
+      { field: 'fail' } 
     ];
     return items;
-  }
+  } 
 
   public static getUnitsDropdownItems(): Array<any> {
     const items: Array<any> = [

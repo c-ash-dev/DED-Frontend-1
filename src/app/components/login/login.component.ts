@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public userCredentials: UserCredentials;
+  public username: string;
+  public password: string;
 
   @ViewChild("alert", { read: IgxDialogComponent, static: true })
   public alert: IgxDialogComponent;
@@ -20,7 +21,6 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private router: Router
   ) {
-    this.userCredentials = new UserCredentials();
   }
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.userCredentials.username, this.userCredentials.password).subscribe(
+    this.authService.login(this.username, this.password).subscribe(
       result => {
         localStorage.setItem("logged-in", result.id);
         this.router.navigate(['/home']);
