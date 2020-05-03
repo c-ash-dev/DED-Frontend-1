@@ -25,9 +25,9 @@ export class Workout {
       this.name = workout.name;
       this.description = workout.description;
       this.notes = workout.notes;
-      this.created_time = DateUtils.CheckAndConvertRustTime(workout.created_time);
+      this.created_time = DateUtils.checkAndConvertRustTime(workout.created_time);
       this.created_by = workout.created_by;
-      this.completed_time = DateUtils.CheckAndConvertRustTime(workout.completed_time);
+      this.completed_time = DateUtils.checkAndConvertRustTime(workout.completed_time);
     }
     else {
       this.name = "";

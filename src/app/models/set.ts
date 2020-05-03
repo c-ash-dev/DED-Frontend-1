@@ -31,8 +31,8 @@ export class Set {
       this.value = set.value;
       this.description = set.description;
       this.notes = set.notes;
-      this.created_time = DateUtils.CheckAndConvertRustTime(set.created_time);
-      this.completed_time = DateUtils.CheckAndConvertRustTime(set.completed_time);
+      this.created_time = DateUtils.checkAndConvertRustTime(set.created_time);
+      this.completed_time = DateUtils.checkAndConvertRustTime(set.completed_time);
       this.created_by = set.created_by;
     } else {
       this.id = 0;

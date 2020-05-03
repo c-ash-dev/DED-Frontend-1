@@ -28,8 +28,8 @@ export class Exercise {
       this.exercise_type = exercise.exercise_type;
       this.description = exercise.description;
       this.notes = exercise.notes;
-      this.created_time = DateUtils.CheckAndConvertRustTime(exercise.created_time);
-      this.completed_time = DateUtils.CheckAndConvertRustTime(exercise.completed_time);
+      this.created_time = DateUtils.checkAndConvertRustTime(exercise.created_time);
+      this.completed_time = DateUtils.checkAndConvertRustTime(exercise.completed_time);
       this.created_by = exercise.created_by;
       this.sets = exercise.sets;
     } else {
