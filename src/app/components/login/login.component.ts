@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserCredentials } from 'src/app/models/usercredentials';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { IgxDialogComponent } from 'igniteui-angular'
 import { Router } from '@angular/router';
