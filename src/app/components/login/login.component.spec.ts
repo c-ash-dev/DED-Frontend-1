@@ -61,8 +61,8 @@ describe('LoginComponent', () => {
 
     const navigateSpy = spyOn(router, 'navigate');
 
-    component.userCredentials.username = "acostinescu";
-    component.userCredentials.password = "1234asdf";
+    component.username = "acostinescu";
+    component.password = "1234asdf";
     component.onSubmit();
 
     setTimeout(function(){
