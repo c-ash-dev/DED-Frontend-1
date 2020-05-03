@@ -1,23 +1,21 @@
 import { Exercise } from '../../exercise';
 
 export class NewExerciseRequest {
-  origin_id: number = -1;
+  origin_id: Number;
   workout_id: number;
   name: string;
   exercise_type: string;
   description: string;
-  notes: string = "";
+  notes: string;
 
   constructor(exercise: Exercise) {
+    this.origin_id = -1;
     this.workout_id = exercise.workout_id;
     this.name = exercise.name;
     this.exercise_type = exercise.exercise_type;
 
-    if(exercise.description){
-      this.description = exercise.description;
-    }
-    else {
-      this.description = "";
-    }
+    exercise.description ? this.description = exercise.description : this.description = "";
+    
+    this.notes = "";
   }
 }

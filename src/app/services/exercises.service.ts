@@ -4,9 +4,8 @@ import { HttpClient, HttpParams,  HttpHeaders } from '@angular/common/http';
 import { ConfigService, Config } from './config.service';
 import { switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+
 import { NewExerciseRequest } from '../models/api/exercises/newexerciserequest';
-import { NewExercise } from '../models/api/exercises/newexercise';
-import { CompletedExercise } from '../models/api/exercises/completedexercise';
 import { CompletedExerciseRequest } from '../models/api/exercises/completedexerciserequest';
 import { Exercise } from '../models/exercise';
 
@@ -18,37 +17,40 @@ export class ExercisesService {
   public config: Config;
   private baseURL = `${environment.apiUrl}`;
 
-  // ALEX: Play with this and JSON Stringify if we're not sending the body correctly.
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  private options = { headers: this.headers };
+  private options = { headers: this.headers, withCredentials: true };
 
   constructor(private http: HttpClient, private configService: ConfigService) { }
 
-  public getExercise(id: number): Observable<CompletedExercise> {
+  public getExercise(id: number): Observable<Exercise> {
     const exerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<CompletedExercise>(this.baseURL + config.exercisesUrl + id + '/')));
+      switchMap(config => this.http.get<Exercise>(this.baseURL + config.exercisesUrl + id + '/', this.options)));
 
     return exerciseObservable;
   }
 
-  public deleteExercise(id: number): Observable<CompletedExercise> {
+  public deleteExercise(id: number): Observable<any> {
     const exerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.delete<CompletedExercise>(this.baseURL + config.exercisesUrl + id + '/')));
+      switchMap(config => this.http.delete<any>(this.baseURL + config.exercisesUrl + id + '/', this.options)));
 
     return exerciseObservable;
   }
 
-  public updateNewExercise(id: number, newExerciseRequest: NewExerciseRequest): Observable<NewExercise> {
+  public updateNewExercise(exercise: Exercise): Observable<Exercise> {
+    
+    const newExerciseRequest = new NewExerciseRequest(exercise);
     const newExerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<NewExercise>(this.baseURL + config.exercisesUrl + id + '/',
+      switchMap(config => this.http.patch<Exercise>(this.baseURL + config.exercisesUrl + exercise.id + '/',
                                                        JSON.stringify(newExerciseRequest), this.options)));
 
     return newExerciseObservable;
   }
 
-  public updateCompletedExercise(id: number, completedExerciseRequest: CompletedExerciseRequest): Observable<CompletedExercise> {
+  public updateCompletedExercise(exercise: Exercise): Observable<Exercise> {
+
+    const completedExerciseRequest = new CompletedExerciseRequest(exercise);
     const completedExerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<CompletedExercise>(this.baseURL + config.exercisesCompletedUrl + id + '/',
+      switchMap(config => this.http.patch<Exercise>(this.baseURL + config.exercisesCompletedUrl + exercise.id + '/',
                                                              JSON.stringify(completedExerciseRequest), this.options)));
 
     return completedExerciseObservable;
@@ -64,16 +66,16 @@ export class ExercisesService {
     return newExerciseObservable;
   }
 
-  public findByOriginId(origin_id: number): Observable<Array<CompletedExercise>> {
+  public findByOriginId(origin_id: number): Observable<Array<Exercise>> {
     const exercisesListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<CompletedExercise>>(this.baseURL + config.exercisesFindByOriginIdUrl + origin_id + '/')));
+      switchMap(config => this.http.get<Array<Exercise>>(this.baseURL + config.exercisesFindByOriginIdUrl + origin_id + '/', this.options)));
 
     return exercisesListObservable;
   }
 
   public findByWorkoutId(workout_id: number): Observable<Array<Exercise>> {
     const exercisesListObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.get<Array<Exercise>>(this.baseURL + config.exercisesFindByWorkoutIdUrl + workout_id + '/')));
+      switchMap(config => this.http.get<Array<Exercise>>(this.baseURL + config.exercisesFindByWorkoutIdUrl + workout_id + '/', this.options)));
 
     return exercisesListObservable;
   }
