@@ -9,7 +9,8 @@ export class NewExerciseRequest {
   notes: string;
 
   constructor(exercise: Exercise) {
-    this.origin_id = -1;
+    exercise.origin_id ? this.origin_id = exercise.origin_id : this.origin_id = -1;
+    
     this.workout_id = exercise.workout_id;
     this.name = exercise.name;
     this.exercise_type = exercise.exercise_type;

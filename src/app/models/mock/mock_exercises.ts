@@ -9,9 +9,9 @@ export const MockExercises: Exercise[] = [
     exercise_type: 'Cardio',
     description: 'Five mile jog in 30 minutes',
     notes: 'North Boulder loop',
-    created_by: null,
-    created_time: new Date(),
-    completed_time: new Date(),
+    created_by: 1,
+    create_time: new Date(),
+    complete_time: new Date(),
     sets: []
   },
   {
@@ -22,9 +22,9 @@ export const MockExercises: Exercise[] = [
     exercise_type: 'Mobility',
     description: 'Eight 100 meter sprints',
     notes: 'Ladder sprints',
-    created_by: null,
-    created_time: new Date(),
-    completed_time: new Date(),
+    created_by: 1,
+    create_time: new Date(),
+    complete_time: new Date(),
     sets: []
   } 
 ]

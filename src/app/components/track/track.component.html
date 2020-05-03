@@ -7,18 +7,24 @@
                     <tr>
                          <th>Name</th>
                          <th>Description</th>
+                         <th>Notes</th>
                          <th>Created</th>
                          <th>Completed</th>
                          <th></th>
                     </tr>
                </thead>
                <tbody>
-                    <tr *ngFor="let workout of this.workouts">
+                    <tr *ngFor="let workout of this.workouts; let i = index;">
                          <td>
                               {{ workout.name }}
                          </td>
                          <td>
                               {{ workout.description }}
+                         </td>
+                         <td>
+                              <ng-container *ngIf="workout.notes">
+                                   {{ workout.notes }}
+                              </ng-container>
                          </td>
                          <td>
                               {{ workout.created_time.toLocaleString() }}
@@ -29,10 +35,15 @@
                               </ng-container>
                          </td>
                          <td style="text-align:right;">
-                              <div class="button__black">
-                                   <button 
-                                        igxButton="raised" 
-                                        [routerLink]="'/track/view/' + workout.id">View</button>
+                              <div class="button-group">
+                                   <div class="button button__red">
+                                        <button igxButton="raised" (click)="deleteWorkout(i)">Delete</button>
+                                   </div>
+                                   <div class="button button__black">
+                                        <button 
+                                             igxButton="raised" 
+                                             [routerLink]="'/track/view/' + workout.id">View</button>
+                                   </div>
                               </div>
                          </td>
                     </tr>

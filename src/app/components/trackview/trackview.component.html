@@ -28,8 +28,8 @@
           <igx-divider [vertical]="true"></igx-divider>
           <div class="einfo einfo__description">{{ exercise.description }}</div>
           <igx-divider [vertical]="true"></igx-divider>
-          <div class="einfo einfo__completed" *ngIf="exercise.completed_time">
-            {{ exercise.completed_time.toLocaleTimeString() }}
+          <div class="einfo einfo__completed" *ngIf="exercise.complete_time">
+            {{ exercise.complete_time.toLocaleTimeString() }}
           </div>
         </div>
       </igx-expansion-panel-header>
@@ -41,7 +41,7 @@
           {{ exercise.notes }}
         </div>
 
-        <div class="table-responsive" *ngIf="exercise.sets.length > 0">
+        <div class="table-responsive" *ngIf="exercise.sets.length">
           <table class="table">
             <thead>
               <tr>
@@ -58,7 +58,7 @@
                 <td>{{ set.style }}</td>
                 <td>{{ set.description }}</td>
                 <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.unit }}</td>
-                <td>{{ set.reps + ' x ' + set.value + ' ' + set.unit }}</td>
+                <td>{{ set.completed_reps + ' x ' + set.completed_value + ' ' + set.unit }}</td>
               </tr>
             </tbody>
           </table>

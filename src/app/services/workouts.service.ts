@@ -44,6 +44,16 @@ export class WorkoutsService {
 
     return newWorkoutObservable;
   }
+  
+  public completeWorkout(workout: Workout): Observable<Workout> {
+    
+    const completedWorkoutRequest = new CompletedWorkoutRequest(workout);
+    const completedWorkoutObservable = this.configService.getConfig().pipe(
+      switchMap(config => this.http.post<Workout>(this.baseURL + config.workoutsCompletedUrl + workout.id + '/',
+                                                             JSON.stringify(completedWorkoutRequest), this.options)));
+
+    return completedWorkoutObservable;
+  }
 
   public updateCompletedWorkout(workout: Workout): Observable<Workout> {
     

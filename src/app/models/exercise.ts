@@ -13,8 +13,8 @@ export class Exercise {
   description: string;
   notes: string;
 
-  created_time: Date;
-  completed_time: Date;
+  create_time: Date;
+  complete_time: Date;
   
   sets: Set[];
 
@@ -32,8 +32,14 @@ export class Exercise {
       this.description = exercise.description;
       this.notes = exercise.notes;
 
-      this.created_time = DateUtils.checkAndConvertRustTime(exercise.created_time);
-      this.completed_time = DateUtils.checkAndConvertRustTime(exercise.completed_time);
+      this.create_time = DateUtils.checkAndConvertRustTime(exercise.create_time);
+      this.complete_time = DateUtils.checkAndConvertRustTime(exercise.complete_time);
+
+      if(this.create_time && this.complete_time){
+        if(this.create_time.toString() == this.complete_time.toString()) {
+          this.complete_time = null;
+        }
+      } 
     
       if(exercise.sets) {
         this.sets = exercise.sets;

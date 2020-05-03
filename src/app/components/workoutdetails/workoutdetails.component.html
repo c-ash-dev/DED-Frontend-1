@@ -3,7 +3,7 @@
 <igx-card class="ded-card">
   <igx-card class="exercise-card" *ngFor="let exercise of workout.exercises; let i = index">
 
-    <igx-expansion-panel class="exercise-panel" [collapsed]="true">
+    <igx-expansion-panel class="exercise-panel" [collapsed]="i != 0">
       <igx-expansion-panel-header class="exercise-panel-header">
         <div class="einfo--container">
           <h5 class="einfo einfo__name"> {{ exercise.name }}</h5>
@@ -15,7 +15,7 @@
       </igx-expansion-panel-header>
 
       <igx-expansion-panel-body class="exercise-panel-body">
-        <div class="table-responsive">
+        <div class="table-responsive" *ngIf="exercise.sets.length > 0">
           <table class="table">
             <thead>
               <tr>
@@ -35,14 +35,14 @@
                 <td>{{ set.goal_reps + ' x ' + set.goal_value + ' ' + set.unit }}</td>
                 <td>
                   <igx-input-group>
-                      <label igxLabel for="actual_reps">Reps</label>
-                      <input igxInput name="actual_reps" [(ngModel)]="set.actual_reps" type="number"/>
+                      <label igxLabel for="completed_reps">Reps</label>
+                      <input igxInput name="completed_reps" [(ngModel)]="set.completed_reps" [disabled]="exercise.complete_time" type="number"/>
                   </igx-input-group>
                 </td>
                 <td>
                   <igx-input-group>
-                      <label igxLabel for="actual_value">{{ set.unit }}</label>
-                      <input igxInput name="actual_value" [(ngModel)]="set.actual_value" type="number" />
+                      <label igxLabel for="completed_value">{{ set.unit }}</label>
+                      <input igxInput name="completed_value" [(ngModel)]="set.completed_value" [disabled]="exercise.complete_time" type="number" />
                   </igx-input-group>
                 </td>
               </tr>
@@ -50,22 +50,41 @@
           </table>
         </div>
         <div class="bottom">
-          <div>
+          <div class="notes-group">
               <igx-input-group>
-                  <label igxLabel for="notes">Notes</label>
-                  <input igxInput name="notes" type="text"  />
+                  <label igxLabel for="notes">Exercise Notes</label>
+                  <input igxInput name="notes" [(ngModel)]="exercise.notes" [disabled]="exercise.complete_time" type="text"  />
               </igx-input-group>
           </div>
           <br />
           <div class="button__black complete">
               <button
                 igxButton="raised"
-                igxRipple="black">Complete
-              </button>
-              <!-- (click)="completeExercise()" -->
+                igxRipple="black"
+                (click)=completeExercise(exercise)
+                [disabled]="exercise.complete_time">Complete</button>
           </div>
         </div>
       </igx-expansion-panel-body>
     </igx-expansion-panel>
   </igx-card>
+</igx-card>
+
+<igx-card class="ded-card">
+  <div class="notes-group">
+    <igx-input-group>
+      <label igxLabel for="notes">Workout Notes</label>
+      <input igxInput name="notes" [(ngModel)]="workout.notes" type="text"  />
+  </igx-input-group>
+  </div>
+  <div style="text-align:right;">
+    <div class="button-group">
+      <div class="button button__red">
+        <button igxButton="raised" (click)="discardWorkout()">Discard</button>
+      </div>
+      <div class="button button__black">
+        <button igxButton="raised" (click)="completeWorkout()">Complete</button>
+      </div>
+    </div>
+  </div>
 </igx-card>

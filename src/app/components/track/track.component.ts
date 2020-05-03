@@ -16,22 +16,23 @@ export class TrackComponent implements OnInit {
   constructor(private workoutService: WorkoutsService) { }
 
   ngOnInit() {
-
-    // TODO: Get by user ID instead of origin ID
-    this.workoutService.findByOriginId(-1).subscribe((response: Workout[]) => {
-      
-      // TODO: Check for completed
-      response.forEach(workout => {
-        this.workouts.push(new Workout(workout));
+    this.workoutService.findByOriginId(-1).subscribe((originWorkoutResponse: Workout[]) => {
+      originWorkoutResponse.forEach(originWorkout => {
+        this.workoutService.findByOriginId(originWorkout.id).subscribe((completeWorkoutResp: Workout[]) => {
+          completeWorkoutResp.forEach(workout => {
+            let newWorkout = new Workout(workout);
+            if(newWorkout.completed_time){
+              this.workouts.push(newWorkout);
+            }
+          });
+        });
       });
     });
-
-    // TODO: Replace this with API call
-    // MockWorkouts.forEach(workout => {
-    //   if(workout.completed_time != null){
-    //     this.workouts.push(workout);
-    //   }
-    // });
   }
 
+  deleteWorkout(index: number) {
+    this.workoutService.deleteWorkout(this.workouts[index].id).subscribe(()=>{
+      this.workouts.splice(index, 1);
+    });
+  }
 }

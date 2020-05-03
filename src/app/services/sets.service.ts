@@ -46,12 +46,23 @@ export class SetsService {
     return newSetObservable;
   }
 
+  public completeSet(set: Set): Observable<Set> {
+
+    const completedSetRequest = new CompletedSetRequest(set);
+
+    const completedSetObservable = this.configService.getConfig().pipe(
+      switchMap(config => this.http.post<Set>(this.baseURL + config.setsCompletedUrl + set.id,
+                                                        JSON.stringify(completedSetRequest), this.options)));
+
+    return completedSetObservable;
+  }
+
   public updateCompletedSet(set: Set): Observable<Set> {
 
     const completedSetRequest = new CompletedSetRequest(set);
 
     const completedSetObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<Set>(this.baseURL + config.setsCompletedUrl + set.id + '/',
+      switchMap(config => this.http.patch<Set>(this.baseURL + config.setsCompletedUrl + set.id,
                                                         JSON.stringify(completedSetRequest), this.options)));
 
     return completedSetObservable;

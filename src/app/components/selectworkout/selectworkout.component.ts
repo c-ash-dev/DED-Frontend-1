@@ -19,10 +19,15 @@ export class SelectWorkoutComponent implements OnInit {
 
   ngOnInit() {
 
+    // TODO: Get workouts by user
     this.workoutService.findByOriginId(-1).subscribe((response: Workout[]) => {
       
       response.forEach(workout => {
-        this.workouts.push(new Workout(workout));
+        // Only add incomplete workouts
+        let toAdd = new Workout(workout);
+        if(toAdd.origin_id == -1){
+          this.workouts.push(new Workout(workout));
+        }
       });
     });
   }
@@ -32,5 +37,4 @@ export class SelectWorkoutComponent implements OnInit {
       this.workouts.splice(index, 1);
     });
   }
-
 }

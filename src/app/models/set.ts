@@ -11,13 +11,12 @@ export class Set {
   unit: string;
   goal_reps: number;
   goal_value: number;
-  reps: number;
-  value: number;
+  completed_reps: number;
+  completed_value: number;
   description: string;
   notes: string;
 
-  created_time: Date;
-  completed_time: Date;
+  created_or_completed: Date;
 
   constructor(set: Set = null) {
     if (set) {
@@ -30,13 +29,12 @@ export class Set {
       this.unit = set.unit;
       this.goal_reps = set.goal_reps;
       this.goal_value = set.goal_value;
-      this.reps = set.reps;
-      this.value = set.value;
+      this.completed_reps = set.completed_reps;
+      this.completed_value = set.completed_value;
       this.description = set.description;
       this.notes = set.notes;
 
-      this.created_time = DateUtils.checkAndConvertRustTime(set.created_time);
-      this.completed_time = DateUtils.checkAndConvertRustTime(set.completed_time);
+      this.created_or_completed = DateUtils.checkAndConvertRustTime(set.created_or_completed);
     }
     else {
       this.id = -1;
@@ -48,8 +46,8 @@ export class Set {
       this.unit = '';
       this.goal_reps = 0;
       this.goal_value = 0;
-      this.reps = 0;
-      this.value = 0;
+      this.completed_reps = 0;
+      this.completed_value = 0;
       this.description = '';
       this.notes = '';
     }

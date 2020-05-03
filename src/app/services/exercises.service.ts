@@ -46,11 +46,20 @@ export class ExercisesService {
     return newExerciseObservable;
   }
 
+  public completeExercise(exercise: Exercise): Observable<Exercise> {
+    const completedExerciseRequest = new CompletedExerciseRequest(exercise);
+    const completedExerciseObservable = this.configService.getConfig().pipe(
+      switchMap(config => this.http.post<Exercise>(this.baseURL + config.exercisesCompletedUrl + exercise.id + '/',
+                                                              JSON.stringify(completedExerciseRequest), this.options)));
+    
+    return completedExerciseObservable;
+  }
+
   public updateCompletedExercise(exercise: Exercise): Observable<Exercise> {
 
     const completedExerciseRequest = new CompletedExerciseRequest(exercise);
     const completedExerciseObservable = this.configService.getConfig().pipe(
-      switchMap(config => this.http.patch<Exercise>(this.baseURL + config.exercisesCompletedUrl + exercise.id + '/',
+      switchMap(config => this.http.patch<Exercise>(this.baseURL + config.exercisesCompletedUrl + exercise.id  + '/',
                                                              JSON.stringify(completedExerciseRequest), this.options)));
 
     return completedExerciseObservable;

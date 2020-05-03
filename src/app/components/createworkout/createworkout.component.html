@@ -30,11 +30,11 @@
 <igx-card class="ded-card" *ngIf="workout.created_time">
   <div style="text-align:right;">
     <div class="button-group">
-      <div class="button button__black">
-        <button igxButton="raised" [routerLink]="'/home'">Done</button>
-      </div>
       <div class="button button__red">
         <button igxButton="raised" (click)="discardWorkout()">Discard</button>
+      </div>
+      <div class="button button__black">
+        <button igxButton="raised" [routerLink]="'/start'">Done</button>
       </div>
     </div>
   </div>

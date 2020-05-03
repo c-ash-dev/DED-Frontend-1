@@ -9,12 +9,11 @@ export const MockSets: Set[] = [
           unit: 'lbs',
           goal_reps:10,
           goal_value:10,
-          reps: 10,
-          value: 10,
+          completed_reps: 10,
+          completed_value: 10,
           description: 'This is a mock set',
           notes: null,
-          created_time: new Date(),
-          completed_time: new Date(),
+          created_or_completed: new Date(),
           created_by: null
      },
      {
@@ -25,12 +24,11 @@ export const MockSets: Set[] = [
           unit: 'lbs',
           goal_reps:10,
           goal_value:10,
-          reps: 15,
-          value: 10,
+          completed_reps: 15,
+          completed_value: 10,
           description: 'This is a mock set',
           notes: null,
-          created_time: new Date(),
-          completed_time: new Date(),
+          created_or_completed: new Date(),
           created_by: null
      }
 ]

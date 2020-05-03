@@ -31,6 +31,12 @@ export class Workout {
       this.created_time = DateUtils.checkAndConvertRustTime(workout.created_time);
       this.completed_time = DateUtils.checkAndConvertRustTime(workout.completed_time);
     
+      if(this.created_time && this.completed_time){
+        if(this.created_time.toString() == this.completed_time.toString()){
+          this.completed_time = null;
+        }
+      }
+
       if(workout.exercises) {
         this.exercises = workout.exercises;
       }

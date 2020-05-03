@@ -10,7 +10,8 @@ export class NewSetRequest {
   description: string;
   
   constructor(set: Set) { 
-    this.origin_id = -1;
+
+    set.origin_id ? this.origin_id = set.origin_id : this.origin_id = -1;
     this.exercise_id = set.exercise_id;
     this.style = set.style;
     this.goal_reps = set.goal_reps;
