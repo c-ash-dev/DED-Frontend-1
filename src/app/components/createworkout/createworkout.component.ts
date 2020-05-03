@@ -4,6 +4,7 @@ import { Workout } from 'src/app/models/workout';
 import { WorkoutsService } from 'src/app/services/workouts.service';
 import { NewWorkoutRequest } from 'src/app/models/api/workouts/newworkoutrequest';
 import { NewWorkout } from 'src/app/models/api/workouts/newworkout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createworkout',
@@ -15,7 +16,9 @@ export class CreateworkoutComponent implements OnInit {
   public workoutName: string;
   public workoutDesc: string;
 
-  constructor(private workoutService: WorkoutsService) {
+  constructor(
+    private workoutService: WorkoutsService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -38,4 +41,9 @@ export class CreateworkoutComponent implements OnInit {
     });
   }
 
+  discardWorkout() {
+    this.workoutService.deleteWorkout(this.workout.id).subscribe(() => {
+      this.router.navigate(['/home']);
+    });
+  }
 }
