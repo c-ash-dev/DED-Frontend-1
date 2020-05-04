@@ -16,16 +16,13 @@ export class TrackComponent implements OnInit {
   constructor(private workoutService: WorkoutsService) { }
 
   ngOnInit() {
-    this.workoutService.findByOriginId(-1).subscribe((originWorkoutResponse: Workout[]) => {
-      originWorkoutResponse.forEach(originWorkout => {
-        this.workoutService.findByOriginId(originWorkout.id).subscribe((completeWorkoutResp: Workout[]) => {
-          completeWorkoutResp.forEach(workout => {
-            let newWorkout = new Workout(workout);
-            if(newWorkout.completed_time){
-              this.workouts.push(newWorkout);
-            }
-          });
-        });
+    const userID = +localStorage.getItem("logged-in");
+    this.workoutService.findByUserId(userID).subscribe((respWorkout: Workout[]) => {
+      respWorkout.forEach(workout => {
+        workout = new Workout(workout);
+        if(workout.completed_time && workout.origin_id != -1){
+          this.workouts.push(workout);
+        }
       });
     });
   }

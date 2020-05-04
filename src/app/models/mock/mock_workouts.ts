@@ -9,7 +9,7 @@ export const MockWorkouts: Workout[] = [
     exercises: [],
     notes: null,
     created_time: new Date(),
-    created_by: null,
+    user_id: null,
     completed_time: new Date()
   },
   {
@@ -20,7 +20,7 @@ export const MockWorkouts: Workout[] = [
     exercises: [],
     notes: null,
     created_time: new Date(),
-    created_by: null,
+    user_id: null,
     completed_time: null
   },
   {
@@ -31,7 +31,7 @@ export const MockWorkouts: Workout[] = [
     exercises: [],
     notes: null,
     created_time: new Date(),
-    created_by: null,
+    user_id: null,
     completed_time: null
   },
   {
@@ -42,7 +42,7 @@ export const MockWorkouts: Workout[] = [
     exercises: [],
     notes: null,
     created_time: new Date(),
-    created_by: null,
+    user_id: null,
     completed_time: null
   },
   {
@@ -53,7 +53,7 @@ export const MockWorkouts: Workout[] = [
     exercises: [],
     notes: null,
     created_time: new Date(),
-    created_by: null,
+    user_id: null,
     completed_time: new Date()
   },
 ]

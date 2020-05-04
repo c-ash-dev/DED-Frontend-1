@@ -23,7 +23,7 @@ export class CreateworkoutComponent implements OnInit {
   }
 
   createWorkout() {
-    this.workout.created_by = +localStorage.getItem("logged-in");
+    this.workout.user_id = +localStorage.getItem("logged-in");
     this.workoutService.createWorkout(this.workout).subscribe((createResponse: Workout) => {
       this.workout = new Workout(createResponse);
     });

@@ -5,7 +5,7 @@ import { DateUtils } from '../utils/date.utils';
 export class Workout {
   id: number;
   origin_id: number;
-  created_by: number;
+  user_id: number;
 
   name: string;
   description: string;
@@ -22,7 +22,7 @@ export class Workout {
     if(workout) {
       this.id = workout.id;
       this.origin_id = workout.origin_id;
-      this.created_by = workout.created_by;
+      this.user_id = workout.user_id;
 
       this.name = workout.name;
       this.description = workout.description;
@@ -44,7 +44,7 @@ export class Workout {
     else {
       this.id = -1;
       this.origin_id = -1;
-      this.created_by = -1;
+      this.user_id = -1;
 
       this.name = "";
       this.description = "";

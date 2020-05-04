@@ -19,11 +19,13 @@ export class SelectWorkoutComponent implements OnInit {
 
   ngOnInit() {
 
-    // TODO: Get workouts by user
-    this.workoutService.findByOriginId(-1).subscribe((response: Workout[]) => {
+    const userid = +localStorage.getItem("logged-in");
+
+    this.workoutService.findByUserId(userid).subscribe((response: Workout[]) => {
       
       response.forEach(workout => {
-        // Only add incomplete workouts
+        
+        // Only add origin workouts
         let toAdd = new Workout(workout);
         if(toAdd.origin_id == -1){
           this.workouts.push(new Workout(workout));

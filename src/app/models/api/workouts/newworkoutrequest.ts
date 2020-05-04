@@ -9,7 +9,7 @@ export class NewWorkoutRequest {
 
   constructor(workout: Workout) {
     workout.origin_id ? this.origin_id = workout.origin_id : this.origin_id = -1;
-    this.user_id = workout.created_by;
+    this.user_id = workout.user_id;
     this.name = workout.name;
 
     workout.description ? this.description = workout.description : this.description = "";
